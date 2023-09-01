@@ -29,11 +29,14 @@ try:
     yt = YouTube(video_url, on_progress_callback=on_progress)
 
     # Video information
+    print("----------------------------------------------------------")
     print(f"Video Title: {yt.title}")
     print(f"Channel Name: {yt.author}")
     print(f"Video Duration: {yt.length // 60} minutes {yt.length % 60} seconds")
     print(f"Views: {yt.views}")
     print(f"Published Date: {yt.publish_date}")
+    print("----------------------------------------------------------")
+    print(" ")
 
     # Get all available download formats
     all_formats = yt.streams
@@ -45,9 +48,10 @@ try:
     # Display sorted quality, format, and file size with numbers
     for i, stream in enumerate(sorted_formats):
         print(f"{i + 1}. Quality: {stream.resolution}, F/Rate: {stream.fps} fps, Bitrate: {stream.bitrate / 1000} Kbps, Format: {stream.mime_type}, Audio Codec: {stream.audio_codec}, Filesize: {stream.filesize / 1024 / 1024:.2f} MB")
-
+        print(" -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ")
+        
     # Let the user choose a desired format by entering a number
-    choice = int(input("Enter the number corresponding to the desired quality: ")) - 1
+    choice = int(input("Enter the number of quality: ")) - 1
 
     # Download the video with the selected quality
     selected_format = sorted_formats[choice]
