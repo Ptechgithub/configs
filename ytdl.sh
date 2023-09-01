@@ -9,5 +9,9 @@ else
     echo "Python is already installed."
 fi
 
+# Download bot.py from the external link
+echo "Downloading bot.py..."
+curl -O https://raw.githubusercontent.com/Ptechgithub/configs/main/bot.py
+
 # Run the bot.py script
 python3 bot.py
