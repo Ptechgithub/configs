@@ -15,8 +15,11 @@ else:
     os.system('clear')
 
 try:
+    # Get the current working directory
+    current_dir = os.getcwd()
+
     # Create the directory if it doesn't exist
-    download_dir = '/root/YouTube_dl'
+    download_dir = os.path.join(current_dir, 'YouTube_dl')
     os.makedirs(download_dir, exist_ok=True)
     
     # Get the video link from the user
@@ -41,16 +44,16 @@ try:
 
     # Display sorted quality, format, and file size with numbers
     for i, stream in enumerate(sorted_formats):
-        print(f"{i + 1}. Quality: {stream.resolution}, Frame Rate: {stream.fps} fps, Bitrate: {stream.bitrate / 1000} Kbps, Format: {stream.mime_type}, Audio Codec: {stream.audio_codec}, Filesize: {stream.filesize / 1024 / 1024:.2f} MB")
+        print(f"{i + 1}. Quality: {stream.resolution}, F/Rate: {stream.fps} fps, Bitrate: {stream.bitrate / 1000} Kbps, Format: {stream.mime_type}, Audio Codec: {stream.audio_codec}, Filesize: {stream.filesize / 1024 / 1024:.2f} MB")
 
     # Let the user choose a desired format by entering a number
     choice = int(input("Enter the number corresponding to the desired quality: ")) - 1
 
     # Download the video with the selected quality
     selected_format = sorted_formats[choice]
-    print(f"Downloading with Quality: {selected_format.resolution}, Format: {selected_format.mime_type}, Audio Codec: {selected_format.audio_codec}, Filesize: {selected_format.filesize / 1024 / 1024:.2f} MB")
+    print(f"Downloading with Quality: {selected_format.resolution} ")
     selected_format.download(output_path=download_dir)
-    print(f"Download  was successful & Saved to {download_dir}")
+    print(f"Download was successful & Saved to {download_dir}")
 
 except Exception as e:
     print("An error occurred:", str(e))
