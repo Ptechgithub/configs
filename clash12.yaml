@@ -151,7 +151,7 @@ proxies:
 #==============8================（hysteria certificate node)
 - name: hysteria certificate node                            #Customizable name
   type: hysteria
-  server: yg.ygkkk.eu.org                          #resolved domain name
+  server: for.forcedparadise.space                          #resolved domain name
   port: 12345                                      #Custom port, change multiple ports to ports: space 1000,2000-3000
   auth-str: 126456                                 #custom password
   alpn:
@@ -159,7 +159,7 @@ proxies:
   protocol: udp                                    #Custom protocol: udp/wechat-video/faketcp
   up: 20                                           #Custom upload limit
   down: 100                                        #Custom Download Limits
-  sni: yg.ygkkk.eu.org                             #sni domain name, consistent with the above server address  
+  sni: for.forcedparadise.space                             #sni domain name, consistent with the above server address  
   skip-cert-verify: false
   fast-open: true
     
