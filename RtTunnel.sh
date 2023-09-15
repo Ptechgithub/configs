@@ -90,7 +90,7 @@ configure_arguments2() {
         read -p "Please Enter Password (Please choose the same password on both servers): " password
 
         if [ "$is_main_server" == "yes" ]; then
-            arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:$127.0.0.1 --toport:multiport --password:$password --sni:$sni"
+            arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:$password --sni:$sni"
         elif [ "$is_main_server" == "no" ]; then
             read -p "Enter your main IP:  " main_ip
             arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:$main_ip --toport:multiport --password:$password --sni:$sni"
