@@ -85,7 +85,7 @@ configure_arguments2() {
     sni=${sni:-splus.ir}
 
     if [ "$server_choice" == "2" ]; then
-        read -p "Is this your main server? (yes/no): " is_main_server
+        read -p "Is this your main server (VPN server)? (yes/no): " is_main_server
         read -p "Please Enter (IRAN IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
 
