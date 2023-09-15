@@ -89,21 +89,17 @@ configure_arguments2() {
         read -p "Please Enter (IRAN IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
 
-        arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:$password --sni:$sni"
+        if [ "$is_main_server" == "yes" ]; then
+            arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:$127.0.0.1 --toport:multiport --password:$password --sni:$sni"
+        elif [ "$is_main_server" == "no" ]; then
+            read -p "Enter your main IP:  " main_ip
+            arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:$main_ip --toport:multiport --password:$password --sni:$sni"
+        else
+            echo "Invalid choice for main server. Please enter 'yes' or 'no'."
+            exit 1
+        fi
 
-        while [ "$is_main_server" == "no" ]; do
-            read -p "Do you want to add another server? (yes/no): " add_another_server
-            if [ "$add_another_server" == "yes" ]; then
-                read -p "Please Enter (Another Server IP) : " another_server_ip
-                arguments="$arguments --toip:$another_server_ip"
-            elif [ "$add_another_server" == "no" ]; then
-                break
-            else
-                echo "Invalid response. Please enter 'yes' or 'no'."
-            fi
-        done
     elif [ "$server_choice" == "1" ]; then
-        read -p "Please Enter Password (Please choose the same password on both servers): " password
         arguments="--iran --lport:23-65535 --password:$password --sni:$sni"
     else
         echo "Invalid choice. Please enter '1' or '2'."
@@ -124,7 +120,6 @@ configure_arguments2() {
 
     echo "Configured arguments: $arguments"
 }
-
 
 load-balancer() {
     check_dependencies
