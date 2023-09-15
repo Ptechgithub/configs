@@ -102,22 +102,22 @@ configure_arguments2() {
     elif [ "$server_choice" == "1" ]; then
         read -p "Please Enter Password (Please choose the same password on both servers): " password
         arguments="--iran --lport:23-65535 --password:$password --sni:$sni"
+        
+        num_ips=0
+        while true; do
+            ((num_ips++))
+            read -p "Please enter ip server $num_ips (or type 'done' to finish): " ip
+
+            if [ "$ip" == "done" ]; then
+                break
+            else
+                arguments="$arguments --peer:$ip"
+            fi
+        done
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
     fi
-
-    num_ips=0
-    while true; do
-        ((num_ips++))
-        read -p "Please enter ip server $num_ips (or type 'done' to finish): " ip
-
-        if [ "$ip" == "done" ]; then
-            break
-        else
-            arguments="$arguments --peer:$ip"
-        fi
-    done
 
     echo "Configured arguments: $arguments"
 }
