@@ -226,7 +226,7 @@ echo "4) Uninstall Load-balancer"
 echo " ----------------------------"
 echo "5) Check Update"
 echo "0) Exit"
-echo " --------------$version---------------"
+echo " --------------$version--------------"
 read -p "Please choose: " choice
 
 case $choice in
