@@ -100,6 +100,7 @@ configure_arguments2() {
         fi
 
     elif [ "$server_choice" == "1" ]; then
+        read -p "Please Enter Password (Please choose the same password on both servers): " password
         arguments="--iran --lport:23-65535 --password:$password --sni:$sni"
     else
         echo "Invalid choice. Please enter '1' or '2'."
