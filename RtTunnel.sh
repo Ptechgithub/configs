@@ -90,10 +90,10 @@ configure_arguments2() {
         read -p "Please Enter Password (Please choose the same password on both servers): " password
 
         if [ "$is_main_server" == "yes" ]; then
-            arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:$password --sni:$sni"
+            arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:$password --sni:$sni --terminate:24"
         elif [ "$is_main_server" == "no" ]; then
             read -p "Enter your main IP:  " main_ip
-            arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:$main_ip --toport:multiport --password:$password --sni:$sni"
+            arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:$main_ip --toport:multiport --password:$password --sni:$sni --terminate:24"
         else
             echo "Invalid choice for main server. Please enter 'yes' or 'no'."
             exit 1
@@ -101,7 +101,7 @@ configure_arguments2() {
 
     elif [ "$server_choice" == "1" ]; then
         read -p "Please Enter Password (Please choose the same password on both servers): " password
-        arguments="--iran --lport:23-65535 --password:$password --sni:$sni"
+        arguments="--iran --lport:23-65535 --password:$password --sni:$sni --terminate:24"
         
         num_ips=0
         while true; do
@@ -137,7 +137,7 @@ Description=my lbtunnel service
 [Service]
 User=root
 WorkingDirectory=/root
-ExecStart=/root/RTT $arguments --terminate:24
+ExecStart=/root/RTT $arguments
 Restart=always
 
 [Install]
