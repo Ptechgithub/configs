@@ -17,6 +17,7 @@ check_installed() {
 }
 
 update_services() {
+    sudo rm RTT
     install_rtt
     sudo systemctl daemon-reload
 
