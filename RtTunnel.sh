@@ -17,7 +17,8 @@ check_installed() {
 }
 
 update_services() {
-    sudo rm RTT
+    sudo systemctl stop lbtunnel.service
+    sudo systemctl stop tunnel.service
     install_rtt
     sudo systemctl daemon-reload
 
@@ -244,7 +245,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " --------#- Reverse Tls Tunnel -#--------"
+echo " --1------#- Reverse Tls Tunnel -#--------"
 echo "1) Install (Multiport)"
 echo "2) Uninstall (Multiport)"
 echo " ----------------------------"
