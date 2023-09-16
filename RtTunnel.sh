@@ -16,32 +16,27 @@ check_installed() {
     fi
 }
 
-update_services() {
-    sudo systemctl stop lbtunnel.service
-    sudo systemctl stop tunnel.service
-    install_rtt
-    sudo systemctl daemon-reload
-
-    # Restart lbtunnel.service
-    if sudo systemctl restart lbtunnel.service; then
-        lbtunnel_restart_result="Successful"
-    else
-        lbtunnel_restart_result="Failed"
+update_services() { 
+    if sudo systemctl is-active --quiet tunnel.service; then
+        echo "tunnel.service is active, stopping..."
+        sudo systemctl stop tunnel.service > /dev/null 2>&1
+    elif sudo systemctl is-active --quiet lbtunnel.service; then
+        echo "lbtunnel.service is active, stopping..."
+        sudo systemctl stop lbtunnel.service > /dev/null 2>&1
     fi
 
-    # Restart tunnel.service
-    if sudo systemctl restart tunnel.service; then
-        tunnel_restart_result="Successful"
-    else
-        tunnel_restart_result="Failed"
+    wget "https://raw.githubusercontent.com/radkesvat/ReverseTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh 
+
+    # Start the previously active service
+    if sudo systemctl is-active --quiet tunnel.service; then
+        echo "Restarting tunnel.service..."
+        sudo systemctl start tunnel.service > /dev/null 2>&1
+    elif sudo systemctl is-active --quiet lbtunnel.service; then
+        echo "Restarting lbtunnel.service..."
+        sudo systemctl start lbtunnel.service > /dev/null 2>&1
     fi
 
-    # Check the results and display appropriate message
-    if [ "$lbtunnel_restart_result" == "Failed" ] || [ "$tunnel_restart_result" == "Failed" ]; then
-        echo "Failed to restart service"
-    else
-        echo "services updated and restarted successfully."
-    fi
+    echo "Service updated and restarted successfully."
 }
 
 # Function to download and install RTT
