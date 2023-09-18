@@ -35,7 +35,7 @@ install_ftt() {
 configure_arguments() {
     read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Kharej) : " server_choice
     read -p "Please Enter SNI (default : splus.ir): " sni
-    sni=${sni:-splus.ir}
+    sni=${sni:-google.com}
 
     if [ "$server_choice" == "2" ]; then
         read -p "Please Enter Password (Please choose the same password on both servers): " password
@@ -116,9 +116,8 @@ update_services() {
             sudo systemctl stop faketunnel.service > /dev/null 2>&1
         fi
 
-        # Download and run the installation script
-        wget "https://raw.githubusercontent.com/radkesvat/ReverseTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh
-
+        # Download FTT
+        install_ftt
         # Start the previously active service
         if sudo systemctl is-active --quiet faketunnel.service; then
             echo "Restarting faketunnel.service..."
