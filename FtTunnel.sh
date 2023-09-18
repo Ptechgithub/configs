@@ -26,6 +26,14 @@ check_installed() {
     fi
 }
 
+#Check installed service
+check_installed2() {
+    if [ -f "/etc/systemd/system/faketunnelsingle.service" ]; then
+        echo "The service is already installed."
+        exit 1
+    fi
+}
+
 # Function to download and install FTT
 install_ftt() {
     wget "https://raw.githubusercontent.com/radkesvat/FakeTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh 
@@ -73,7 +81,7 @@ configure_arguments() {
 # Function to handle installation single port
 install_single() {
     check_dependencies
-    check_installed
+    check_installed2
     install_ftt
     # Change directory to /etc/systemd/system
     cd /etc/systemd/system
