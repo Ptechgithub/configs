@@ -28,7 +28,7 @@ check_installed() {
 
 # Function to download and install FTT
 install_ftt() {
-    wget  "https://raw.githubusercontent.com/radkesvat/FakeTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh 
+    wget "https://raw.githubusercontent.com/radkesvat/FakeTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh 
 }
 
 # Function to configure arguments based on user's choice single port
