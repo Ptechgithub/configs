@@ -114,6 +114,18 @@ uninstall_single() {
         echo "The service is not installed."
         return
     fi
+
+    # Stop and disable the service
+    sudo systemctl stop faketunnelsingle.service
+    sudo systemctl disable faketunnelsingle.service
+
+    # Remove service file
+    sudo rm /etc/systemd/system/faketunnelsingle.service
+    sudo systemctl reset-failed
+    sudo rm FTT
+    sudo rm install.sh
+
+    echo "Uninstallation completed successfully."
 }
 
 # Function to handle installation
