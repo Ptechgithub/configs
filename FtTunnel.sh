@@ -209,7 +209,7 @@ echo " ----------------------------"
 echo "3) Install (Multi port)"
 echo "4) Uninstall (Multi port)"
 echo " ----------------------------"
-echo "3) Update FTT"
+echo "5) Update FTT"
 echo "0) Exit"
 echo " --------------$version--------------"
 read -p "Please choose: " choice
