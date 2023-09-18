@@ -58,7 +58,7 @@ install() {
     # Change directory to /etc/systemd/system
     cd /etc/systemd/system
     configure_arguments
-    # Create a new service file named tunnel.service
+    # Create a new service file named faketunnel.service
     cat <<EOL > faketunnel.service
 [Unit]
 Description=fake tls tunnel service
@@ -111,24 +111,18 @@ update_services() {
     # Compare the installed version with the latest version
     if [[ "$latest_version" > "$installed_version" ]]; then
         echo "Updating to $latest_version (Installed: $installed_version)..."
-        if sudo systemctl is-active --quiet tunnel.service; then
-            echo "tunnel.service is active, stopping..."
-            sudo systemctl stop tunnel.service > /dev/null 2>&1
-        elif sudo systemctl is-active --quiet lbtunnel.service; then
-            echo "lbtunnel.service is active, stopping..."
-            sudo systemctl stop lbtunnel.service > /dev/null 2>&1
+        if sudo systemctl is-active --quiet faketunnel.service; then
+            echo "faketunnel.service is active, stopping..."
+            sudo systemctl stop faketunnel.service > /dev/null 2>&1
         fi
 
         # Download and run the installation script
         wget "https://raw.githubusercontent.com/radkesvat/ReverseTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh
 
         # Start the previously active service
-        if sudo systemctl is-active --quiet tunnel.service; then
-            echo "Restarting tunnel.service..."
-            sudo systemctl start tunnel.service > /dev/null 2>&1
-        elif sudo systemctl is-active --quiet lbtunnel.service; then
-            echo "Restarting lbtunnel.service..."
-            sudo systemctl start lbtunnel.service > /dev/null 2>&1
+        if sudo systemctl is-active --quiet faketunnel.service; then
+            echo "Restarting faketunnel.service..."
+            sudo systemctl start faketunnel.service > /dev/null 2>&1
         fi
 
         echo "Service updated and restarted successfully."
