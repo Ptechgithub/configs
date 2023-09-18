@@ -146,7 +146,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " --------#- Fake Tls Tunnel -#--------"
+echo " --1------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Multiport)"
 echo "2) Uninstall (Multiport)"
 echo " ----------------------------"
