@@ -11,6 +11,11 @@ check_dependencies() {
         echo "lsof is not installed. Installing..."
         sudo apt-get install lsof
     fi
+    
+    if ! command -v iptables &> /dev/null; then
+        echo "iptables is not installed. Installing..."
+        sudo apt-get install iptables
+    fi
 }
 
 #Check installed service
@@ -52,9 +57,7 @@ install() {
     install_ftt
     # Change directory to /etc/systemd/system
     cd /etc/systemd/system
-
     configure_arguments
-
     # Create a new service file named tunnel.service
     cat <<EOL > faketunnel.service
 [Unit]
