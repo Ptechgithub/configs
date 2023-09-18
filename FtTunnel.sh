@@ -99,6 +99,15 @@ EOL
     sudo systemctl enable faketunnelsingle.service
 }
 
+# Function to handle uninstallation single
+uninstall_single() {
+    # Check if the service is installed
+    if [ ! -f "/etc/systemd/system/faketunnelsingle.service" ]; then
+        echo "The service is not installed."
+        return
+    fi
+
+
 # Function to handle installation
 install_multi() {
     check_dependencies
@@ -127,14 +136,6 @@ EOL
     sudo systemctl start faketunnel.service
     sudo systemctl enable faketunnel.service
 }
-
-# Function to handle uninstallation single
-uninstall_single() {
-    # Check if the service is installed
-    if [ ! -f "/etc/systemd/system/faketunnelsingle.service" ]; then
-        echo "The service is not installed."
-        return
-    fi
 
 # Function to handle uninstallation multi
 uninstall_multi() {
