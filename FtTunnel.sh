@@ -228,7 +228,7 @@ case $choice in
         uninstall_multi
         ;;
     5)
-       update_services
+        update_services
         ;;
     0)   
         exit
