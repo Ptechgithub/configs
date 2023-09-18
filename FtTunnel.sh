@@ -106,7 +106,7 @@ uninstall_single() {
         echo "The service is not installed."
         return
     fi
-
+}
 
 # Function to handle installation
 install_multi() {
