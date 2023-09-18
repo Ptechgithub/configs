@@ -235,5 +235,5 @@ case $choice in
         ;;
     *)
         echo "Invalid choice. Please try again."
-        ;;
+       ;;
 esac
