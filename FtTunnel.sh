@@ -39,7 +39,7 @@ configure_arguments() {
 
     if [ "$server_choice" == "2" ]; then
         read -p "Please Enter Password (Please choose the same password on both servers): " password
-        arguments="--server --lport:443 --toip:127.0.0.1 --toport:2083 --password:$password --sni:$sni --multiport --terminate:24"
+        arguments="--server --lport:443 --toip:127.0.0.1 --password:$password --sni:$sni --multiport --terminate:24"
     elif [ "$server_choice" == "1" ]; then
         read -p "Please Enter (Kharej IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
