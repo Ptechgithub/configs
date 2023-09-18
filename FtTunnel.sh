@@ -34,13 +34,13 @@ install_ftt() {
 # Function to configure arguments based on user's choice single port
 configure_arguments2() {
     read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Kharej) : " server_choice
-    read -p "Please Enter Port: " port
+    read -p "Please Enter Port (Please choose the same port on both servers): " port
     read -p "Please Enter SNI (default : google.com): " sni
     sni=${sni:-google.com}
 
     if [ "$server_choice" == "2" ]; then
         read -p "Please Enter Password (Please choose the same password on both servers): " password
-        arguments="--server --lport:443 --toip:127.0.0.1 --toport:$port --password:$password --multiport --sni:$sni --terminate:24"
+        arguments="--server --lport:443 --toip:127.0.0.1 --toport:$port --password:$password --sni:$sni --terminate:24"
     elif [ "$server_choice" == "1" ]; then
         read -p "Please Enter (Kharej IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
