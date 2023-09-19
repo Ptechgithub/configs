@@ -11,26 +11,18 @@ root_access() {
 # Function to check if wget is installed, and install it if not
 detect_distribution() {
     # Detect the Linux distribution
+    local supported_distributions=("ubuntu" "debian" "centos" "fedora")
+    
     if [ -f /etc/os-release ]; then
         source /etc/os-release
-        case "$ID" in
-            ubuntu)
-                package_manager="apt-get"
-                ;;
-            debian)
-                package_manager="apt-get"
-                ;;
-            centos)
-                package_manager="yum"
-                ;;
-            fedora)
-                package_manager="dnf"
-                ;;
-            *)
-                echo "Unsupported distribution!"
-                exit 1
-                ;;
-        esac
+        if [[ "${ID}" = "ubuntu" || "${ID}" = "debian" || "${ID}" = "centos" || "${ID}" = "fedora" ]]; then
+            package_manager="apt-get"
+            [ "${ID}" = "centos" ] && package_manager="yum"
+            [ "${ID}" = "fedora" ] && package_manager="dnf"
+        else
+            echo "Unsupported distribution!"
+            exit 1
+        fi
     else
         echo "Unsupported distribution!"
         exit 1
@@ -40,30 +32,14 @@ detect_distribution() {
 check_dependencies() {
     detect_distribution
 
-    if ! command -v wget &> /dev/null; then
-        echo "wget is not installed. Installing..."
-        sudo $package_manager install wget -y
-    fi
-
-    if ! command -v lsof &> /dev/null; then
-        echo "lsof is not installed. Installing..."
-        sudo $package_manager install lsof -y
-    fi
-
-    if ! command -v iptables &> /dev/null; then
-        echo "iptables is not installed. Installing..."
-        sudo $package_manager install iptables -y
-    fi
+    local dependencies=("wget" "lsof" "iptables" "unzip" "gcc" "git" "curl" "tar")
     
-    if ! command -v unzip &> /dev/null; then
-        echo "unzip is not installed. Installing..."
-        sudo $package_manager install unzip -y
-    fi
-    
-    if ! command -v gcc &> /dev/null; then
-        echo "gcc is not installed. Installing..."
-        sudo $package_manager install gcc -y
-    fi
+    for dep in "${dependencies[@]}"; do
+        if ! command -v "${dep}" &> /dev/null; then
+            echo "${dep} is not installed. Installing..."
+            sudo "${package_manager}" install "${dep}" -y
+        fi
+    done
 }
 
 #Check installed service
