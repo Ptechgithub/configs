@@ -305,14 +305,14 @@ compile() {
     git clone https://github.com/radkesvat/FakeTlsTunnel.git
 
     # Navigate to the project directory
-    cd ReverseTlsTunnel
+    cd FakeTlsTunnel
 
     # Install and compile the project
     nim install
     nim build
 
     # Copy the FTT file from dist directory to the current directory
-    cp /dist/FTT ReverseTlsTunnel
+    cp /dist/FTT FakeTlsTunnel
 
     # Successful message
     echo "Project compiled successfully."
@@ -329,7 +329,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " -1-------#- Fake Tls Tunnel -#--------"
+echo " --------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
