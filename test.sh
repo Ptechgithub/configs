@@ -10,6 +10,40 @@ root_access() {
 
 # Function to check if wget is installed, and install it if not
 check_dependencies() {
+    local dependencies=("wget" "lsof" "unzip" "iptables")
+
+    if [ -f /etc/os-release ]; then
+        source /etc/os-release
+        case $ID in
+            debian|ubuntu)
+                package_manager="apt-get"
+                ;;
+            centos|rhel)
+                package_manager="yum"
+                ;;
+            fedora)
+                package_manager="dnf"
+                ;;
+            *)
+                echo "Unsupported distribution: $ID"
+                return 1
+                ;;
+        esac
+    else
+        echo "Cannot detect the operating system."
+        return 1
+    fi
+
+    for dep in "${dependencies[@]}"; do
+        if ! command -v "$dep" &> /dev/null; then
+            echo "$dep is not installed. Installing..."
+            sudo "$package_manager" install "$dep"
+        fi
+    done
+}
+
+# Function to check if wget is installed, and install it if not
+check_dependencies() {
     if ! command -v wget &> /dev/null; then
         echo "wget is not installed. Installing..."
         sudo apt-get install wget
