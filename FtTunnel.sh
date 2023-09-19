@@ -12,11 +12,11 @@ root_access() {
 check_dependencies() {
     package_manager=""
     # Detect the package manager
-    if [ -x "$(command -v apt-get &> /dev/null)" ]; then
+    if [ -x "$(command -v apt-get)" ]; then
         package_manager="apt-get"
-    elif [ -x "$(command -v yum &> /dev/null)" ]; then
+    elif [ -x "$(command -v yum)" ]; then
         package_manager="yum"
-    elif [ -x "$(command -v dnf &> /dev/null)" ]; then
+    elif [ -x "$(command -v dnf)" ]; then
         package_manager="dnf"
     fi
     
