@@ -280,18 +280,18 @@ compile() {
     export PATH="$(pwd)/nim-2.0.1/bin:$PATH"
 
     # Clone the project
-    git clone https://github.com/radkesvat/FakeTlsTunnel.git
+    git clone https://github.com/radkesvat/ReverseTlsTunnel.git
 
     # Navigate to the project directory
-    cd FakeTlsTunnel
+    cd ReverseTlsTunnel
 
     # Install and compile the project
     nim install 
     nim build
     # Successful message
     echo "Project compiled successfully."
-    # Display the path of the FTT file
-    echo "FTT file is located at: FakeTlsTunnel/dist"
+    # Display the path of the RTT file
+    echo "RTT file is located at: ReverseTlsTunnel/dist"
 }
 
 #ip & version
