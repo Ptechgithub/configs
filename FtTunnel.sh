@@ -31,16 +31,11 @@ check_dependencies() {
     for dependency in "${dependencies[@]}"; do
         if ! command -v "$dependency"; then
             echo "$dependency is not installed. Installing..."
-            if [ "$package_manager" == "apt-get" ]; then
-                sudo "$package_manager" install "$dependency" -y
-            elif [ "$package_manager" == "yum" ]; then
-                sudo "$package_manager" install "$dependency" -y
-            elif [ "$package_manager" == "dnf" ]; then
-                sudo "$package_manager" install "$dependency" -y
-            fi
+            sudo "$package_manager" install "$dependency" -y
         fi
     done
 }
+
 
 #Check installed service
 check_installed() {
@@ -251,7 +246,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " -7-------#- Fake Tls Tunnel -#--------"
+echo " --------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
