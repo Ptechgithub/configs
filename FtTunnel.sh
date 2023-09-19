@@ -101,6 +101,7 @@ configure_arguments() {
 
 # Function to handle installation single port
 install_single() {
+    root_access
     check_dependencies
     check_installed2
     install_ftt
@@ -151,6 +152,7 @@ uninstall_single() {
 
 # Function to handle installation
 install_multi() {
+     root_access
     check_dependencies
     check_installed
     install_ftt
