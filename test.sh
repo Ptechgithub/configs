@@ -8,7 +8,7 @@ root_access() {
     fi
 }
 
-# Function to check if wget is installed, and install it if not
+# Function to check if wget is installed, and install it if not 
 check_dependencies() {
     local dependencies=("wget" "lsof" "unzip" "iptables")
 
