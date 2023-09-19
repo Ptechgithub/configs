@@ -310,7 +310,7 @@ compile() {
     cd ReverseTlsTunnel
 
     # Install and compile the project
-    nim install && nim build && cd ReverseTlsTunnel/dist
+    nim install && nim build && cd $(pwd)/dist
     ls
     # Successful message
     echo "Project compiled successfully."
@@ -328,7 +328,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " ---q1-----#- Fake Tls Tunnel -#--------"
+echo " --------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
