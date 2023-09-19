@@ -8,7 +8,6 @@ root_access() {
     fi
 }
 
-# Function to check if wget is installed, and install it if not
 detect_distribution() {
     # Detect the Linux distribution
     local supported_distributions=("ubuntu" "debian" "centos" "fedora")
