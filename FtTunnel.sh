@@ -268,8 +268,8 @@ compile() {
             # Download and install Nim
             wget "$file_url"
             tar -xvf "$(basename "$file_url")"
-            PWD=$(pwd)
-            export PATH="$PWD/nim-2.0.1/bin:$PATH"
+            dir=$(pwd)
+            export PATH="$dir/nim-2.0.1/bin:$PATH"
         else
             echo "Unsupported operating system!"
             exit 1
