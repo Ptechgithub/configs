@@ -310,14 +310,12 @@ compile() {
     # Install and compile the project
     nim install
     nim build
-
-    # Copy the FTT file from dist directory to the current directory
-    cp /dist/FTT FakeTlsTunnel
-
+   
+    cd dist
     # Successful message
     echo "Project compiled successfully."
     # Display the path of the FTT file
-    echo "FTT file is located at: $PWD/FTT"
+    echo "FTT file is located at: FakeTlsTunnel/dist"
 }
 
 #ip & version
