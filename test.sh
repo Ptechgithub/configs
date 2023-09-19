@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function  to check if wget is installed, and install it if not
+# Function to check if wget is installed, and install it if not
 check_dependencies() {
     if ! command -v wget &> /dev/null; then
         echo "wget is not installed. Installing..."
@@ -52,7 +52,7 @@ configure_arguments2() {
     elif [ "$server_choice" == "1" ]; then
         read -p "Please Enter (Kharej IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
-        arguments="--tunnel --lport:443 --toip:$server_ip  --toport:443 --sni:$sni --password:$password --terminate:24"
+        arguments="--tunnel --lport:$port --toip:$server_ip  --toport:443 --sni:$sni --password:$password --terminate:24"
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
@@ -225,7 +225,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " -00-------#- Fake Tls Tunnel -#--------"
+echo " --------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
