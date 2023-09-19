@@ -313,11 +313,12 @@ compile() {
     nim install
     nim build
    
-    cd dist
     # Successful message
     echo "Project compiled successfully."
     # Display the path of the FTT file
     echo "FTT file is located at: FakeTlsTunnel/dist"
+    cd ReverseTlsTunnel/dist
+    ls
 }
 
 #ip & version
