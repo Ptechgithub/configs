@@ -1,20 +1,39 @@
 #!/bin/bash
 
+root_access() {
+    # Check if the script is running as root
+    if [ "$EUID" -ne 0 ]; then
+        echo "This script requires root access. please run as root."
+        exit 1
+    fi
+}
+
 # Function to check if wget is installed, and install it if not
 check_dependencies() {
-    if ! command -v wget &> /dev/null; then
-        echo "wget is not installed. Installing..."
-        sudo apt-get install wget
+    package_manager=""
+    
+    # Detect the package manager
+    if [ -x "$(command -v apt-get)" ]; then
+        package_manager="apt-get"
+    elif [ -x "$(command -v yum)" ]; then
+        package_manager="yum"
+    elif [ -x "$(command -v dnf)" ]; then
+        package_manager="dnf"
     fi
     
-    if ! command -v lsof &> /dev/null; then
-        echo "lsof is not installed. Installing..."
-        sudo apt-get install lsof
-    fi
-    
-    if ! command -v iptables &> /dev/null; then
-        echo "iptables is not installed. Installing..."
-        sudo apt-get install iptables
+    if [ -n "$package_manager" ]; then
+        # Define the list of dependencies
+        dependencies=("wget" "lsof" "iptables")
+        
+        # Install missing dependencies
+        for dependency in "${dependencies[@]}"; do
+            if ! command -v "$dependency" &> /dev/null; then
+                echo "$dependency is not installed. Installing..."
+                sudo "$package_manager" install "$dependency" -y
+            fi
+        done
+    else
+        echo "Unsupported package manager. Please install dependencies manually."
     fi
 }
 
@@ -52,7 +71,7 @@ configure_arguments2() {
     elif [ "$server_choice" == "1" ]; then
         read -p "Please Enter (Kharej IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
-        arguments="--tunnel --lport:$port --toip:$server_ip  --toport:443 --sni:$sni --password:$password --terminate:24"
+        arguments="--tunnel --lport:443 --toip:$server_ip  --toport:443 --sni:$sni --password:$password --terminate:24"
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
