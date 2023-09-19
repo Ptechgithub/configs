@@ -10,36 +10,36 @@ root_access() {
 
 # Function to check if wget is installed, and install it if not
 check_dependencies() {
-    local dependencies=("wget" "lsof" "unzip" "iptables")
-
-    if [ -f /etc/os-release ]; then
-        source /etc/os-release
-        case $ID in
-            debian|ubuntu)
-                package_manager="apt-get"
-                ;;
-            centos|rhel)
-                package_manager="yum"
-                ;;
-            fedora)
-                package_manager="dnf"
-                ;;
-            *)
-                echo "Unsupported distribution: $ID"
-                return 1
-                ;;
-        esac
+    if [ -x "$(command -v apt-get)" ]; then
+        package_manager="apt-get"
+    elif [ -x "$(command -v yum)" ]; then
+        package_manager="yum"
+    elif [ -x "$(command -v dnf)" ]; then
+        package_manager="dnf"
     else
-        echo "Cannot detect the operating system."
-        return 1
+        echo "Unsupported package manager. Please install wget, lsof, and iptables manually."
+        exit 1
     fi
 
-    for dep in "${dependencies[@]}"; do
-        if ! command -v "$dep" &> /dev/null; then
-            echo "$dep is not installed. Installing..."
-            sudo "$package_manager" install "$dep"
-        fi
-    done
+    if ! command -v wget &> /dev/null; then
+        echo "wget is not installed. Installing..."
+        sudo $package_manager install wget
+    fi
+
+    if ! command -v lsof &> /dev/null; then
+        echo "lsof is not installed. Installing..."
+        sudo $package_manager install lsof
+    fi
+
+    if ! command -v iptables &> /dev/null; then
+        echo "iptables is not installed. Installing..."
+        sudo $package_manager install iptables
+    fi
+    
+    if ! command -v unzip &> /dev/null; then
+        echo "unzip is not installed. Installing..."
+        sudo $package_manager install unzip
+    fi
 }
 
 #Check installed service
@@ -251,7 +251,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " -9-------#- Fake Tls Tunnel -#--------"
+echo " ---0-----#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
