@@ -302,10 +302,10 @@ compile() {
     export PATH="$(pwd)/nim-2.0.1/bin:$PATH"
 
     # Clone the project
-    git clone https://github.com/radkesvat/FakeTlsTunnel.git
+    git clone https://github.com/radkesvat/ReverseTlsTunnel.git
 
     # Navigate to the project directory
-    cd FakeTlsTunnel
+    cd ReverseTlsTunnel
 
     # Install and compile the project
     nim install
@@ -327,7 +327,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " -0-------#- Fake Tls Tunnel -#--------"
+echo " --------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
