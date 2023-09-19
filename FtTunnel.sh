@@ -9,17 +9,36 @@ root_access() {
 }
 
 # Function to check if wget is installed, and install it if not
-check_dependencies() {
-    if [ -x "$(command -v apt-get)" ]; then
-        package_manager="apt-get"
-    elif [ -x "$(command -v yum)" ]; then
-        package_manager="yum"
-    elif [ -x "$(command -v dnf)" ]; then
-        package_manager="dnf"
+detect_distribution() {
+    # Detect the Linux distribution
+    if [ -f /etc/os-release ]; then
+        source /etc/os-release
+        case "$ID" in
+            ubuntu)
+                package_manager="apt-get"
+                ;;
+            debian)
+                package_manager="apt-get"
+                ;;
+            centos)
+                package_manager="yum"
+                ;;
+            fedora)
+                package_manager="dnf"
+                ;;
+            *)
+                echo "Unsupported distribution!"
+                exit 1
+                ;;
+        esac
     else
-        echo "Unsupported package manager. Please install wget, lsof, and iptables manually."
+        echo "Unsupported distribution!"
         exit 1
     fi
+}
+
+check_dependencies() {
+    detect_distribution
 
     if ! command -v wget &> /dev/null; then
         echo "wget is not installed. Installing..."
@@ -39,6 +58,11 @@ check_dependencies() {
     if ! command -v unzip &> /dev/null; then
         echo "unzip is not installed. Installing..."
         sudo $package_manager install unzip -y
+    fi
+    
+    if ! command -v gcc &> /dev/null; then
+        echo "gcc is not installed. Installing..."
+        sudo $package_manager install gcc -y
     fi
 }
 
@@ -243,42 +267,41 @@ update_services() {
 }
 
 compile() {
-    # Check if Nim is installed
-    if ! command -v nim &> /dev/null; then
-        echo "Nim is not installed. Installing..."
-        # Detect the operating system and perform necessary steps for Nim installation
-        if [[ "$OSTYPE" == "linux-gnu" ]]; then
-            # Linux operating system
-            if [[ "$(uname -m)" == "x86_64" ]]; then
-                # 64-bit architecture
-                file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_x64.tar.xz"
-            elif [[ "$(uname -m)" == "x86" ]]; then
-                # 32-bit architecture
-                file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_x32.tar.xz"
-            elif [[ "$(uname -m)" == "aarch64" ]]; then
-                # arm64 architecture
-                file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_arm64.tar.xz"
-            elif [[ "$(uname -m)" == "armv7l" ]]; then
-                # armv7l architecture
-                file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_armv7l.tar.xz"
-            else
-                echo "Unknown architecture!"
-                exit 1
-            fi
-            # Download and install Nim
-            wget "$file_url"
-            tar -xvf "$(basename "$file_url")"
-            dir=$(pwd)
-            export PATH="$dir/nim-2.0.1/bin:$PATH"
+    # Detect the operating system
+    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        # Linux operating system
+        if [[ "$(uname -m)" == "x86_64" ]]; then
+            # 64-bit architecture
+            file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_x64.tar.xz"
+        elif [[ "$(uname -m)" == "x86" ]]; then
+            # 32-bit architecture
+            file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_x32.tar.xz"
+        elif [[ "$(uname -m)" == "aarch64" ]]; then
+            # arm64 architecture
+            file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_arm64.tar.xz"
+        elif [[ "$(uname -m)" == "armv7l" ]]; then
+            # armv7l architecture
+            file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_armv7l.tar.xz"
         else
-            echo "Unsupported operating system!"
+            echo "Unknown architecture!"
             exit 1
         fi
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        # macOS operating system
+        file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/macosx_x64.tar.xz"
     else
-        echo "Nim is already installed."
+        echo "Unsupported operating system!"
+        exit 1
     fi
 
-    # Clone the project repository
+    # Download the file based on the operating system and architecture
+    wget "$file_url"
+    tar -xvf "$(basename "$file_url")"
+
+    # Add the Nim path to PATH
+    export PATH="$PWD/nim-2.0.1/bin:$PATH"
+
+    # Clone the project
     git clone https://github.com/radkesvat/ReverseTlsTunnel.git
 
     # Navigate to the project directory
@@ -288,12 +311,12 @@ compile() {
     nim install
     nim build
 
-    # Copy the FTT executable from the 'dist' directory to the current directory
+    # Copy the FTT file from dist directory to the current directory
     cp dist/FTT "$PWD/"
 
-    # Display a success message
+    # Successful message
     echo "Project compiled successfully."
-    # Provide the path to the FTT executable
+    # Display the path of the FTT file
     echo "FTT file is located at: $PWD/FTT"
 }
 
