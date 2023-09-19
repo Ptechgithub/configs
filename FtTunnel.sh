@@ -266,9 +266,9 @@ compile() {
                 exit 1
             fi
             # Download and install Nim
-            PWD=$(pwd)
             wget "$file_url"
             tar -xvf "$(basename "$file_url")"
+            PWD=$(pwd)
             export PATH="$PWD/nim-2.0.1/bin:$PATH"
         else
             echo "Unsupported operating system!"
@@ -306,7 +306,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " --2------#- Fake Tls Tunnel -#--------"
+echo " --------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
