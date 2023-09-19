@@ -1,7 +1,7 @@
 #!/bin/bash
 
 root_access() {
-    # Check if  the script is running as root
+    # Check if the script is running as root
     if [ "$EUID" -ne 0 ]; then
         echo "This script requires root access. please run as root."
         exit 1
@@ -106,6 +106,7 @@ configure_arguments() {
 
 # Function to handle installation single port
 install_single() {
+    root_access
     check_dependencies
     check_installed2
     install_ftt
@@ -156,6 +157,7 @@ uninstall_single() {
 
 # Function to handle installation
 install_multi() {
+    root_access
     check_dependencies
     check_installed
     install_ftt
@@ -249,7 +251,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " -7-------#- Fake Tls Tunnel -#--------"
+echo " -9-------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
