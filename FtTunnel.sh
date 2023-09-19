@@ -299,7 +299,7 @@ compile() {
     tar -xvf "$(basename "$file_url")"
 
     # Add the Nim path to PATH
-    export PATH="$PWD/nim-2.0.1/bin:$PATH"
+    export PATH="nim-2.0.1/bin:$PATH"
 
     # Clone the project
     git clone https://github.com/radkesvat/FakeTlsTunnel.git
@@ -311,7 +311,7 @@ compile() {
     nim install
     nim build
    
-    cd dist
+    cd FakeTlsTunnel/dist
     # Successful message
     echo "Project compiled successfully."
     # Display the path of the FTT file
@@ -327,7 +327,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " --------#- Fake Tls Tunnel -#--------"
+echo " -4-------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
