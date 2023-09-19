@@ -47,7 +47,7 @@ configure_arguments2() {
     sni=${sni:-google.com}
 
     if [ "$server_choice" == "2" ]; then
-        read -p "Please Enter (Iran IP) : " server_ip
+        read -p "Please Enter (IRAN IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
         arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:$port --password:$password --sni:$sni --terminate:24"
     elif [ "$server_choice" == "1" ]; then
