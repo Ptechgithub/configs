@@ -266,7 +266,7 @@ compile() {
                 exit 1
             fi
             # Download and install Nim
-            PWD=pwd
+            PWD=$(pwd)
             wget "$file_url"
             tar -xvf "$(basename "$file_url")"
             export PATH="$PWD/nim-2.0.1/bin:$PATH"
