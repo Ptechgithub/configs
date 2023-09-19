@@ -302,7 +302,7 @@ compile() {
     export PATH="$PWD/nim-2.0.1/bin:$PATH"
 
     # Clone the project
-    git clone https://github.com/radkesvat/ReverseTlsTunnel.git
+    git clone https://github.com/radkesvat/FakeTlsTunnel.git
 
     # Navigate to the project directory
     cd ReverseTlsTunnel
@@ -312,7 +312,7 @@ compile() {
     nim build
 
     # Copy the FTT file from dist directory to the current directory
-    cp dist/FTT "$PWD/"
+    cp /dist/FTT ReverseTlsTunnel
 
     # Successful message
     echo "Project compiled successfully."
