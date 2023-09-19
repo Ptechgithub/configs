@@ -310,7 +310,6 @@ echo "3) Install (Multi port)"
 echo "4) Uninstall (Multi port)"
 echo " ----------------------------"
 echo "5) Update FTT"
-echo "6) Compile FTT"
 echo "0) Exit"
 echo " --------------$version--------------"
 read -p "Please choose: " choice
@@ -330,9 +329,6 @@ case $choice in
         ;;
     5)
         update_services
-        ;;
-    6)
-        compile
         ;;
     0)   
         exit
