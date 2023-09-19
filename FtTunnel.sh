@@ -29,7 +29,7 @@ check_dependencies() {
     
     # Install missing dependencies
     for dependency in "${dependencies[@]}"; do
-        if ! command -v "$dependency" >/dev/null 2>&1; then
+        if ! command -v "$dependency"; then
             echo "$dependency is not installed. Installing..."
             sudo "$package_manager" install "$dependency" -y
         fi
