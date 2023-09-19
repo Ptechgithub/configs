@@ -287,13 +287,13 @@ compile() {
     nim install
     nim build
 
-    # Copy the RTT executable from the 'dist' directory to the current directory
-    cp dist/RTT "$PWD/"
+    # Copy the FTT executable from the 'dist' directory to the current directory
+    cp dist/FTT "$PWD/"
 
     # Display a success message
     echo "Project compiled successfully."
-    # Provide the path to the RTT executable
-    echo "RTT file is located at: $PWD/RTT"
+    # Provide the path to the FTT executable
+    echo "FTT file is located at: $PWD/FTT"
 }
 
 #ip & version
