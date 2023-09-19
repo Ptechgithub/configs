@@ -310,12 +310,12 @@ compile() {
     cd ReverseTlsTunnel
 
     # Install and compile the project
-    nim install && nim build && cd $(pwd)/dist && ls
+    nim install && nim build
     # Successful message
     echo "Project compiled successfully."
     # Display the path of the FTT file
     echo "FTT file is located at: FakeTlsTunnel/dist"
-    
+    cd $(pwd)/dist && ls
 }
 
 #ip & version
