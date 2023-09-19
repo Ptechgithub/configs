@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function to check if wget is installed, and install it if not
+# Function  to check if wget is installed, and install it if not
 check_dependencies() {
     if ! command -v wget &> /dev/null; then
         echo "wget is not installed. Installing..."
