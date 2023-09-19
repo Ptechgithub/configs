@@ -246,40 +246,35 @@ compile() {
     # Check if Nim is installed
     if ! command -v nim &> /dev/null; then
         echo "Nim is not installed. Installing..."
-        # Download the appropriate Nim distribution based on the OS and architecture
-        wget "$file_url"
-        tar -xvf "$(basename "$file_url")"
-        # Add the Nim binary directory to PATH
-        export PATH="$PWD/nim-2.0.1/bin:$PATH"
-    else
-        echo "Nim is already installed."
-    fi
-
-    # Detect the operating system and perform necessary steps for compilation
-    if [[ "$OSTYPE" == "linux-gnu" ]]; then
-        # Linux operating system
-        if [[ "$(uname -m)" == "x86_64" ]]; then
-            # 64-bit architecture
-            file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_x64.tar.xz"
-        elif [[ "$(uname -m)" == "x86" ]]; then
-            # 32-bit architecture
-            file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_x32.tar.xz"
-        elif [[ "$(uname -m)" == "aarch64" ]]; then
-            # arm64 architecture
-            file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_arm64.tar.xz"
-        elif [[ "$(uname -m)" == "armv7l" ]]; then
-            # armv7l architecture
-            file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_armv7l.tar.xz"
+        # Detect the operating system and perform necessary steps for Nim installation
+        if [[ "$OSTYPE" == "linux-gnu" ]]; then
+            # Linux operating system
+            if [[ "$(uname -m)" == "x86_64" ]]; then
+                # 64-bit architecture
+                file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_x64.tar.xz"
+            elif [[ "$(uname -m)" == "x86" ]]; then
+                # 32-bit architecture
+                file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_x32.tar.xz"
+            elif [[ "$(uname -m)" == "aarch64" ]]; then
+                # arm64 architecture
+                file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_arm64.tar.xz"
+            elif [[ "$(uname -m)" == "armv7l" ]]; then
+                # armv7l architecture
+                file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/linux_armv7l.tar.xz"
+            else
+                echo "Unknown architecture!"
+                exit 1
+            fi
+            # Download and install Nim
+            wget "$file_url"
+            tar -xvf "$(basename "$file_url")"
+            export PATH="$PWD/nim-2.0.1/bin:$PATH"
         else
-            echo "Unknown architecture!"
+            echo "Unsupported operating system!"
             exit 1
         fi
-    elif [[ "$OSTYPE" == "darwin"* ]]; then
-        # macOS operating system
-        file_url="https://github.com/nim-lang/nightlies/releases/download/latest-version-2-0/macosx_x64.tar.xz"
     else
-        echo "Unsupported operating system!"
-        exit 1
+        echo "Nim is already installed."
     fi
 
     # Clone the project repository
