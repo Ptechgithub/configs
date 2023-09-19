@@ -243,7 +243,19 @@ update_services() {
 }
 
 compile() {
-    # Detect the operating system
+    # Check if Nim is installed
+    if ! command -v nim &> /dev/null; then
+        echo "Nim is not installed. Installing..."
+        # Download the appropriate Nim distribution based on the OS and architecture
+        wget "$file_url"
+        tar -xvf "$(basename "$file_url")"
+        # Add the Nim binary directory to PATH
+        export PATH="$PWD/nim-2.0.1/bin:$PATH"
+    else
+        echo "Nim is already installed."
+    fi
+
+    # Detect the operating system and perform necessary steps for compilation
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         # Linux operating system
         if [[ "$(uname -m)" == "x86_64" ]]; then
@@ -270,14 +282,7 @@ compile() {
         exit 1
     fi
 
-    # Download the file based on the operating system and architecture
-    wget "$file_url"
-    tar -xvf "$(basename "$file_url")"
-
-    # Add the Nim path to PATH
-    export PATH="$PWD/nim-2.0.1/bin:$PATH"
-
-    # Clone the project
+    # Clone the project repository
     git clone https://github.com/radkesvat/ReverseTlsTunnel.git
 
     # Navigate to the project directory
@@ -287,13 +292,13 @@ compile() {
     nim install
     nim build
 
-    # Copy the FTT file from dist directory to the current directory
-    cp dist/FTT "$PWD/"
+    # Copy the RTT executable from the 'dist' directory to the current directory
+    cp dist/RTT "$PWD/"
 
-    # Successful message
+    # Display a success message
     echo "Project compiled successfully."
-    # Display the path of the FTT file
-    echo "FTT file is located at: $PWD/FTT"
+    # Provide the path to the RTT executable
+    echo "RTT file is located at: $PWD/RTT"
 }
 
 #ip & version
@@ -305,7 +310,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " --------#- Fake Tls Tunnel -#--------"
+echo " -1-------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
