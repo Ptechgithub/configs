@@ -11,6 +11,7 @@ root_access() {
 # Function to check if wget is installed, and install it if not
 check_dependencies() {
     package_manager=""
+
     # Detect the package manager
     if [ -x "$(command -v apt-get)" ]; then
         package_manager="apt-get"
@@ -18,23 +19,23 @@ check_dependencies() {
         package_manager="yum"
     elif [ -x "$(command -v dnf)" ]; then
         package_manager="dnf"
-    fi
-    
-    if [ -n "$package_manager" ]; then
-        # Define the list of dependencies
-        dependencies=("wget" "lsof" "iptables" "unzip")
-        
-        # Install missing dependencies
-        for dependency in "${dependencies[@]}"; do
-            if ! command -v "$dependency" &> /dev/null; then
-                echo "$dependency is not installed. Installing..."
-                sudo "$package_manager" install "$dependency" -y
-            fi
-        done
     else
         echo "Unsupported package manager. Please install dependencies manually."
+        return
     fi
+    
+    # Define the list of dependencies
+    dependencies=("wget" "lsof" "iptables" "unzip")
+    
+    # Install missing dependencies
+    for dependency in "${dependencies[@]}"; do
+        if ! command -v "$dependency" &> /dev/null; then
+            echo "$dependency is not installed. Installing..."
+            sudo "$package_manager" install "$dependency" -y
+        fi
+    done
 }
+
 
 #Check installed service
 check_installed() {
