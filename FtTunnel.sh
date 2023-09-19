@@ -12,11 +12,11 @@ root_access() {
 check_dependencies() {
     package_manager=""
     # Detect the package manager
-    if [ -x "$(command -v apt-get)" ]; then
+    if [ -x "$(command -v apt-get &> /dev/null)" ]; then
         package_manager="apt-get"
-    elif [ -x "$(command -v yum)" ]; then
+    elif [ -x "$(command -v yum &> /dev/null)" ]; then
         package_manager="yum"
-    elif [ -x "$(command -v dnf)" ]; then
+    elif [ -x "$(command -v dnf &> /dev/null)" ]; then
         package_manager="dnf"
     fi
     
@@ -245,7 +245,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " --1------#- Fake Tls Tunnel -#--------"
+echo " --------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
