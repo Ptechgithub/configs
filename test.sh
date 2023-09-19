@@ -10,14 +10,14 @@ root_access() {
 
 # Function to check if wget is installed, and install it if not
 check_dependencies() {
-    if [ -x "$(command -v apt-get)" ]; then
-        package_manager="apt-get"
+    if [ -x "$(command -v dnf)" ]; then
+        package_manager="dnf"
     elif [ -x "$(command -v yum)" ]; then
         package_manager="yum"
-    elif [ -x "$(command -v dnf)" ]; then
-        package_manager="dnf"
+    elif [ -x "$(command -v apt-get)" ]; then
+        package_manager="apt-get"
     else
-        echo "Unsupported package manager. Please install wget, lsof, and iptables manually."
+        echo "Unsupported package manager. Please install wget, lsof, iptables, and unzip manually."
         exit 1
     fi
 
