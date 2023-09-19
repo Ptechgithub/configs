@@ -267,6 +267,8 @@ update_services() {
 }
 
 compile() {
+    detect_distribution
+    check_dependencies
     # Detect the operating system
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         # Linux operating system
@@ -327,7 +329,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " -6-------#- Fake Tls Tunnel -#--------"
+echo " --------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
