@@ -312,7 +312,7 @@ compile() {
     # Install and compile the project
     nim install
     nim build
-    cd ReverseTlsTunnel/dist
+    cd $(pwd)/ReverseTlsTunnel/dist
     ls
     # Successful message
     echo "Project compiled successfully."
