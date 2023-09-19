@@ -11,7 +11,6 @@ root_access() {
 # Function to check if wget is installed, and install it if not
 check_dependencies() {
     package_manager=""
-    
     # Detect the package manager
     if [ -x "$(command -v apt-get)" ]; then
         package_manager="apt-get"
@@ -23,7 +22,7 @@ check_dependencies() {
     
     if [ -n "$package_manager" ]; then
         # Define the list of dependencies
-        dependencies=("wget" "lsof" "iptables")
+        dependencies=("wget" "lsof" "iptables" "unzip")
         
         # Install missing dependencies
         for dependency in "${dependencies[@]}"; do
