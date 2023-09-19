@@ -23,22 +23,22 @@ check_dependencies() {
 
     if ! command -v wget &> /dev/null; then
         echo "wget is not installed. Installing..."
-        sudo $package_manager install wget
+        sudo $package_manager install wget -y
     fi
 
     if ! command -v lsof &> /dev/null; then
         echo "lsof is not installed. Installing..."
-        sudo $package_manager install lsof
+        sudo $package_manager install lsof -y
     fi
 
     if ! command -v iptables &> /dev/null; then
         echo "iptables is not installed. Installing..."
-        sudo $package_manager install iptables
+        sudo $package_manager install iptables -y
     fi
     
     if ! command -v unzip &> /dev/null; then
         echo "unzip is not installed. Installing..."
-        sudo $package_manager install unzip
+        sudo $package_manager install unzip -y
     fi
 }
 
