@@ -52,11 +52,12 @@ configure_arguments2() {
     elif [ "$server_choice" == "1" ]; then
         read -p "Please Enter (Kharej IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
-        arguments="--tunnel --lport:$port --toip:$server_ip  --toport:443 --sni:$sni --password:$password --terminate:24"
+        arguments="--tunnel --lport:443 --toip:$server_ip  --toport:443 --sni:$sni --password:$password --terminate:24"
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
     fi
+    echo "successfull . arguments: $arguments"
 }
 
 # Function to configure arguments based on user's choice Multiport
@@ -76,6 +77,7 @@ configure_arguments() {
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
     fi
+    echo "successfull .arguments: $arguments"
 }
 
 # Function to handle installation single port
