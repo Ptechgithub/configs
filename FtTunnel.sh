@@ -29,7 +29,7 @@ check_dependencies() {
     
     # Install missing dependencies
     for dependency in "${dependencies[@]}"; do
-        if ! command -v "$dependency &> /dev/null" &> /dev/null; then
+        if ! command -v "$dependency" &> /dev/null; then
             echo "$dependency is not installed. Installing..."
             sudo "$package_manager" install "$dependency" -y
         fi
@@ -246,7 +246,7 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " 5--------#- Fake Tls Tunnel -#--------"
+echo " 2--------#- Fake Tls Tunnel -#--------"
 echo "1) Install (Single port)"
 echo "2) Uninstall (Single port)"
 echo " ----------------------------"
