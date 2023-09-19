@@ -311,7 +311,7 @@ compile() {
     nim install
     nim build
    
-    cd FakeTlsTunnel/dist
+    cd dist
     # Successful message
     echo "Project compiled successfully."
     # Display the path of the FTT file
