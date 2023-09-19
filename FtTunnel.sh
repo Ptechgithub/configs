@@ -280,10 +280,10 @@ compile() {
     export PATH="$(pwd)/nim-2.0.1/bin:$PATH"
 
     # Clone the project
-    git clone https://github.com/radkesvat/ReverseTlsTunnel.git
+    git clone https://github.com/radkesvat/FakeTlsTunnel.git
 
     # Navigate to the project directory
-    cd ReverseTlsTunnel
+    cd FakeTlsTunnel
 
     # Install and compile the project
     nim install 
