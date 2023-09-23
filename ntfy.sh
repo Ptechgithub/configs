@@ -22,7 +22,7 @@ install_ntfy() {
   sudo apt install ntfy
 
   # Enable and start the ntfy service
-  systemctl daemon-reload
+  sudo systemctl daemon-reload
   sudo systemctl enable ntfy
   sudo systemctl start ntfy
   sudo mv /etc/ntfy/server.yml /etc/ntfy/server.yml.bak
