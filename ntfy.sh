@@ -14,7 +14,7 @@ sudo sh -c "echo 'deb [arch=amd64 signed-by=/etc/apt/keyrings/archive.heckel.io.
 > /etc/apt/sources.list.d/archive.heckel.io.list"
 
 # Update the package list
-sudo apt update
+sudo apt update -y
 
 # Install ntfy
 sudo apt install ntfy
