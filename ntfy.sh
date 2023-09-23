@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function  to install ntfy
+# Function to install ntfy
 install_ntfy() {
   # Create a directory for apt keyrings
   sudo mkdir -p /etc/apt/keyrings
@@ -41,6 +41,7 @@ uninstall_ntfy() {
 }
 
 # Main menu
+clear
 echo "Select an option:"
 echo "1) Install ntfy"
 echo "2) Uninstall ntfy"
