@@ -6,8 +6,11 @@
 
 #Auth settings
 #auth-file: "/var/lib/ntfy/user.db"
+
 #auth-default-access: "read-write"
+#or
 #auth-default-access: "deny-all"
+
 #enable-signup: true
 #enable-login: true
 
