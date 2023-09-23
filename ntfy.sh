@@ -22,6 +22,7 @@ install_ntfy() {
   sudo apt install ntfy
 
   # Enable and start the ntfy service
+  systemctl daemon-reload
   sudo systemctl enable ntfy
   sudo systemctl start ntfy
   sudo mv /etc/ntfy/server.yml /etc/ntfy/server.yml.bak
@@ -35,6 +36,7 @@ install_ntfy() {
 # Function to uninstall ntfy
 uninstall_ntfy() {
   # Stop and disable the ntfy service
+  systemctl daemon-reload
   sudo systemctl stop ntfy
   sudo systemctl disable ntfy
 
