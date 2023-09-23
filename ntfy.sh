@@ -99,6 +99,8 @@ edit_config() {
 
 # Main menu
 clear
+echo "By --> Peyman * Github.com/Ptechgithub * "
+echo ""
 echo "Select an option:"
 echo "1) Install ntfy"
 echo "2) Uninstall ntfy"
