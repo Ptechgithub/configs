@@ -36,6 +36,10 @@ uninstall_ntfy() {
 
   # Remove ntfy package
   sudo apt remove ntfy --purge -y
+  sudo rm -rf /etc/ntfy
+  sudo rm -rf /etc/apt/keyrings
+  # Remove the Heckel repository file
+  sudo rm -f /etc/apt/sources.list.d/archive.heckel.io.list
 
   echo "ntfy has been uninstalled."
 }
