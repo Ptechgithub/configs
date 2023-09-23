@@ -35,7 +35,7 @@ setup_certificate() {
 
         echo "Permissions successfully set for $DOMAIN. Enjoy!"
     else
-        echo "Domain usage canceled. Exiting..."
+        echo "Domain usage canceled ."
     fi
 }
 
