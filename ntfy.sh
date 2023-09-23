@@ -1,5 +1,44 @@
 #!/bin/bash
 
+setup_certificate() {
+    # Ask the user if they want to use a domain
+    read -p "Do you want to use a (domain/https)? (yes/no): " ANSWER
+
+    if [ "$ANSWER" = "yes" ]; then
+        # Ask for domain and port
+        read -p "Enter your domain name: " DOMAIN
+        read -p "Enter the port for certificate validation (default is 80): " PORT
+        PORT="${PORT:-80}"
+
+        apt install certbot -y
+        echo "GET certificates for $DOMAIN on port $PORT"
+
+        sudo certbot certonly --standalone --agree-tos --register-unsafely-without-email -d $DOMAIN --preferred-challenges http-01 --http-01-port $PORT
+
+        echo "Setting up permissions for $DOMAIN"
+
+        chmod 0755 /etc/letsencrypt/
+        chmod 0711 /etc/letsencrypt/live/
+        chmod 0750 "/etc/letsencrypt/live/$DOMAIN/"
+        chmod 0711 /etc/letsencrypt/archive/
+        chmod 0750 "/etc/letsencrypt/archive/$DOMAIN/"
+        chmod 0640 "/etc/letsencrypt/archive/$DOMAIN/"*.pem
+        chmod 0640 "/etc/letsencrypt/archive/$DOMAIN/privkey"*.pem
+
+        chown root:root /etc/letsencrypt/
+        chown root:root /etc/letsencrypt/live/
+        chown root:ntfy "/etc/letsencrypt/live/$DOMAIN/"
+        chown root:root /etc/letsencrypt/archive/
+        chown root:ntfy "/etc/letsencrypt/archive/$DOMAIN/"
+        chown root:ntfy "/etc/letsencrypt/archive/$DOMAIN/"*.pem
+        chown root:ntfy "/etc/letsencrypt/archive/$DOMAIN/privkey"*.pem
+
+        echo "Permissions successfully set for $DOMAIN. Enjoy!"
+    else
+        echo "Domain usage canceled. Exiting..."
+    fi
+}
+
 # Function to install ntfy
 install_ntfy() {
   # Create a directory for apt keyrings
@@ -23,6 +62,7 @@ install_ntfy() {
   sudo mv /etc/ntfy/server.yml /etc/ntfy/server.yml.bak
   # Download the new server.yml from the given URL and save it in /etc/ntfy/
   sudo curl -fsSL -o /etc/ntfy/server.yml https://raw.githubusercontent.com/Ptechgithub/configs/main/server.yml
+  setup_certificate
   # Enable and start the ntfy service
   sudo systemctl daemon-reload
   sudo systemctl enable ntfy
