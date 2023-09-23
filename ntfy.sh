@@ -28,7 +28,7 @@ install_ntfy() {
   # Download the new server.yml from the given URL and save it in /etc/ntfy/
   sudo curl -fsSL -o /etc/ntfy/server.yml https://raw.githubusercontent.com/Ptechgithub/configs/main/server.yml
   sudo systemctl stop ntfy
-  sudo systemctl stop ntfy
+  sudo systemctl start ntfy
   echo "ntfy has been installed."
 }
 
