@@ -93,7 +93,7 @@ edit_config() {
         sudo apt install nano -y
     fi
 
-    # Edit the config file with nano
+    # Edit the config  file with nano
     sudo nano /etc/ntfy/server.yml
 }
 
