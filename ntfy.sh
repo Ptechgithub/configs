@@ -36,7 +36,7 @@ install_ntfy() {
 # Function to uninstall ntfy
 uninstall_ntfy() {
   # Stop and disable the ntfy service
-  systemctl daemon-reload
+  sudo systemctl daemon-reload
   sudo systemctl stop ntfy
   sudo systemctl disable ntfy
 
