@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function to install ntfy
+# Function  to install ntfy
 install_ntfy() {
   # Create a directory for apt keyrings
   sudo mkdir -p /etc/apt/keyrings
