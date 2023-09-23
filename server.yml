@@ -1,15 +1,15 @@
-base-url: "http://ntfy.telegram-irtech.fun"
-listen-http: ":80"
-listen-https: ":443"
-key-file: "/etc/letsencrypt/live/ntfy.telegram-irtech.fun/privkey.pem"
-cert-file: "/etc/letsencrypt/live/ntfy.telegram-irtech.fun/fullchain.pem"
+#base-url: "http://ntfy.telegram-irtech.fun"
+#listen-http: ":80"
+#listen-https: ":443"
+#key-file: "/etc/letsencrypt/live/ntfy.telegram-irtech.fun/privkey.pem"
+#cert-file: "/etc/letsencrypt/live/ntfy.telegram-irtech.fun/fullchain.pem"
 
 #Auth settings
-auth-file: "/var/lib/ntfy/user.db"
-auth-default-access: "read-write"
+#auth-file: "/var/lib/ntfy/user.db"
+#auth-default-access: "read-write"
 #auth-default-access: "deny-all"
-enable-signup: true
-enable-login: true
+#enable-signup: true
+#enable-login: true
 
 #for ios
 #upstream-base-url: "https://ntfy.sh"
@@ -18,16 +18,16 @@ enable-login: true
 #behind-proxy: true
 
 #cache file
-cache-file: "/var/cache/ntfy/cache.db"
-cache-duration: "24h"
+#cache-file: "/var/cache/ntfy/cache.db"
+#cache-duration: "24h"
 
 #cache attachment size
-attachment-cache-dir: "/var/cache/ntfy/attachments"
-attachment-total-size-limit: "5G"
-attachment-file-size-limit: "15M"
-attachment-expiry-duration: "24h"
+#attachment-cache-dir: "/var/cache/ntfy/attachments"
+#attachment-total-size-limit: "5G"
+#attachment-file-size-limit: "15M"
+#attachment-expiry-duration: "3h"
 
 #logs
-log-level: info
-log-format: json
-log-file: "/var/log/ntfy.log"
+#log-level: info
+#log-format: json
+#log-file: "/var/log/ntfy.log"
