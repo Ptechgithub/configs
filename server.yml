@@ -1,8 +1,8 @@
-#base-url: "http://ntfy.telegram-irtech.fun"
+#base-url: "http://yourdomain.com"
 #listen-http: ":80"
 #listen-https: ":443"
-#key-file: "/etc/letsencrypt/live/ntfy.telegram-irtech.fun/privkey.pem"
-#cert-file: "/etc/letsencrypt/live/ntfy.telegram-irtech.fun/fullchain.pem"
+#key-file: "/path/to/privkey.pem"
+#cert-file: "/path/to/fullchain.pem"
 
 #Auth settings
 #auth-file: "/var/lib/ntfy/user.db"
