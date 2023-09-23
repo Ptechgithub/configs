@@ -1,19 +1,24 @@
 #!/bin/bash
 
-# Download ntfy release for Linux ARM64
-wget https://github.com/binwiederhier/ntfy/releases/download/v2.7.0/ntfy_2.7.0_linux_arm64.tar.gz
+# Create a directory for apt keyrings
+sudo mkdir -p /etc/apt/keyrings
 
-# Extract the downloaded archive
-tar zxvf ntfy_2.7.0_linux_arm64.tar.gz
+# Download and add the GPG key for the Heckel repository
+curl -fsSL https://archive.heckel.io/apt/pubkey.txt | sudo gpg --dearmor -o /etc/apt/keyrings/archive.heckel.io.gpg
 
-# Copy ntfy executable to /usr/bin
-sudo cp -a ntfy_2.7.0_linux_arm64/ntfy /usr/bin/ntfy
+# Install the apt-transport-https package
+sudo apt install apt-transport-https
 
-# Create a directory for ntfy configuration files
-sudo mkdir -p /etc/ntfy
+# Add the Heckel repository to sources.list.d
+sudo sh -c "echo 'deb [arch=amd64 signed-by=/etc/apt/keyrings/archive.heckel.io.gpg] https://archive.heckel.io/apt debian main' \
+> /etc/apt/sources.list.d/archive.heckel.io.list"
 
-# Copy ntfy configuration files to /etc/ntfy
-sudo cp ntfy_2.7.0_linux_arm64/{client,server}/*.yml /etc/ntfy
+# Update the package list
+sudo apt update
 
-# Start the ntfy server
-sudo ntfy serve
+# Install ntfy
+sudo apt install ntfy
+
+# Enable and start the ntfy service
+sudo systemctl enable ntfy
+sudo systemctl start ntfy
