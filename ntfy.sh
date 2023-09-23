@@ -87,6 +87,16 @@ uninstall_ntfy() {
   echo "ntfy has been uninstalled."
 }
 
+edit_config() {
+    # Install nano if it's not already installed
+    if ! command -v nano &> /dev/null; then
+        sudo apt install nano -y
+    fi
+
+    # Edit the config file with nano
+    sudo nano /etc/ntfy/server.yml
+}
+
 # Main menu
 clear
 echo "Select an option:"
@@ -100,6 +110,9 @@ case $choice in
     ;;
   2)
     uninstall_ntfy
+    ;;
+  3)
+    edit_config
     ;;
   *)
     echo "Invalid choice"
