@@ -1,8 +1,8 @@
 #base-url: "http://yourdomain.com"
 #listen-http: ":80"
 #listen-https: ":443"
-#key-file: "/path/to/privkey.key"
-#cert-file: "/path/to/fullchain.crt"
+#key-file: "/etc/letsencrypt/live/yourdomain.com/privkey.pem"
+#cert-file: "/etc/letsencrypt/live/yourdomain.com/fullchain.pem"
 
 #Auth settings
 #auth-file: "/var/lib/ntfy/user.db"
