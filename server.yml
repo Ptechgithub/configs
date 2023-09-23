@@ -1,3 +1,5 @@
+# To exit Nano, press Ctrl + X + Y
+
 #base-url: "https://yourdomain.com"
 #listen-http: ":80"
 #listen-https: ":443"
