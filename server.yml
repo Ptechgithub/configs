@@ -1,4 +1,4 @@
-#base-url: "http://yourdomain.com"
+#base-url: "https://yourdomain.com"
 #listen-http: ":80"
 #listen-https: ":443"
 #key-file: "/etc/letsencrypt/live/yourdomain.com/privkey.pem"
