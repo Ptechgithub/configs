@@ -437,7 +437,7 @@ version=$(./RTT -v 2>&1 | grep -o 'version="[0-9.]*"')
 
 # Main menu
 clear
-echo "By -2-> Peyman * Github.com/Ptechgithub * "
+echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
 echo " Multiport is: $check_service_status  "
