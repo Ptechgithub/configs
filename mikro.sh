@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# Function to display the menu
-display_menu() {
-    clear
-    echo "Select an option:"
-    echo "1) Install MikroTik"
-    echo "2) Uninstall MikroTik"
-    echo "0) Exit"
-}
-
-#!/bin/bash
-
 # Function to check if MikroTik is installed and install it if not
 install_or_check_mikrotik() {
     if docker ps -a --format '{{.Names}}' | grep -q "^livekadeh_com_mikrotik7_7$"; then
