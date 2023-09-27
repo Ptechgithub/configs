@@ -408,9 +408,9 @@ stop_tunnel() {
 check_tunnel_status() {
     # Check the status of the tunnel service
     if sudo systemctl is-active --quiet tunnel.service; then
-        echo "Multiport is running."
+        echo "Multiport is: [running]"
     else
-        echo "Multiport is Not running."
+        echo "Multiport is:[Not running]"
     fi
 }
 
