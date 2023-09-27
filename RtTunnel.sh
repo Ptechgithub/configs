@@ -1,7 +1,7 @@
 #!/bin/bash
 
 root_access() {
-    # Check if the script is running as root
+    # Check if the script is running as root 
     if [ "$EUID" -ne 0 ]; then
         echo "This script requires root access. please run as root."
         exit 1
