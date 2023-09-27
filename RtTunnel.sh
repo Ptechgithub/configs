@@ -403,9 +403,9 @@ stop_tunnel() {
 check_tunnel_status() {
     # Check the status of the tunnel service
     if sudo systemctl is-active --quiet tunnel.service; then
-        echo "Tunnel service is running."
+        echo "Multiport is running."
     else
-        echo "Tunnel service is not running."
+        echo "Multiport is not running."
     fi
 }
 
@@ -424,9 +424,9 @@ stop_lb_tunnel() {
 check_lb_tunnel_status() {
     # Check the status of the load balancer tunnel service
     if sudo systemctl is-active --quiet lbtunnel.service; then
-        echo "Load balancer tunnel service is running."
+        echo "Load balancer is running."
     else
-        echo "Load balancer tunnel service is not running."
+        echo "Load balancer is not running."
     fi
 }
 
@@ -440,8 +440,8 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo " Multiport is: $check_service_status  "
-echo " Load-Balancer is: $check_service_status"
+echo "$check_tunnel_status"
+echo "$check_lb_tunnel_status"
 echo ""
 echo " --------#- Reverse Tls Tunnel -#--------"
 echo "1) Install (Multiport)"
