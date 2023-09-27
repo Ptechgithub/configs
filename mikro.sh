@@ -43,23 +43,20 @@ install_or_check_mikrotik() {
 
 # Function to uninstall MikroTik
 uninstall_mikrotik() {
-    # Check if Docker is installed
-    if command -v docker &> /dev/null; then
-        if docker ps -a --format '{{.Names}}' | grep -q "^livekadeh_com_mikrotik7_7$"; then
-            if docker ps | grep -q livekadeh_com_mikrotik7_7; then
-                docker stop livekadeh_com_mikrotik7_7
-            fi
-            docker rm livekadeh_com_mikrotik7_7
-            docker rmi livekadeh_com_mikrotik7_7
-            rm Docker-image-Mikrotik-7.7-L6.7z
-            echo "MikroTik has been uninstalled."
-        else
-            echo "MikroTik is not installed."
+    if docker ps -a --format '{{.Names}}' | grep -q "^livekadeh_com_mikrotik7_7$"; then
+        if docker ps | grep -q livekadeh_com_mikrotik7_7; then
+            docker stop livekadeh_com_mikrotik7_7
         fi
+        docker rm livekadeh_com_mikrotik7_7
+        docker rmi livekadeh_com_mikrotik7_7
+        rm Docker-image-Mikrotik-7.7-L6.7z
+        echo "MikroTik has been uninstalled."
     else
-        echo "Docker is not installed. Please install Docker before uninstalling MikroTik."
+        echo "MikroTik is not installed."
     fi
 }
+
+
 
 display_menu() {
     clear
