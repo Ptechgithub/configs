@@ -451,8 +451,8 @@ clear
 echo "By -0-> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
-echo "$check_tunnel_status"
-echo "$check_lb_tunnel_status"
+check_tunnel_status
+check_lb_tunnel_status
 echo ""
 echo " --------#- Reverse Tls Tunnel -#--------"
 echo "1) Install (Multiport)"
