@@ -58,6 +58,7 @@ uninstall_mikrotik() {
 
 display_menu() {
     clear
+    echo "By --> Peyman * Github.com/Ptechgithub * "
     echo "Select an option:"
     echo "1) Install MikroTik"
     echo "2) Uninstall MikroTik"
