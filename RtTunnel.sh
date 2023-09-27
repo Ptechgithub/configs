@@ -405,7 +405,7 @@ check_tunnel_status() {
     if sudo systemctl is-active --quiet tunnel.service; then
         echo "Multiport is running."
     else
-        echo "Multiport is not running."
+        echo "Multiport is Not running."
     fi
 }
 
@@ -426,7 +426,7 @@ check_lb_tunnel_status() {
     if sudo systemctl is-active --quiet lbtunnel.service; then
         echo "Load balancer is running."
     else
-        echo "Load balancer is not running."
+        echo "Load balancer is Not running."
     fi
 }
 
