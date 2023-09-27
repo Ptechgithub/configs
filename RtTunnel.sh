@@ -435,9 +435,9 @@ stop_lb_tunnel() {
 check_lb_tunnel_status() {
     # Check the status of the load balancer tunnel service
     if sudo systemctl is-active --quiet lbtunnel.service; then
-        echo "Load balancer is running."
+        echo "Load balancer is:[ running]"
     else
-        echo "Load balancer is Not running."
+        echo "Load balancer is:[ Not running]"
     fi
 }
 
