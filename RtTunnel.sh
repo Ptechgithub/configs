@@ -388,6 +388,48 @@ compile() {
     echo "RTT file is located at: ReverseTlsTunnel/dist"
 }
 
+start_tunnel() {
+    # Start the tunnel service
+    sudo systemctl start tunnel.service
+    echo "Tunnel service started."
+}
+
+stop_tunnel() {
+    # Stop the tunnel service
+    sudo systemctl stop tunnel.service
+    echo "Tunnel service stopped."
+}
+
+check_tunnel_status() {
+    # Check the status of the tunnel service
+    if sudo systemctl is-active --quiet tunnel.service; then
+        echo "Tunnel service is running."
+    else
+        echo "Tunnel service is not running."
+    fi
+}
+
+start_lb_tunnel() {
+    # Start the load balancer tunnel service
+    sudo systemctl start lbtunnel.service
+    echo "Load balancer tunnel service started."
+}
+
+stop_lb_tunnel() {
+    # Stop the load balancer tunnel service
+    sudo systemctl stop lbtunnel.service
+    echo "Load balancer tunnel service stopped."
+}
+
+check_lb_tunnel_status() {
+    # Check the status of the load balancer tunnel service
+    if sudo systemctl is-active --quiet lbtunnel.service; then
+        echo "Load balancer tunnel service is running."
+    else
+        echo "Load balancer tunnel service is not running."
+    fi
+}
+
 
 #ip & version
 myip=$(hostname -I | awk '{print $1}')
@@ -398,16 +440,26 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
+echo " Multiport is: $check_service_status  "
+echo " Load-Balancer is: $check_service_status"
+echo ""
 echo " --------#- Reverse Tls Tunnel -#--------"
 echo "1) Install (Multiport)"
 echo "2) Uninstall (Multiport)"
+echo "3) Start Tunnel"
+echo "4) Stop Tunnel"
+echo "5) Check Tunnel Status"
 echo " ----------------------------"
-echo "3) Install Load-balancer"
-echo "4) Uninstall Load-balancer"
+echo "6) Install Load-balancer"
+echo "7) Uninstall Load-balancer"
+echo "8) Start Load Balancer Tunnel"
+echo "9) Stop Load Balancer Tunnel"
+echo "10) Check Load Balancer Tunnel Status"
 echo " ----------------------------"
-echo "5) Update RTT"
-echo "6) Compile RTT"
+echo "11) Update RTT"
+echo "12) Compile RTT"
 echo "0) Exit"
+echo "
 echo " --------------$version--------------"
 read -p "Please choose: " choice
 
@@ -419,15 +471,33 @@ case $choice in
         uninstall
         ;;
     3)
-        load-balancer
+        start_tunnel
         ;;
     4)
-        lb_uninstall
-       ;;
-    5) 
-        update_services
-       ;;
+        stop_tunnel
+        ;;
+    5)
+        check_tunnel_status
+        ;;
     6)
+        load-balancer
+        ;;
+    7)
+        lb_uninstall
+        ;;
+    8)
+        start_lb_tunnel
+        ;;
+    9)
+        stop_lb_tunnel
+        ;;
+    10)
+        check_lb_tunnel_status
+        ;;
+    11) 
+        update_services
+        ;;
+    12)
         compile
         ;;
     0)   
