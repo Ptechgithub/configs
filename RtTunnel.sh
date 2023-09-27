@@ -1,7 +1,7 @@
 #!/bin/bash
 
 root_access() {
-    # Check if the script is running as root 
+    # Check if the script is running as root
     if [ "$EUID" -ne 0 ]; then
         echo "This script requires root access. please run as root."
         exit 1
@@ -446,15 +446,15 @@ echo ""
 echo " --------#- Reverse Tls Tunnel -#--------"
 echo "1) Install (Multiport)"
 echo "2) Uninstall (Multiport)"
-echo "3) Start Tunnel"
-echo "4) Stop Tunnel"
-echo "5) Check Tunnel Status"
+echo "3) Start Multiport"
+echo "4) Stop Multiport"
+echo "5) Check Status"
 echo " ----------------------------"
 echo "6) Install Load-balancer"
 echo "7) Uninstall Load-balancer"
-echo "8) Start Load Balancer Tunnel"
-echo "9) Stop Load Balancer Tunnel"
-echo "10) Check Load Balancer Tunnel Status"
+echo "8) Start Load Balancer"
+echo "9) Stop Load Balancer"
+echo "10) Check status"
 echo " ----------------------------"
 echo "11) Update RTT"
 echo "12) Compile RTT"
