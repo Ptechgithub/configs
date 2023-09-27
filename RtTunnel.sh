@@ -391,7 +391,12 @@ compile() {
 start_tunnel() {
     # Start the tunnel service
     sudo systemctl start tunnel.service
-    echo "Tunnel service started."
+
+    if sudo systemctl is-active --quiet tunnel.service; then
+        echo "Tunnel service started."
+    else
+        echo "Tunnel service failed to start."
+    fi
 }
 
 stop_tunnel() {
@@ -410,10 +415,16 @@ check_tunnel_status() {
 }
 
 start_lb_tunnel() {
-    # Start the load balancer tunnel service
+    # Start the tunnel service
     sudo systemctl start lbtunnel.service
-    echo "Load balancer tunnel service started."
+
+    if sudo systemctl is-active --quiet lbtunnel.service; then
+        echo "Tunnel service started."
+    else
+        echo "Tunnel service failed to start."
+    fi
 }
+
 
 stop_lb_tunnel() {
     # Stop the load balancer tunnel service
