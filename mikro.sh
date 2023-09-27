@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Function to check if MikroTik is installed and install it if not
-install_or_check_mikrotik() {
+install_mikrotik() {
     if docker ps -a --format '{{.Names}}' | grep -q "^livekadeh_com_mikrotik7_7$"; then
         echo "MikroTik is already installed."
     else
