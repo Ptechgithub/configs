@@ -43,7 +43,7 @@ install_or_check_mikrotik() {
 
 # Function to uninstall MikroTik
 uninstall_mikrotik() {
-    if is_mikrotik_installed; then
+    if docker ps -a --format '{{.Names}}' | grep -q "^livekadeh_com_mikrotik7_7$"; then
         if docker ps | grep -q livekadeh_com_mikrotik7_7; then
             docker stop livekadeh_com_mikrotik7_7
         fi
