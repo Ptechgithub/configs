@@ -69,7 +69,7 @@ install_rtt() {
 #custom version
 install_rtt_custom() {
     if pgrep -x "RTT" > /dev/null; then
-        echo "Tunnel is running! You must stop the tunnel before update. (pkill RTT)"
+        echo "Tunnel is running! You must stop the tunnel before update."
         echo "Update is canceled."
         exit
     fi
