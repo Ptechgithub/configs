@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# root
 root_access() {
     # Check if the script is running as root
     if [ "$EUID" -ne 0 ]; then
@@ -106,9 +105,9 @@ configure_arguments() {
     read -p "Do you want to use mux? (yes/no): " use_mux
     if [ "$use_mux" == "yes" ]; then
         read -p "Enter mux-width (default: 2): " mux
-        mux=${mux_width:-2}
+        mux=${mux:-2}
     elif [ "$use_mux" == "no" ]; then
-        mux=1
+        mux=${mux:-1}
     else
         echo "Invalid choice for mux. Please enter 'yes' or 'no'."
         exit 1
@@ -179,12 +178,12 @@ configure_arguments2() {
     read -p "Which server do you want to use? (Enter '1' for Iran(internal-server) or '2' for Kharej(external-server) ) : " server_choice
     read -p "Please Enter SNI (default : sheypoor.com): " sni
     sni=${sni:-sheypoor.com}
-    read -p "Do you want to use mux? (yes/no): " use_mux    
+    read -p "Do you want to use mux? (yes/no): " use_mux
     if [ "$use_mux" == "yes" ]; then
         read -p "Enter mux-width (default: 2): " mux
-        mux=${mux_width:-2}
+        mux=${mux:-2}
     elif [ "$use_mux" == "no" ]; then
-        mux=1
+        mux=${mux:-1}
     else
         echo "Invalid choice for mux. Please enter 'yes' or 'no'."
         exit 1
@@ -489,7 +488,7 @@ version=$(./RTT -v 2>&1 | grep -o 'version="[0-9.]*"')
 
 # Main menu
 clear
-echo "By1 --> Peyman * Github.com/Ptechgithub * "
+echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo "**********************"
 check_tunnel_status
