@@ -114,7 +114,7 @@ configure_arguments() {
     fi
 
     if [ "$server_choice" == "2" ]; then
-        read -p "Please Enter (IRAN IP(internal-server)) : " server_ip
+        read -p "Please Enter IRAN IP(internal-server) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
         arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:$password --sni:$sni --mux-width:$mux --terminate:24"
     elif [ "$server_choice" == "1" ]; then
@@ -191,7 +191,7 @@ configure_arguments2() {
 
     if [ "$server_choice" == "2" ]; then
         read -p "Is this your main server (VPN server)? (yes/no): " is_main_server
-        read -p "Please Enter (IRAN IP(internal-server)) : " server_ip
+        read -p "Please Enter IRAN IP(internal-server) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
 
         if [ "$is_main_server" == "yes" ]; then
