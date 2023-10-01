@@ -127,6 +127,10 @@ configure_arguments() {
         else
             arguments="--iran --lport:23-65535 --sni:$sni --password:$password --mux-width:$mux --terminate:24"
         fi
+        read -p "Do you want to enable UDP? (yes/no): " enable_udp
+        if [ "$enable_udp" == "yes" ]; then
+            arguments="$arguments --accept-udp"
+        fi
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
