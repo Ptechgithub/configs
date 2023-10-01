@@ -105,7 +105,7 @@ configure_arguments() {
     read -p "Do you want to use mux? (yes/no): " use_mux
     if [ "$use_mux" == "yes" ]; then
         read -p "Enter mux-width (default: 2): " mux
-        mux_width=${mux:-2}
+        mux=${mux_width:-2}
     elif [ "$use_mux" == "no" ]; then
         mux=1
     else
@@ -181,7 +181,7 @@ configure_arguments2() {
     read -p "Do you want to use mux? (yes/no): " use_mux    
     if [ "$use_mux" == "yes" ]; then
         read -p "Enter mux-width (default: 2): " mux
-        mux_width=${mux:-2}
+        mux=${mux_width:-2}
     elif [ "$use_mux" == "no" ]; then
         mux=1
     else
@@ -488,7 +488,7 @@ version=$(./RTT -v 2>&1 | grep -o 'version="[0-9.]*"')
 
 # Main menu
 clear
-echo "By --> Peyman * Github.com/Ptechgithub * "
+echo "By1 --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo "**********************"
 check_tunnel_status
