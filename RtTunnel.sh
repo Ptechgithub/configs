@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# root
 root_access() {
     # Check if the script is running as root
     if [ "$EUID" -ne 0 ]; then
