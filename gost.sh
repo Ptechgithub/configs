@@ -50,6 +50,7 @@ check_installed() {
 }
 
 install() {
+    check_installed
     check_dependencies
     wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz
     gunzip gost-linux-amd64-2.11.5.gz
