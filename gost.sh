@@ -66,7 +66,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/gost -L=tcp://:8880/IP-Kharej:8880
+ExecStart=/usr/local/bin/gost -L=tcp://:$port/$foreign:$port
 
 [Install]
 WantedBy=multi-user.target
