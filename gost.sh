@@ -112,7 +112,7 @@ questions2() {
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
     fi
-}
+
     cd /etc/systemd/system
 
     cat <<EOL>> gost.service
