@@ -81,11 +81,14 @@ sudo systemctl start gost.service
 
 
 uninstall() {
-    systemctl daemon-reload
-    sudo systemctl stop gost
-    systemctl disable gost
-    sudo rm -f  /usr/lib/systemd/system/gost.service /usr/local/bin/gost
+    sudo systemctl stop gost.service
+    sudo systemctl disable gost.service
+    sudo rm /etc/systemd/system/gost.service
+    sudo systemctl daemon-reload
+    sudo rm /usr/local/bin/gost
+    echo "GO Simple Tunnel (gost) has been uninstalled."
 }
+
 
 
 # Main menu
