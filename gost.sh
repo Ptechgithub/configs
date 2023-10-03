@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Access root
+#Access root cheack
 root_access() {
     # Check if the script is running as root
     if [ "$EUID" -ne 0 ]; then
