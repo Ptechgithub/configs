@@ -62,6 +62,7 @@ install() {
     read -p "Enter foreign IP [External-ip] : " foreign_ip
     read -p "Enter Iran Port [Internal-port] :" port
     read -p "Enter Config Port [External-port] :" configport
+    read -p "Enter 'tcp' or 'udp' for the connection type: " connection_type
     cd /etc/systemd/system
     
     cat <<EOL>> gost.service
@@ -72,7 +73,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/gost -L=tcp://:$port/$foreign_ip:$configport
+ExecStart=/usr/local/bin/gost -L=$connection_type://:$port/$foreign_ip:$configport
 
 [Install]
 WantedBy=multi-user.target
