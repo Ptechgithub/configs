@@ -62,7 +62,7 @@ install() {
     read -p "Enter foreign IP [External-ip] : " foreign_ip
     read -p "Enter Iran Port [Internal-port] :" port
     read -p "Enter Config Port [External-port] :" configport
-    read -p "Enter 'udp' for UDP connection (default is TCP): " connection_type
+    read -p "Enter 'udp' for UDP connection (default is: tcp): " connection_type
     connection_type=${connection_type:-tcp}
     cd /etc/systemd/system
 
