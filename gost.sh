@@ -158,7 +158,7 @@ uninstall() {
 
 
 
-# Main menu
+# show Main menu 
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo ""
