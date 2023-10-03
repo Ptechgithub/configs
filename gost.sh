@@ -55,7 +55,8 @@ install() {
     gunzip gost-linux-amd64-2.11.5.gz
     sudo mv gost-linux-amd64-2.11.5 /usr/local/bin/gost
     sudo chmod +x /usr/local/bin/gost
-    
+    read -p "Enter foreign IP[External-ip] : " foreign
+    read -p "Enter Port :" port
     cd /etc/systemd/system
     
     cat <<EOL>> gost.service
