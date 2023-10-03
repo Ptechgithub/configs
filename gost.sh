@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Access root
 root_access() {
     # Check if the script is running as root
     if [ "$EUID" -ne 0 ]; then
@@ -8,8 +9,8 @@ root_access() {
     fi
 }
 
+#Linux distribution
 detect_distribution() {
-    # Detect the Linux distribution
     local supported_distributions=("ubuntu" "debian" "centos" "fedora")
     
     if [ -f /etc/os-release ]; then
@@ -28,6 +29,7 @@ detect_distribution() {
     fi
 }
 
+#Check dependencies
 check_dependencies() {
     root_access
     detect_distribution
@@ -49,6 +51,7 @@ check_installed() {
     fi
 }
 
+#Install
 install() {
     check_installed
     check_dependencies
@@ -81,7 +84,7 @@ sudo systemctl start gost.service
 
 }
 
-
+#Uninstall 
 uninstall() {
     if ! command -v gost &> /dev/null
     then
