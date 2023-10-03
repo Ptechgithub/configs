@@ -51,14 +51,19 @@ check_installed() {
     fi
 }
 
-#Install
-install() {
+#Install gost
+install_gost() {
     check_installed
     check_dependencies
     wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz
     gunzip gost-linux-amd64-2.11.5.gz
     sudo mv gost-linux-amd64-2.11.5 /usr/local/bin/gost
     sudo chmod +x /usr/local/bin/gost
+    
+}
+
+#get inputs for 1
+questions1() {
     read -p "Enter foreign IP [External-ip] : " foreign_ip
     read -p "Enter Iran Port [Internal-port] :" port
     read -p "Enter Config Port [External-port] :" configport
@@ -83,6 +88,56 @@ EOL
     sudo systemctl daemon-reload
     sudo systemctl enable gost.service
     sudo systemctl start gost.service
+}
+
+#install
+install() {
+    install_gost
+    questions1
+}
+
+#get inputs for 2
+questions2() {
+    read -p "Which server do you want to use? (Enter '1' for Iran[Internal] or '2' for Foreign[External] ) : " server_choice
+    if [ "$server_choice" == "1" ]; then
+        read -p "Enter foreign IP [External-ip] : " foreign_ip
+        read -p "Please Enter your Config Port " config_port
+        read -p "Enter 'udp' for UDP connection (default is: tcp): " connection_type
+        argument = "-L $connection_type://:$config_port/127.0.0.1:$config_port -F relay+kcp://$foreign_ip:$port"
+        
+    elif [ "$server_choice" == "2" ]; then
+        read -p "Enter Port : " port
+        argument="-L relay+kcp://:$port"
+    else
+        echo "Invalid choice. Please enter '1' or '2'."
+        exit 1
+    fi
+}
+    cd /etc/systemd/system
+
+    cat <<EOL>> gost.service
+[Unit]
+Description=GO Simple Tunnel
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/gost $argument
+
+[Install]
+WantedBy=multi-user.target
+EOL
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable gost.service
+    sudo systemctl start gost.service
+}
+
+#install kcp
+install_kcp() {
+    install_gost
+    questions2
 }
 
 #Uninstall 
@@ -111,6 +166,9 @@ echo " --------#- Go simple Tunnel-#--------"
 echo "1) Install Gost"
 echo "2) Uninstall Gost"
 echo " ----------------------------"
+echo "3) Install Gost [relay + kcp]"
+echo "4) Uninstall Gost [relay + kcp]"
+echo " ----------------------------"
 echo "0) exit"
 read -p "Please choose: " choice
 
@@ -120,6 +178,12 @@ case $choice in
         install
         ;;
     2)
+        uninstall
+        ;;
+     3)
+        install_kcp
+        ;;
+    4)
         uninstall
         ;;
     0)
