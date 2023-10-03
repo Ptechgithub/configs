@@ -62,9 +62,10 @@ install() {
     read -p "Enter foreign IP [External-ip] : " foreign_ip
     read -p "Enter Iran Port [Internal-port] :" port
     read -p "Enter Config Port [External-port] :" configport
-    read -p "Enter 'tcp' or 'udp' for the connection type: " connection_type
+    read -p "Enter 'udp' for UDP connection (default is TCP): " connection_type
+    connection_type=${connection_type:-tcp}
     cd /etc/systemd/system
-    
+
     cat <<EOL>> gost.service
 [Unit]
 Description=GO Simple Tunnel
@@ -79,10 +80,9 @@ ExecStart=/usr/local/bin/gost -L=$connection_type://:$port/$foreign_ip:$configpo
 WantedBy=multi-user.target
 EOL
 
-sudo systemctl daemon-reload
-sudo systemctl enable gost.service
-sudo systemctl start gost.service
-
+    sudo systemctl daemon-reload
+    sudo systemctl enable gost.service
+    sudo systemctl start gost.service
 }
 
 #Uninstall 
