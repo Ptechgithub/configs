@@ -56,8 +56,9 @@ install() {
     gunzip gost-linux-amd64-2.11.5.gz
     sudo mv gost-linux-amd64-2.11.5 /usr/local/bin/gost
     sudo chmod +x /usr/local/bin/gost
-    read -p "Enter foreign IP[External-ip] : " foreign
-    read -p "Enter Port :" port
+    read -p "Enter foreign IP [External-ip] : " foreign
+    read -p "Enter Iran Port [Internal-port] :" port
+    read -p "Enter Config Port [External-port] :" configport
     cd /etc/systemd/system
     
     cat <<EOL>> gost.service
@@ -68,7 +69,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/gost -L=tcp://:$port/$foreign:$port
+ExecStart=/usr/local/bin/gost -L=tcp://:$port/$foreign:$configport
 
 [Install]
 WantedBy=multi-user.target
