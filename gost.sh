@@ -101,6 +101,7 @@ questions2() {
     read -p "Which server do you want to use? (Enter '1' for Iran[Internal] or '2' for Foreign[External] ) : " server_choice
     if [ "$server_choice" == "1" ]; then
         read -p "Enter foreign IP [External-ip] : " foreign_ip
+        read -p "Please Enter Port : " port
         read -p "Please Enter your Config Port : " config_port
         read -p "Enter 'udp' for UDP connection (default is: tcp): " connection_type
         connection_type=${connection_type:-tcp}
