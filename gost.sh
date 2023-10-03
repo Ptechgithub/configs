@@ -43,7 +43,7 @@ check_dependencies() {
 
 #Check installed service
 check_installed() {
-    if [ -f "/etc/systemd/system/tunnel.service" ]; then
+    if [ -f "/etc/systemd/system/gost.service" ]; then
         echo "The service is already installed."
         exit 1
     fi
@@ -81,6 +81,12 @@ sudo systemctl start gost.service
 
 
 uninstall() {
+    if ! command -v gost &> /dev/null
+    then
+        echo "Gost is not installed."
+        return
+    fi
+    
     sudo systemctl stop gost.service
     sudo systemctl disable gost.service
     sudo rm /etc/systemd/system/gost.service
