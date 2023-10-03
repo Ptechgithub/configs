@@ -103,6 +103,7 @@ questions2() {
         read -p "Enter foreign IP [External-ip] : " foreign_ip
         read -p "Please Enter your Config Port : " config_port
         read -p "Enter 'udp' for UDP connection (default is: tcp): " connection_type
+        connection_type=${connection_type:-tcp}
         argument = "-L $connection_type://:$config_port/127.0.0.1:$config_port -F relay+kcp://$foreign_ip:$port"
         
     elif [ "$server_choice" == "2" ]; then
