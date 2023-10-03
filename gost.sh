@@ -72,7 +72,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/gost -L tcp://:$port/$foreign_ip:$configport
+ExecStart=/usr/local/bin/gost -L=tcp://:$port/$foreign_ip:$configport
 
 [Install]
 WantedBy=multi-user.target
