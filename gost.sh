@@ -108,7 +108,7 @@ questions2() {
         argument="-L $connection_type://:$config_port/127.0.0.1:$config_port -F relay+kcp://$foreign_ip:$port"
         
     elif [ "$server_choice" == "2" ]; then
-        read -p "Enter Port : " port
+        read -p "Enter servers connection Port : " port
         argument="-L relay+kcp://:$port"
     else
         echo "Invalid choice. Please enter '1' or '2'."
