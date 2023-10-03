@@ -101,7 +101,7 @@ questions2() {
     read -p "Which server do you want to use? (Enter '1' for Iran[Internal] or '2' for Foreign[External] ) : " server_choice
     if [ "$server_choice" == "1" ]; then
         read -p "Enter foreign IP [External-ip] : " foreign_ip
-        read -p "Please Enter your Config Port " config_port
+        read -p "Please Enter your Config Port : " config_port
         read -p "Enter 'udp' for UDP connection (default is: tcp): " connection_type
         argument = "-L $connection_type://:$config_port/127.0.0.1:$config_port -F relay+kcp://$foreign_ip:$port"
         
