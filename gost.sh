@@ -142,6 +142,7 @@ install_kcp() {
     questions2
 }
 
+#get inputs for 3
 questions3() {
     read -p "Which server do you want to use? (Enter '1' for Iran[Internal] or '2' for Foreign[External] ) : " server_choice
     if [ "$server_choice" == "1" ]; then
@@ -185,8 +186,7 @@ EOL
 #install wss
 install_wss() {
     install_gost
-    questions3
-    
+    questions3 
 }
 
 #Uninstall 
@@ -216,7 +216,9 @@ echo "1) Install Gost [only Internal Server]"
 echo " ----------------------------"
 echo "2) Install Gost [relay + kcp]"
 echo " ----------------------------"
-echo "3) Uninstall Gost"
+echo "3) Install Gost [relay + wss]"
+echo " ----------------------------"
+echo "4) Uninstall Gost"
 echo " ----------------------------"
 echo "0) exit"
 read -p "Please choose: " choice
@@ -230,6 +232,9 @@ case $choice in
         install_kcp
         ;;
      3)
+        install_wss
+        ;;
+     4)
         uninstall
         ;;
     0)
