@@ -134,7 +134,7 @@ uninstall() {
 
 # Main menu
 clear
-echo "By --0> Peyman * Github.com/Ptechgithub * "
+echo "By --01> Peyman * Github.com/Ptechgithub * "
 echo ""
 echo " --------#- Wireguard-#--------"
 echo "1) Install"
