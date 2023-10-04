@@ -39,8 +39,6 @@ install_docker() {
         sudo sh get-docker.sh
         sudo systemctl start docker
         sudo systemctl enable docker
-    else
-        echo "Docker is installed."
     fi
 }
 
