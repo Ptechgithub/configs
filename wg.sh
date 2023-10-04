@@ -98,6 +98,9 @@ echo "The installation is finished"
 
 uninstall() {
     echo "Uninstalling..."
+    cd /docker/wireguard
+    docker-compose down
+    rm -rf wireguard
 }
 
 # Main menu
