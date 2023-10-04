@@ -170,6 +170,7 @@ echo " ----------------------------"
 echo "2) Install Gost [relay + kcp]"
 echo " ----------------------------"
 echo "3) Uninstall Gost"
+echo " ----------------------------"
 echo "0) exit"
 read -p "Please choose: " choice
 
