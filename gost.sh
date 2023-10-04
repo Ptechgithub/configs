@@ -79,7 +79,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/gost -L=$connection_type://:$port/$foreign_ip:$configport
+ExecStart=/usr/local/bin/gost -L $connection_type://:$port/$foreign_ip:$configport
 
 [Install]
 WantedBy=multi-user.target
@@ -140,6 +140,52 @@ EOL
 install_kcp() {
     install_gost
     questions2
+}
+
+questions3() {
+    read -p "Which server do you want to use? (Enter '1' for Iran[Internal] or '2' for Foreign[External] ) : " server_choice
+    if [ "$server_choice" == "1" ]; then
+        read -p "Enter foreign IP [External-ip] : " foreign_ip
+        read -p "Please Enter servers connection Port : " port
+        read -p "Please Enter your Config Port : " config_port
+        read -p "Enter 'udp' for UDP connection (default is: tcp): " connection_type
+        connection_type=${connection_type:-tcp}
+        argument="-L tcp://:443  -F relay+wss://kharej-ip:4444"
+        
+    elif [ "$server_choice" == "2" ]; then
+        read -p "Enter servers connection Port : " port
+        argument="-L relay+wss://:4444/:443"
+    else
+        echo "Invalid choice. Please enter '1' or '2'."
+        exit 1
+    fi
+
+    cd /etc/systemd/system
+
+    cat <<EOL>> gost.service
+[Unit]
+Description=GO Simple Tunnel
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/gost $argument
+
+[Install]
+WantedBy=multi-user.target
+EOL
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable gost.service
+    sudo systemctl start gost.service
+}
+
+#install wss
+install_wss() {
+    install_gost
+    questions3
+    
 }
 
 #Uninstall 
