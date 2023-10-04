@@ -163,8 +163,8 @@ uninstall() {
 # Main menu 
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
-echo ""
 echo " --------#- Go simple Tunnel-#--------"
+echo ""
 echo "1) Install Gost [only Internal Server]"
 echo " ----------------------------"
 echo "2) Install Gost [relay + kcp]"
