@@ -119,14 +119,11 @@ uninstall() {
         
         echo "Removing the container..."
         docker rm "$container_id"
-        echo "Container removed successfully."
+        rm -rf /docker/wireguard
+        echo "Uninstall completed."
     else
         echo "Not Installed."
     fi
-    
-    rm -rf /docker/wireguard
-    
-    echo "Uninstall completed."
 }
 
 # Main menu
