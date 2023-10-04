@@ -7,7 +7,7 @@ detect_distribution() {
     if [ -f /etc/os-release ]; then
         source /etc/os-release
         if [[ "${ID}" = "ubuntu" || "${ID}" = "debian" || "${ID}" = "centos" || "${ID}" = "fedora" ]]; then
-            PM="apt-get"
+            PM="apt"
             [ "${ID}" = "centos" ] && PM="yum"
             [ "${ID}" = "fedora" ] && PM="dnf"
         else
