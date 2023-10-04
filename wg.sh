@@ -52,9 +52,9 @@ install() {
     cd docker/wireguard
 
     read -p "Enter server IP: " IP
-    read -p "Enter Tcp Port (Panel): " Tcp_Port
+    read -p "Enter Tcp Port (default is : 51821): " Tcp_Port
     Tcp_Port=${Tcp_Port:-51821}
-    read -p "Enter Udp Port: " Udp_Port
+    read -p "Enter Udp Port (default is : 51820): " Udp_Port
     Udp_Port=${Udp_Port:-51820}
     read -p "Enter Password: " PASSWORD
     read -p "Enter DNS (default is : 1.1.1.1) : " DNS
