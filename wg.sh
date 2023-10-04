@@ -114,7 +114,7 @@ uninstall() {
         
         echo "Removing the container..."
         docker rm "$container_id"
-        rm -rf /docker/wireguard
+        rm -rf docker/wireguard
         echo "Uninstall completed."
     else
         echo "Wireguard is not Installed."
