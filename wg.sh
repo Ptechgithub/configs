@@ -22,7 +22,7 @@ detect_distribution() {
 
 check_dependencies() {
     detect_distribution
-    local dependencies=("docker-compose" "curl")
+    local dependencies=("curl")
     for dep in "${dependencies[@]}"; do
         if ! command -v "${dep}" &> /dev/null; then
             echo "${dep} is not installed. Installing..."
@@ -33,7 +33,6 @@ check_dependencies() {
 }
 
 install_docker() {
-    # Check if Docker is installed
     if ! command -v docker &> /dev/null; then
         echo "Docker is not installed. Installing..."
         curl -fsSL https://get.docker.com -o get-docker.sh
@@ -45,9 +44,20 @@ install_docker() {
     fi
 }
 
+install_docker_compose() {
+    if ! command -v docker-compose &> /dev/null; then
+        echo "Docker Compose is not installed. Installing..."
+        sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+    else
+        echo "Docker Compose is installed."
+    fi
+}
+
 install() {
     check_dependencies
     install_docker
+    install_docker_compose
     mkdir -p docker/wireguard
     cd docker/wireguard
 
@@ -66,7 +76,7 @@ services:
    environment:
      - WG_HOST=$IP
      - PASSWORD=$PASSWORD
-     - WG_PORT=$Udp_Port
+     - WG_PORT=51822
      - WG_DEFAULT_ADDRESS=10.8.0.x
      - WG_DEFAULT_DNS=$DNS
      - WG_MTU=1420
@@ -83,6 +93,7 @@ services:
    ports:
      - "$Udp_Port:51820/udp"
      - "$Tcp_Port:51821/tcp"
+     - "51822:51822/tcp"
    restart: always
    cap_add:
      - NET_ADMIN
