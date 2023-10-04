@@ -120,7 +120,7 @@ uninstall() {
         rm -rf /docker/wireguard
         echo "Uninstall completed."
     else
-        echo "Not Installed."
+        echo "Wireguard not Installed."
     fi
 }
 
