@@ -165,12 +165,11 @@ clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo ""
 echo " --------#- Go simple Tunnel-#--------"
-echo "1) Install Gost"
-echo "2) Uninstall Gost"
+echo "1) Install Gost [only Internal Server]"
 echo " ----------------------------"
-echo "3) Install Gost [relay + kcp]"
-echo "4) Uninstall Gost [relay + kcp]"
+echo "2) Install Gost [relay + kcp]"
 echo " ----------------------------"
+echo "3) Uninstall Gost"
 echo "0) exit"
 read -p "Please choose: " choice
 
@@ -180,12 +179,9 @@ case $choice in
         install
         ;;
     2)
-        uninstall
-        ;;
-     3)
         install_kcp
         ;;
-    4)
+     3)
         uninstall
         ;;
     0)
