@@ -76,7 +76,7 @@ questions1() {
         read -p "Please enter additional config port(s) separated by commas (e.g., 2087,2095): " additional_config_ports
         IFS=',' read -r -a ports_array <<< "$additional_config_ports"
         for new_port in "${ports_array[@]}"; do
-            argument="-L $connection_type://:$new_port/127.0.0.1:$new_port $argument"
+            argument="-L $connection_type://:$port/$foreign_ip:$configport $argument"
         done
         read -p "Do you want to add more ports? (yes/no): " add_more_ports
     done
