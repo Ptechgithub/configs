@@ -135,7 +135,7 @@ echo "1) Install"
 echo "2) Uninstall"
 echo "0) Exit"
 read -p "Enter your choice: " choice
-# Main menu
+
 case $choice in
     1)
         install
