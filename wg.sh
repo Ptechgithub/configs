@@ -124,7 +124,7 @@ uninstall() {
         echo "No container found with image 'weejewel/wg-easy'."
     fi
     
-    cd /docker/wireguard
+    cd docker/wireguard
     docker-compose down
     cd /docker
     rm -rf wireguard
