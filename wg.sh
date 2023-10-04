@@ -35,7 +35,6 @@ check_dependencies() {
 install_docker() {
     # Check if Docker is installed
     if ! command -v docker &> /dev/null; then
-        echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
         echo "Docker is not installed. Installing..."
         curl -fsSL https://get.docker.com -o get-docker.sh
         sudo sh get-docker.sh
