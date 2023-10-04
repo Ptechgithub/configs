@@ -115,6 +115,7 @@ uninstall() {
     
     cd /docker/wireguard
     docker-compose down
+    cd /docker
     rm -rf wireguard
     
     echo "Uninstall completed."
