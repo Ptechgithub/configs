@@ -98,9 +98,26 @@ echo "The installation is finished"
 
 uninstall() {
     echo "Uninstalling..."
+    
+    container_id=$(docker ps -qf "ancestor=weejewel/wg-easy")
+    
+    if [ -n "$container_id" ]; then
+        echo "Stopping the container..."
+        docker stop "$container_id"
+        echo "Container stopped successfully."
+        
+        echo "Removing the container..."
+        docker rm "$container_id"
+        echo "Container removed successfully."
+    else
+        echo "No container found with image 'weejewel/wg-easy'."
+    fi
+    
     cd /docker/wireguard
     docker-compose down
     rm -rf wireguard
+    
+    echo "Uninstall completed."
 }
 
 # Main menu
