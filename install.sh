@@ -69,6 +69,18 @@ questions1() {
     read -p "Enter Config Port [External-port] :" configport
     read -p "Enter 'udp' for UDP connection (default is: tcp): " connection_type
     connection_type=${connection_type:-tcp}
+    argument="-L $connection_type://:$port/$foreign_ip:$configport"
+    
+    read -p "Do you want to add more ports? (yes/no): " add_more_ports
+    while [ "$add_more_ports" == "yes" ]; do
+        read -p "Please enter additional config port(s) separated by commas (e.g., 2087,2095): " additional_config_ports
+        IFS=',' read -r -a ports_array <<< "$additional_config_ports"
+        for new_port in "${ports_array[@]}"; do
+            argument="-L $connection_type://:$new_port/127.0.0.1:$new_port $argument"
+        done
+        read -p "Do you want to add more ports? (yes/no): " add_more_ports
+    done
+        
     cd /etc/systemd/system
 
     cat <<EOL>> gost.service
@@ -79,7 +91,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/gost -L $connection_type://:$port/$foreign_ip:$configport
+ExecStart=/usr/local/bin/gost $argument
 
 [Install]
 WantedBy=multi-user.target
@@ -107,6 +119,16 @@ questions2() {
         connection_type=${connection_type:-tcp}
         argument="-L $connection_type://:$config_port/127.0.0.1:$config_port -F relay+kcp://$foreign_ip:$port"
         
+        read -p "Do you want to add more ports? (yes/no): " add_more_ports
+        while [ "$add_more_ports" == "yes" ]; do
+            read -p "Please enter additional config port(s) separated by commas (e.g., 2087,2095): " additional_config_ports
+            IFS=',' read -r -a ports_array <<< "$additional_config_ports"
+            for new_port in "${ports_array[@]}"; do
+                argument="-L $connection_type://:$new_port/127.0.0.1:$new_port $argument"
+            done
+            read -p "Do you want to add more ports? (yes/no): " add_more_ports
+        done
+
     elif [ "$server_choice" == "2" ]; then
         read -p "Enter servers connection Port : " port
         argument="-L relay+kcp://:$port"
@@ -153,6 +175,16 @@ questions3() {
         connection_type=${connection_type:-tcp}
         argument="-L $connection_type://:$config_port/127.0.0.1:$config_port -F relay+wss://$foreign_ip:$port"
         
+        read -p "Do you want to add more ports? (yes/no): " add_more_ports
+        while [ "$add_more_ports" == "yes" ]; do
+            read -p "Please enter additional config port(s) separated by commas (e.g., 2087,2095): " additional_config_ports
+            IFS=',' read -r -a ports_array <<< "$additional_config_ports"
+            for new_port in "${ports_array[@]}"; do
+                argument="-L $connection_type://:$new_port/127.0.0.1:$new_port $argument"
+            done
+            read -p "Do you want to add more ports? (yes/no): " add_more_ports
+        done
+
     elif [ "$server_choice" == "2" ]; then
         read -p "Enter servers connection Port : " port
         argument="-L relay+wss://:$port"
@@ -199,6 +231,16 @@ questions4() {
         connection_type=${connection_type:-tcp}
         argument="-L $connection_type://:$config_port/127.0.0.1:$config_port -F relay+tls://$foreign_ip:$port"
         
+        read -p "Do you want to add more ports? (yes/no): " add_more_ports
+        while [ "$add_more_ports" == "yes" ]; do
+            read -p "Please enter additional config port(s) separated by commas (e.g., 2087,2095): " additional_config_ports
+            IFS=',' read -r -a ports_array <<< "$additional_config_ports"
+            for new_port in "${ports_array[@]}"; do
+                argument="-L $connection_type://:$new_port/127.0.0.1:$new_port $argument"
+            done
+            read -p "Do you want to add more ports? (yes/no): " add_more_ports
+        done
+
     elif [ "$server_choice" == "2" ]; then
         read -p "Enter servers connection Port : " port
         argument="-L relay+tls://:$port"
