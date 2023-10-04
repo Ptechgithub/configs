@@ -121,7 +121,7 @@ uninstall() {
         docker rm "$container_id"
         echo "Container removed successfully."
     else
-        echo "No container found with image 'weejewel/wg-easy'."
+        echo "Not Installed."
     fi
     
     rm -rf /docker/wireguard
