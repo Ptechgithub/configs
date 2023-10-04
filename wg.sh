@@ -108,8 +108,6 @@ echo "The installation is finished"
 }
 
 uninstall() {
-    echo "Uninstalling..."
-    
     container_id=$(docker ps -qf "ancestor=weejewel/wg-easy")
     
     if [ -n "$container_id" ]; then
