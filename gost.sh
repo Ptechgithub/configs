@@ -150,11 +150,12 @@ questions3() {
         read -p "Please Enter your Config Port : " config_port
         read -p "Enter 'udp' for UDP connection (default is: tcp): " connection_type
         connection_type=${connection_type:-tcp}
-        argument="-L tcp://:443  -F relay+wss://kharej-ip:4444"
+        argument="-L $connection_type://:$config_port  -F relay+wss://$foreign_ip:$port"
         
     elif [ "$server_choice" == "2" ]; then
+        read -p "Please Enter your Config Port : " config_port
         read -p "Enter servers connection Port : " port
-        argument="-L relay+wss://:4444/:443"
+        argument="-L relay+wss://:$port/:$config_port"
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
