@@ -91,11 +91,13 @@ services:
      - net.ipv4.ip_forward=1
      - net.ipv4.conf.all.src_valid_mark=1
 EOL
+
+docker-compose up -d
+echo "The installation is finished"
 }
 
 uninstall() {
     echo "Uninstalling..."
-    # Add uninstallation steps here
 }
 
 # Main menu
