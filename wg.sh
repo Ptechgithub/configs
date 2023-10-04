@@ -124,14 +124,11 @@ uninstall() {
         echo "No container found with image 'weejewel/wg-easy'."
     fi
     
-    cd docker/wireguard
-    docker-compose down
-    cd docker
-    rm -rf wireguard
+    rm -rf /docker/wireguard
     
     echo "Uninstall completed."
 }
-# Main menu
+
 # Main menu
 clear
 echo "By --01> Peyman * Github.com/Ptechgithub * "
