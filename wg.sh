@@ -65,6 +65,7 @@ install() {
     read -p "Enter Password: " PASSWORD
     read -p "Enter DNS (default is : 1.1.1.1) : " DNS
     DNS=${DNS:-1.1.1.1}
+    
     cat <<EOL > docker-compose.yml
 version: "3.8"
 services:
@@ -116,7 +117,7 @@ uninstall() {
         rm -rf /docker/wireguard
         echo "Uninstall completed."
     else
-        echo "Wireguard not Installed."
+        echo "Wireguard is not Installed."
     fi
 }
 
