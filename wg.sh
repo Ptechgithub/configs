@@ -66,7 +66,7 @@ services:
    environment:
      - WG_HOST=$IP
      - PASSWORD=$PASSWORD
-     - WG_PORT=$Tcp_Port
+     - WG_PORT=$Udp_Port
      - WG_DEFAULT_ADDRESS=10.8.0.x
      - WG_DEFAULT_DNS=$DNS
      - WG_MTU=1420
