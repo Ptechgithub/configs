@@ -65,6 +65,8 @@ install() {
     read -p "Enter Password: " PASSWORD
     read -p "Enter DNS (default is : 1.1.1.1) : " DNS
     DNS=${DNS:-1.1.1.1}
+    read -p "Enter MTU (default is : 1420) : " MTU
+    MTU=${MTU:-1420}
     
     cat <<EOL > docker-compose.yml
 version: "3.8"
