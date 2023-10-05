@@ -78,7 +78,7 @@ services:
      - WG_PORT=$Udp_Port
      - WG_DEFAULT_ADDRESS=10.8.0.x
      - WG_DEFAULT_DNS=$DNS
-     - WG_MTU=1420
+     - WG_MTU=$MTU
      # - WG_ALLOWED_IPS=192.168.15.0/24, 10.0.1.0/24
      # - WG_PRE_UP=echo "Pre Up" > /etc/wireguard/pre-up.txt
      # - WG_POST_UP=echo "Post Up" > /etc/wireguard/post-up.txt
