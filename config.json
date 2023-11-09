@@ -10,6 +10,7 @@
       "port": 18881,  //自行修改
       "protocol": "vless",
       "settings": {
+        "decryption": "none", // Add this line
         "users": [
           "debb3ab1-6ff6-402d-ae44-047fb1f2e88d" //自行修改
         ]
