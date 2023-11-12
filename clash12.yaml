@@ -40,7 +40,7 @@ proxies:
 - name: vless-reality-vision node               #Customizable name
   type: vless
   server: for.forcedparadise.space                             #The resolved domain name or IP
-  port: 2087                                 #custom port
+  port: 101                                 #custom port
   uuid: bbab7aaf-f77c-480c-be00-276c35eeedd3   #custom uuid
   network: tcp
   udp: true
@@ -56,7 +56,7 @@ proxies:
 - name: vless-reality-grpc node                  #Customizable name
   type: vless
   server: for.forcedparadise.space                              #The resolved domain name or IP
-  port: 2096                                   #custom port
+  port: 102                                   #custom port
   uuid: 86934f59-255a-47f0-a495-38b4a7dc8a6c    #custom uuid
   network: grpc
   tls: true
@@ -74,7 +74,7 @@ proxies:
 - name: vless-ws-tls node                           #Customizable name
   type: vless
   server: 104.31.16.60                          #resolved domain name or preferred domain name IP
-  port: 2053                                      #custom port
+  port: 2083                                      #custom port
   uuid: 94ad16a0-1783-4b76-b04b-ac895c862c3d       #custom uuid
   udp: true
   tls: true
@@ -89,7 +89,7 @@ proxies:
 - name: vless-ws node                               #Customizable name
   type: vless
   server: for.forcedparadise.space                        #resolved domain name or preferred domain name IP
-  port: 5                                       #custom port
+  port: 103                                       #custom port
   uuid: fc05dc52-2be7-4667-92dd-8b536535395c       #custom uuid
   udp: true
   tls: false
@@ -121,7 +121,7 @@ proxies:
 - name: vmess-ws node                               #Customizable name
   type: vmess
   server: for.forcedparadise.space                         #resolved domain name or preferred domain name IP
-  port: 6                                       #custom port
+  port: 104                                       #custom port
   uuid: f3aa6a3f-dfef-3a92-8a0b-a3229625dc23       #custom uuid
   alterId: 0
   cipher: auto
@@ -152,13 +152,13 @@ proxies:
 - name: hysteria certificate node                            #Customizable name
   type: hysteria
   server: for.forcedparadise.space                         #resolved domain name
-  port: 12345                                      #Custom port, change multiple ports to ports: space 1000,2000-3000
+  port: 105                                      #Custom port, change multiple ports to ports: space 1000,2000-3000
   auth-str: 126456                                 #custom password
   alpn:
     - h3
   protocol: udp                                    #Custom protocol: udp/wechat-video/faketcp
-  up: 20                                           #Custom upload limit
-  down: 100                                        #Custom Download Limits
+  up: 50                                           #Custom upload limit
+  down: 200                                        #Custom Download Limits
   sni: for.forcedparadise.space                            #sni domain name, consistent with the above server address  
   skip-cert-verify: false
   fast-open: true
@@ -167,7 +167,7 @@ proxies:
 - name: hysteria self signed node                           #Customizable name
   type: hysteria
   server: 91.107.23.17                                  #Server local IP
-  port: 100                                      #Custom port
+  port: 106                                      #Custom port
   auth-str: 12345                                #custom password
   alpn:
     - h3
@@ -181,7 +181,7 @@ proxies:
 #==============10================（tuic-V5 node）
 - name: tuic-V5 node                              #Customizable name
   server: tuic.forcedparadise.space                        #The resolved domain name or IP
-  port: 200                                    #custom port
+  port: 107                                    #custom port
   type: tuic
   uuid: d0c12467-506f-49b2-8481-93afc89cfe0f       #custom uuid
   password: 12345   #custom password
@@ -194,7 +194,7 @@ proxies:
 #==============11================（tuic-V5 node IP V6）
 - name: tuic-V5 node V6                             #Customizable name
   server: 2a01:4f8:1c1b:c14::1                        #The resolved domain name or IPV6
-  port: 206                                    #custom port
+  port: 108                                    #custom port
   type: tuic
   uuid: d0c22467-516f-42b2-8781-93afc89cfe0f       #custom uuid
   password: 12345   #custom password
