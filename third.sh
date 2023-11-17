@@ -1,7 +1,7 @@
 #!/bin/bash
 
 check_dependencies() {
-    local dependencies=("wget" "curl" "golang" "openssl-tool -y")
+    local dependencies=("wget" "curl" "golang" "openssl")
     
     for dep in "${dependencies[@]}"; do
         if ! command -v "${dep}" &> /dev/null; then
