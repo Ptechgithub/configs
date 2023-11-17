@@ -12,9 +12,9 @@ check_dependencies() {
 }
 
 install() {
-    check_dependencies
-    # Step 1: Download and extract Bale
+
     pkg update -y
+    check_dependencies
     mkdir bale
     wget https://github.com/iSegaro/Bale/raw/main/bale.zip
     unzip bale.zip
