@@ -40,6 +40,7 @@ install() {
     sed -i "s/<ip>:<port>/$new_ip:$new_port/g" main.go
 
     echo "main.go has been updated with the new IP and port."
+    go run main.go
 }
 
 main_menu() {
