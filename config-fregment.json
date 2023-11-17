@@ -39,9 +39,9 @@
             "settings": {
                 "domainStrategy": "AsIs",
                 "fragment": {
-                    "packets": "1-3",
-                    "length": "1-3",
-                    "interval": "10-20" // ms
+                    "packets": "1-5",
+                    "length": "1-5",
+                    "interval": "20-30" // ms
                 }
             }
         },
