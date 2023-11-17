@@ -26,6 +26,7 @@ install() {
     cd -
 
     # Step 3: Get user input for IP and port
+    clear
     read -p "Enter the new IP: " new_ip
     read -p "Enter the new port: " new_port
 
