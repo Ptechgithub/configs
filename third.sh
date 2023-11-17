@@ -5,6 +5,7 @@ install() {
     apt update -y
     pkg install wget -y
     apt install golang -y
+    pkg install openssl-tool
     mkdir bale
     wget https://github.com/iSegaro/Bale/raw/main/bale.zip
     unzip bale.zip
