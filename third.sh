@@ -14,7 +14,7 @@ check_dependencies() {
 install() {
     check_dependencies
     # Step 1: Download and extract Bale
-    apt update -y
+    pkg update -y
     mkdir bale
     wget https://github.com/iSegaro/Bale/raw/main/bale.zip
     unzip bale.zip
@@ -27,8 +27,8 @@ install() {
 
     # Step 3: Get user input for IP and port
     clear
-    read -p "Please Enter Your IP : " new_ip
-    read -p "Please Enter Your Config Port: " new_port
+    read -p "Enter the new IP: " new_ip
+    read -p "Enter the new port: " new_port
 
     # Step 4: Check if the inputs are not empty
     if [ -z "$new_ip" ] || [ -z "$new_port" ]; then
