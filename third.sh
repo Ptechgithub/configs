@@ -44,12 +44,17 @@ install() {
     go run main.go
 }
 
+run() {
+    go run main.go
+}
+
 main_menu() {
     clear
     echo "By --> Peyman * Github.com/Ptechgithub * "
     echo "& https://github.com/iSegaro "
     echo "--------‐----------------------------"
     echo "1) Install"
+    echo "2) Run again"
     echo "0) Exit"
     read -p "Please choose: " choice
 
@@ -57,12 +62,15 @@ main_menu() {
         1)
             install
             ;;
+        2)
+            run
+            ;;
         0)
             echo "Exiting..."
             exit 0
             ;;
         *)
-            echo "Invalid choice. Please enter a number between 0 and 1."
+            echo "Invalid choice. try again.."
             ;;
     esac
 }
