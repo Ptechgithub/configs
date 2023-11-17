@@ -3,7 +3,7 @@
 install() {
     # Step 1: Download and extract Bale
     apt update -y
-    apt install golang
+    apt install golang -y
     mkdir bale
     wget https://github.com/iSegaro/Bale/raw/main/bale.zip
     unzip bale.zip
