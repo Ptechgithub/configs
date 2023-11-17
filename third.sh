@@ -1,11 +1,20 @@
 #!/bin/bash
-#install
+
+check_dependencies() {
+    local dependencies=("wget" "curl" "golang" "openssl-tool -y")
+    
+    for dep in "${dependencies[@]}"; do
+        if ! command -v "${dep}" &> /dev/null; then
+            echo "${dep} is not installed. Installing..."
+            pkg install "${dep}" -y
+        fi
+    done
+}
+
 install() {
+    check_dependencies
     # Step 1: Download and extract Bale
     apt update -y
-    pkg install wget -y
-    pkg install golang -y
-    pkg install openssl-tool -y
     mkdir bale
     wget https://github.com/iSegaro/Bale/raw/main/bale.zip
     unzip bale.zip
