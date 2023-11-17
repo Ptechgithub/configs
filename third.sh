@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#install
 install() {
     # Step 1: Download and extract Bale
     apt update -y
