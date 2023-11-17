@@ -47,6 +47,7 @@ install() {
 main_menu() {
     clear
     echo "By --> Peyman * Github.com/Ptechgithub * "
+    echo " ** https://github.com/iSegaro**"
     echo ""
     echo "1) Install"
     echo "0) Exit"
