@@ -52,7 +52,6 @@ check_dependencies() {
 ip=$(hostname -I | awk '{print $1}')
 
 inst_cert(){
-    clear
     check_dependencies
 
     green "Methods of applying certificate ："
