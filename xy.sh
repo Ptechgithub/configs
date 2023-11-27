@@ -93,7 +93,7 @@ install() {
 #menu
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
-echo "-*-* Bypass Filtering -- Xray Fragment*-*-"
+echo "  Bypass Filtering -- Xray Fragment  "
 echo "Select an option:"
 echo ""
 echo "1) Install"
