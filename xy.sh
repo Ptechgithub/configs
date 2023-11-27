@@ -80,7 +80,6 @@ EOL
 }
 
 install() {
-    clear
     download-xray
     config
     uuid=$(./xray uuid)
@@ -91,4 +90,24 @@ install() {
     echo "vmess://$encoded_vmess" > "/xray/vmess.txt"
 }
 
-install
+#menu
+clear
+echo "By --> Peyman * Github.com/Ptechgithub * "
+echo "-*-* Termux Xray Fragment*-*-"
+echo "Select an option:"
+echo ""
+echo "1) Install"
+echo "0) Exit"
+read -p "Enter your choice: " choice
+
+case "$choice" in
+   1)
+        install
+        ;;
+    0)   
+        exit
+        ;;
+    *)
+        echo "Invalid choice. Please select a valid option."
+        ;;
+esac
