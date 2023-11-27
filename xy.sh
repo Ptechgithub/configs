@@ -17,7 +17,7 @@ download-xray() {
     mkdir xray && cd xray
     wget https://github.com/XTLS/Xray-core/releases/download/v1.8.4/Xray-android-arm64-v8a.zip
     unzip Xray-android-arm64-v8a.zip
-    rm Xray-android-arm64-v8a.zip
+    rm -r !("xray")
     chmod +x xray
 }
 
@@ -83,7 +83,7 @@ install() {
     clear
     download-xray
     config
-    uuid=$(xray uuid)
+    uuid=$(./xray uuid)
     read -p "Enter a Port between [1024 - 65535]: " port
     vmess='{"add":"127.0.0.1","aid":"0","alpn":"","fp":"","host":"","id":"$uuid","net":"ws","path":"","port":"$port","ps":"Peyman YouTube X","scy":"auto","sni":"","tls":"","type":"","v":"2"}'
     encoded_vmess=$(echo -n "$vmess" | base64 -w 0)
