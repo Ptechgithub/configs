@@ -41,7 +41,7 @@
                 "fragment": {
                     "packets": "tlshello",
                     "length": "100-200",
-                    "interval": "10-20" // ms
+                    "interval": "10-20"
                 }
             }
         },
