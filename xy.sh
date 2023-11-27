@@ -90,7 +90,7 @@ install() {
     echo "--------------------------------------"
     echo "vmess://$encoded_vmess"
     echo "--------------------------------------"
-    echo "vmess://$encoded_vmess" > "/xy-fragment/vmess.txt"
+    echo "vmess://$encoded_vmess" > "xy-fragment/vmess.txt"
 }
 
 uninstall() {
