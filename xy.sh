@@ -123,6 +123,7 @@ uninstall() {
 #run
 run() {
     clear
+    cd ~
 	xray_directory="xy-fragment"
 	config_file="config.json"
 	xray_executable="xray"
