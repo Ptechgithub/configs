@@ -16,7 +16,7 @@ check_dependencies() {
     for dep in "${dependencies[@]}"; do
         if ! dpkg -s "${dep}" &> /dev/null; then
             echo "${dep} is not installed. Installing..."
-            apt install "${dep}" -y
+            pkg install "${dep}" -y
         fi
     done
 }
