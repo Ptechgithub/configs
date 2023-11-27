@@ -99,6 +99,7 @@ EOL
 #Install
 install() {
     download-xray
+    clear
     uuid=$(~/xy-fragment/xray uuid)
     read -p "Enter a Port between [1024 - 65535]: " port
     config
