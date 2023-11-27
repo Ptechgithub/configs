@@ -151,21 +151,31 @@ install() {
     clear
     uuid=$(~/xy-fragment/xray uuid)
     read -p "Enter a Port between [1024 - 65535]: " port
-    read -p "Which Config do you need? [vless/vmess] . default: vmess" config
+    read -p "Which Config do you need? [vless/vmess]. Default: vmess " config
+    config=${config:-"vmess"}
+    
     if [ "$config" == "vless" ]; then
         config-vless
+        echo -e "${blue}--------------------------------------${rest}"
+        echo -e "${yellow}vless://$uuid@127.0.0.1:$port/?type=tcp&encryption=none#Peyman%20YouTube%20%26%20X${rest}"
+        echo -e "${blue}--------------------------------------${rest}"
+        echo -e "${green}Copy the config and go back to the main Menu${rest}"
+        echo -e "${green}and select Run VPN [ Exclude Termux in Your Client [Nekobox] ${rest}"
+        
     else
         config-vmess
+        vmess="{\"add\":\"127.0.0.1\",\"aid\":\"0\",\"alpn\":\"\",\"fp\":\"\",\"host\":\"\",\"id\":\"$uuid\",\"net\":\"ws\",\"path\":\"\",\"port\":\"$port\",\"ps\":\"Peyman YouTube & X\",\"scy\":\"auto\",\"sni\":\"\",\"tls\":\"\",\"type\":\"\",\"v\":\"2\"}"
+        encoded_vmess=$(echo -n "$vmess" | base64 -w 0)
+        
+        echo -e "${blue}--------------------------------------${rest}"
+        echo -e "${yellow}vmess://$encoded_vmess${rest}"
+        echo -e "${blue}--------------------------------------${rest}"
+        echo ""
+        echo -e "${green}Copy the config and go back to the main Menu${rest}"
+        echo -e "${green}and select Run VPN [ Exclude Termux in Your Client [Nekobox] ${rest}"
+        
+        echo "vmess://$encoded_vmess" > ~/xy-fragment/vmess.txt
     fi
-    vmess="{\"add\":\"127.0.0.1\",\"aid\":\"0\",\"alpn\":\"\",\"fp\":\"\",\"host\":\"\",\"id\":\"$uuid\",\"net\":\"ws\",\"path\":\"\",\"port\":\"$port\",\"ps\":\"Peyman YouTube & X\",\"scy\":\"auto\",\"sni\":\"\",\"tls\":\"\",\"type\":\"\",\"v\":\"2\"}"
-    encoded_vmess=$(echo -n "$vmess" | base64 -w 0)
-    echo -e "${blue}--------------------------------------${rest}"
-    echo -e "${yellow}vmess://$encoded_vmess${rest}"
-    echo -e "${blue}--------------------------------------${rest}"
-    echo ""
-    echo -e "${green}Copy the config and go back to the main Menu${rest}"
-    echo -e "${green}and select Run VPN [ Exclude Termux in Your Client [Nekobox] ${rest}"
-    echo "vmess://$encoded_vmess" > ~/xy-fragment/vmess.txt
 }
 
 #Uninstall
