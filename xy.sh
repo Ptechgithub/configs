@@ -102,6 +102,7 @@ uninstall() {
     fi
 }
 
+#run
 run() {
     clear
     echo "Starting..."
