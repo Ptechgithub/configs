@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#colors 
+#colors
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
@@ -139,7 +139,7 @@ run() {
 	    echo "Starting..."
 	    cd "$xray_directory" && ./xray run "$config_file"
 	else
-	    echo "Error: The file '$config_file' or '$xray_executable' doesn't exist in the directory: '$xray_directory'."
+	    echo -e "${red}Error: The file '$config_file' or '$xray_executable' doesn't exist in the directory: '$xray_directory'.${rest}"
 	fi
 }
 
