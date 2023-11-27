@@ -131,7 +131,7 @@ run() {
 
 #menu
 clear
-echo "By --> Peyman * Github.com/Ptechgithub * "
+echo -e "${green}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
 echo -e "${cyan}Bypass Filtering -- Xray Fragment  ${rest}"
 echo -e "${yellow}Select an option:${rest}"
