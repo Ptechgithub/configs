@@ -23,8 +23,8 @@ check_dependencies() {
 
 #Download Xray Core
 download-xray() {
-    pkg update -y
     if [ ! -f "xy-fragment/xray" ]; then
+    pkg update -y
         check_dependencies
         mkdir xy-fragment && cd xy-fragment
         wget https://github.com/XTLS/Xray-core/releases/download/v1.8.4/Xray-android-arm64-v8a.zip
