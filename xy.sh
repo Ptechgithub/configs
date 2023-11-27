@@ -103,6 +103,8 @@ uninstall() {
 }
 
 run() {
+    clear
+    echo "Starting..."
     cd ~ && cd xy-fragment
     ./xray run config.json
 }
