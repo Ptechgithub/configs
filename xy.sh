@@ -103,7 +103,7 @@ uninstall() {
 }
 
 run() {
-    ./xray run -c /data/data/com.termux/files/home/xy-fragment/config.json
+    ./xray run /data/data/com.termux/files/home/xy-fragment/config.json
 }
 
 
