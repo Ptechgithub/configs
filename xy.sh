@@ -114,7 +114,7 @@ uninstall() {
     directory="/data/data/com.termux/files/home/xy-fragment"
     if [ -d "$directory" ]; then
         rm -r "$directory"
-        echo "Uninstallation completed."
+        echo -e "${red}Uninstallation completed.${rest}"
     else
         echo "Please Install First."
     fi
