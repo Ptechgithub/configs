@@ -33,7 +33,7 @@ download-xray() {
         chmod +x xray
         echo "Xray installed successfully."
     else
-        echo "Xray is already installed in xy-fragment directory."
+        echo "Xray is already installed."
     fi
 }
 
