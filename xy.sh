@@ -103,8 +103,6 @@ install() {
     sleep 1
     clear
     read -p "Enter a Port between [1024 - 65535]: " port
-    [ -f ~/xy-fragment/vmess.txt ] && rm ~/xy-fragment/vmess.txt
-    [ -f ~/xy-fragment/vmess.txt ] && rm ~/xy-fragment/config.json
     config
     vmess="{\"add\":\"127.0.0.1\",\"aid\":\"0\",\"alpn\":\"\",\"fp\":\"\",\"host\":\"\",\"id\":\"$uuid\",\"net\":\"ws\",\"path\":\"\",\"port\":\"$port\",\"ps\":\"Peyman YouTube & X\",\"scy\":\"auto\",\"sni\":\"\",\"tls\":\"\",\"type\":\"\",\"v\":\"2\"}"
     encoded_vmess=$(echo -n "$vmess" | base64 -w 0)
