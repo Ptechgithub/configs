@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#check dependencies
 check_dependencies() {
     local dependencies=("curl" "wget" "unzip")
 
