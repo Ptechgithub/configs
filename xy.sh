@@ -90,6 +90,16 @@ install() {
     echo "vmess://$encoded_vmess" > "/xray/vmess.txt"
 }
 
+uninstall() {
+    directory="/data/data/com.termux/files/home/xy-fragment"
+    if [ -d "$directory" ]; then
+        rm -r "$directory"
+        echo "Uninstallation completed."
+    else
+        echo "Please Install First."
+    fi
+}
+
 #menu
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
@@ -97,6 +107,7 @@ echo "  Bypass Filtering -- Xray Fragment  "
 echo "Select an option:"
 echo ""
 echo "1) Install"
+echo "1) Uninstall"
 echo "0) Exit"
 read -p "Enter your choice: " choice
 
