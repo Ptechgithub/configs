@@ -121,7 +121,7 @@ uninstall() {
         rm -r "$directory"
         echo -e "${red}Uninstallation completed.${rest}"
     else
-        echo "Please Install First."
+        echo -e "${red}Please Install First.${rest}"
     fi
 }
 
