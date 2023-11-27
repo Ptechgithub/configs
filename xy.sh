@@ -1,4 +1,14 @@
 #!/bin/bash
+
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+blue='\033[0;34m'
+purple='\033[0;35m'
+cyan='\033[0;36m'
+white='\033[0;37m'
+rest='\033[0m'
+
 #check_dependencies
 check_dependencies() {
     local dependencies=("curl" "wget" "unzip")
@@ -124,13 +134,13 @@ run() {
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo ""
-echo "  Bypass Filtering -- Xray Fragment  "
+echo "${cyan}Bypass Filtering -- Xray Fragment  ${rest}"
 echo " Select an option:"
 echo ""
-echo "1) Get Your Config"
-echo "2) Run VPN"
-echo "3) Uninstall"
-echo "0) Exit"
+echo -e "${purple}1)${rest} ${green}Get Your Config${rest}"
+echo -e "${purple}2)${rest} ${green}Run VPN${rest}"
+echo -e "${purple}3)${rest} ${green}Uninstall${rest}"
+echo -e "${red}0)${rest} ${green}Exit${rest}"
 read -p "Enter your choice: " choice
 
 case "$choice" in
