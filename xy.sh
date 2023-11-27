@@ -11,7 +11,7 @@ rest='\033[0m'
 
 #check_dependencies
 check_dependencies() {
-    local dependencies=("curl" "wget" "unzip")
+    local dependencies=("curl" "wget" "unzip" "openssl")
 
     for dep in "${dependencies[@]}"; do
         if ! dpkg -s "${dep}" &> /dev/null; then
