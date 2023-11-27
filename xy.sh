@@ -6,7 +6,6 @@ yellow='\033[0;33m'
 blue='\033[0;34m'
 purple='\033[0;35m'
 cyan='\033[0;36m'
-white='\033[0;37m'
 rest='\033[0m'
 
 #check_dependencies
@@ -97,9 +96,9 @@ install() {
     read -p "Enter a Port between [1024 - 65535]: " port
     vmess="{\"add\":\"127.0.0.1\",\"aid\":\"0\",\"alpn\":\"\",\"fp\":\"\",\"host\":\"\",\"id\":\"$uuid\",\"net\":\"ws\",\"path\":\"\",\"port\":\"$port\",\"ps\":\"Peyman YouTube X\",\"scy\":\"auto\",\"sni\":\"\",\"tls\":\"\",\"type\":\"\",\"v\":\"2\"}"
     encoded_vmess=$(echo -n "$vmess" | base64 -w 0)
-    echo "--------------------------------------"
-    echo "vmess://$encoded_vmess"
-    echo "--------------------------------------"
+    echo -e "${blue}--------------------------------------${rest}"
+    echo -e "${yellow}vmess://$encoded_vmess${rest}"
+    echo -e "${blue}--------------------------------------${rest}"
     echo "vmess://$encoded_vmess" > "xy-fragment/vmess.txt"
 }
 
