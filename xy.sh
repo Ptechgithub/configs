@@ -105,6 +105,7 @@ uninstall() {
 #menu
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
+echo ""
 echo "  Bypass Filtering -- Xray Fragment  "
 echo "Select an option:"
 echo ""
