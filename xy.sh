@@ -139,6 +139,7 @@ run() {
 	    cd "$xray_directory" && ./xray run "$config_file"
 	else
 	    echo -e "${red}Error: The file '$config_file' or '$xray_executable' doesn't exist in the directory: '$xray_directory'.${rest}"
+	    echo -e "${red}Please Install First.${rest}"
 	fi
 }
 
