@@ -133,8 +133,8 @@ run() {
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo ""
-echo "${cyan}Bypass Filtering -- Xray Fragment  ${rest}"
-echo " Select an option:"
+echo -e "${cyan}Bypass Filtering -- Xray Fragment  ${rest}"
+echo -e "${yellow}Select an option:${rest}"
 echo ""
 echo -e "${purple}1)${rest} ${green}Get Your Config${rest}"
 echo -e "${purple}2)${rest} ${green}Run VPN${rest}"
