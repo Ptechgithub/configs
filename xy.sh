@@ -81,8 +81,8 @@ EOL
 
 install() {
     download-xray
-    config
     uuid=$(./xray uuid)
+    config
     clear
     read -p "Enter a Port between [1024 - 65535]: " port
     vmess="{\"add\":\"127.0.0.1\",\"aid\":\"0\",\"alpn\":\"\",\"fp\":\"\",\"host\":\"\",\"id\":\"$uuid\",\"net\":\"ws\",\"path\":\"\",\"port\":\"$port\",\"ps\":\"Peyman YouTube X\",\"scy\":\"auto\",\"sni\":\"\",\"tls\":\"\",\"type\":\"\",\"v\":\"2\"}"
