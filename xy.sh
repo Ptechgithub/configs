@@ -37,8 +37,57 @@ download-xray() {
     fi
 }
 
+#config vless
+config-vless() {
+    cat << EOL > ~/xy-fragment/config.json
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": $port,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "$uuid",
+                        "level": 0
+                    }
+                ],
+                "decryption": "none",
+                "fallbacks": [
+                    {
+                        "dest": 8080
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct",
+            "settings": {
+                "domainStrategy": "AsIs",
+                "fragment": {
+                    "packets": "tlshello",
+                    "length": "100-200",
+                    "interval": "10-20"
+                }
+            }
+        }
+    ]
+}
+EOL
+}
+
 #Create Config
-config() {
+config-vmess() {
     cat << EOL > ~/xy-fragment/config.json
 {
     "log": {
@@ -102,7 +151,12 @@ install() {
     clear
     uuid=$(~/xy-fragment/xray uuid)
     read -p "Enter a Port between [1024 - 65535]: " port
-    config
+    read -p "Which Config do you need? [vless/vmess] . default: vmess" config
+    if [ "$config" == "vless" ]; then
+        config-vless
+    else
+        config-vmess
+    fi
     vmess="{\"add\":\"127.0.0.1\",\"aid\":\"0\",\"alpn\":\"\",\"fp\":\"\",\"host\":\"\",\"id\":\"$uuid\",\"net\":\"ws\",\"path\":\"\",\"port\":\"$port\",\"ps\":\"Peyman YouTube & X\",\"scy\":\"auto\",\"sni\":\"\",\"tls\":\"\",\"type\":\"\",\"v\":\"2\"}"
     encoded_vmess=$(echo -n "$vmess" | base64 -w 0)
     echo -e "${blue}--------------------------------------${rest}"
