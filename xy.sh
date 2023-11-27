@@ -107,13 +107,16 @@ echo "  Bypass Filtering -- Xray Fragment  "
 echo "Select an option:"
 echo ""
 echo "1) Install"
-echo "1) Uninstall"
+echo "2) Uninstall"
 echo "0) Exit"
 read -p "Enter your choice: " choice
 
 case "$choice" in
    1)
         install
+        ;;
+    2)
+        uninstall
         ;;
     0)   
         exit
