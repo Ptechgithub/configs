@@ -134,7 +134,7 @@ run() {
 clear
 echo -e "${green}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
-echo -e "${cyan}---Bypass Filtering -- Xray Fragment  ${rest}---"
+echo -e "${cyan}---Bypass Filtering -- Xray Fragment ---${rest}"
 echo ""
 echo -e "${yellow}Select an option:${rest}"
 echo -e "${purple}1)${rest} ${green}Get Your Config${rest}"
