@@ -113,7 +113,7 @@ run() {
 	if [ -f "$xray_directory/$config_file" ] && [ -f "$xray_directory/$xray_executable" ]; then
 	    clear
 	    echo "Starting..."
-	    cd "$xray_directory" && ./"./$xray_executable" run "$config_file"
+	    cd "$xray_directory" && ./"$xray_executable" run "$config_file"
 	else
 	    echo "Error: The file '$config_file' or '$xray_executable' doesn't exist in the directory: '$xray_directory'."
 	fi
