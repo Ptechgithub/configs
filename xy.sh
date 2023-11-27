@@ -27,7 +27,7 @@ download-xray() {
     mkdir xy-fragment && cd xy-fragment
     wget https://github.com/XTLS/Xray-core/releases/download/v1.8.4/Xray-android-arm64-v8a.zip
     unzip Xray-android-arm64-v8a.zip
-    find /data/data/com.termux/files/home/xy-fragment -type f ! -name 'xray' -delete
+    rm Xray-android-arm64-v8a.zip
     chmod +x xray
 }
 
