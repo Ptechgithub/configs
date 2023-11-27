@@ -39,7 +39,8 @@ download-xray() {
 
 #Create Config
 config() {
-    cat << EOL > config.json
+    cd ~
+    cat << EOL > xy-fragment/config.json
 {
     "log": {
         "loglevel": "warning"
