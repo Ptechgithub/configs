@@ -100,8 +100,6 @@ EOL
 install() {
     download-xray
     uuid=$(~/xy-fragment/xray uuid)
-    sleep 1
-    clear
     read -p "Enter a Port between [1024 - 65535]: " port
     config
     vmess="{\"add\":\"127.0.0.1\",\"aid\":\"0\",\"alpn\":\"\",\"fp\":\"\",\"host\":\"\",\"id\":\"$uuid\",\"net\":\"ws\",\"path\":\"\",\"port\":\"$port\",\"ps\":\"Peyman YouTube & X\",\"scy\":\"auto\",\"sni\":\"\",\"tls\":\"\",\"type\":\"\",\"v\":\"2\"}"
