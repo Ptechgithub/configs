@@ -98,9 +98,9 @@ EOL
 
 #Install
 install() {
+    clear
     download-xray
     uuid=$(./xray uuid)
-    clear
     read -p "Enter a Port between [1024 - 65535]: " port
     [ -f ~/xy-fragment/vmess.txt ] && rm ~/xy-fragment/vmess.txt
     [ -f ~/xy-fragment/vmess.txt ] && rm ~/xy-fragment/config.json
