@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#colors 
+#colors
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
@@ -58,7 +58,7 @@ config() {
     },
     "inbounds": [
         {
-            "listen": "127.0.0.1",
+            "listen": "0.0.0.0",
             "port": $port,
             "protocol": "vmess",
             "settings": {
