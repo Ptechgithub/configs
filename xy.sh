@@ -110,7 +110,7 @@ install() {
     echo -e "${blue}--------------------------------------${rest}"
     echo ""
     echo -e "${green}Copy the config and go back to the main Menu${rest}"
-    echo -e "${green}and select Run VPN [ Exclude Termux in Your Client like : V2ray or Nekobox or ...]${rest}"
+    echo -e "${green}and select Run VPN [ Exclude Termux in Your Client [Nekobox] ${rest}"
     echo "vmess://$encoded_vmess" > ~/xy-fragment/vmess.txt
 }
 
