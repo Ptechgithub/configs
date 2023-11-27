@@ -106,9 +106,17 @@ uninstall() {
 #run
 run() {
     clear
-    echo "Starting..."
-    cd ~ && cd xy-fragment
-    ./xray run config.json
+	xray_directory="/data/data/com.termux/files/home/xy-fragment"
+	config_file="config.json"
+	xray_executable="xray"
+	
+	if [ -f "$xray_directory/$config_file" ] && [ -f "$xray_directory/$xray_executable" ]; then
+	    clear
+	    echo "Starting..."
+	    cd "$xray_directory" && ./"./$xray_executable" run "$config_file"
+	else
+	    echo "Error: The file '$config_file' or '$xray_executable' doesn't exist in the directory: '$xray_directory'."
+	fi
 }
 
 
