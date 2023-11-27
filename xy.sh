@@ -103,6 +103,8 @@ install() {
     echo -e "${blue}--------------------------------------${rest}"
     echo -e "${yellow}vmess://$encoded_vmess${rest}"
     echo -e "${blue}--------------------------------------${rest}"
+    echo ""
+    echo -e"${Purple}Copy the config and go back to the main menu and select Run VPN [ Exclude Termux in Your Client]${rest}"
     echo "vmess://$encoded_vmess" > "xy-fragment/vmess.txt"
 }
 
