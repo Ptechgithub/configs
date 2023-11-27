@@ -129,7 +129,6 @@ run() {
 	
 	if [ -f "$xray_directory/$config_file" ] && [ -f "$xray_directory/$xray_executable" ]; then
 	    clear
-	    cat $xray_directory/vmess.txt
 	    echo "Starting..."
 	    cd "$xray_directory" && ./"$xray_executable" run "$config_file"
 	else
