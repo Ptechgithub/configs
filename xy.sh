@@ -41,7 +41,7 @@ config() {
     },
     "inbounds": [
         {
-            "listen": "12",
+            "listen": "0.0.0.0",
             "port": $port,
             "protocol": "vmess",
             "settings": {
@@ -102,6 +102,8 @@ uninstall() {
     fi
 }
 
+run
+
 #menu
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
@@ -109,8 +111,9 @@ echo ""
 echo "  Bypass Filtering -- Xray Fragment  "
 echo " Select an option:"
 echo ""
-echo "1) Install"
-echo "2) Uninstall"
+echo "1) Get Your Config"
+echo "2) Run VPN"
+echo "3) Uninstall"
 echo "0) Exit"
 read -p "Enter your choice: " choice
 
@@ -119,6 +122,9 @@ case "$choice" in
         install
         ;;
     2)
+        run
+        ;;
+    3)
         uninstall
         ;;
     0)   
