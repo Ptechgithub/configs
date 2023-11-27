@@ -17,7 +17,6 @@ download-xray() {
     mkdir xray && cd xray
     wget https://github.com/XTLS/Xray-core/releases/download/v1.8.4/Xray-android-arm64-v8a.zip
     unzip Xray-android-arm64-v8a.zip
-    rm -r !("xray")
     chmod +x xray
 }
 
