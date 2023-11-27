@@ -82,6 +82,7 @@ EOL
 
 install() {
     clear
+    download-xray
     config
     uuid=$(./xray uuid)
     read -p "Enter a Port between [1024 - 65535]: " port
