@@ -106,7 +106,7 @@ uninstall() {
 #run
 run() {
     clear
-	xray_directory="/data/data/com.termux/files/home/xy-fragment"
+	xray_directory="/xy-fragment"
 	config_file="config.json"
 	xray_executable="xray"
 	
