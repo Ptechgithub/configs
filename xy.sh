@@ -21,6 +21,7 @@ check_dependencies() {
     done
 }
 
+#Download Xray Core
 download-xray() {
     pkg update -y
     check_dependencies
@@ -31,6 +32,7 @@ download-xray() {
     chmod +x xray
 }
 
+#Create Config
 config() {
     cat << EOL > config.json
 {
@@ -89,6 +91,7 @@ config() {
 EOL
 }
 
+#Install
 install() {
     download-xray
     uuid=$(./xray uuid)
@@ -103,6 +106,7 @@ install() {
     echo "vmess://$encoded_vmess" > "xy-fragment/vmess.txt"
 }
 
+#Uninstall
 uninstall() {
     directory="/data/data/com.termux/files/home/xy-fragment"
     if [ -d "$directory" ]; then
