@@ -9,3 +9,5 @@
 https://raw.githubusercontent.com/Ptechgithub/configs/main/clash12.yaml
 ```
 
+[![Stargazers over time](https://starchart.cc/Ptechgithub/ReverseTlsTunnel.svg)](https://starchart.cc/Ptechgithub/ReverseTlsTunnel)
+
