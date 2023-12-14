@@ -1,0 +1,353 @@
+{
+  "dns": {
+    "independent_cache": true,
+    "rules": [
+      {
+        "domain": [
+          "dns.google"
+        ],
+        "server": "dns-direct"
+      }
+    ],
+    "servers": [
+      {
+        "address": "https://8.8.8.8/dns-query",//peyman//@P_tech2024 
+        "address_resolver": "dns-direct",
+        "strategy": "ipv4_only",
+        "tag": "dns-remote"
+      },
+      {
+        "address": "local",
+        "address_resolver": "dns-local",
+        "detour": "direct",
+        "strategy": "ipv4_only",
+        "tag": "dns-direct"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "dns-local"
+      },
+      {
+        "address": "rcode://success",
+        "tag": "dns-block"
+      }
+    ]
+  },
+  "experimental": {
+    "clash_api": {
+      "cache_file": "../cache/clash.db",
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "../files/yacd"
+    }
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
+      "override_address": "8.8.8.8",
+      "override_port": 53,
+      "tag": "dns-in",
+      "type": "direct"
+    },
+    {
+      "domain_strategy": "",
+      "endpoint_independent_nat": true,
+      "inet4_address": [
+        "172.19.0.1/28"
+      ],
+      "mtu": 9000,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "stack": "mixed",
+      "tag": "tun-in",
+      "type": "tun"
+    },
+    {
+      "domain_strategy": "",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "tag": "mixed-in",
+      "type": "mixed"
+    }
+  ],
+  "log": {
+    "level": "panic"
+  },
+  "outbounds": [
+    {
+      "packet_encoding": "",
+      "server": "104.31.16.60",
+      "server_port": 443,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "Bee.OnlyclOudflarE.Workers.DEv"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 1️⃣"
+    },
+    {
+      "packet_encoding": "xudp",
+      "server": "198.41.216.11",
+      "server_port": 2087,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "Bee.OnlyclOudflarE.Workers.DEv"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 2️⃣"
+    },
+    {
+      "packet_encoding": "",
+      "server": "[2606:4700:d0::a29f:c001]",
+      "server_port": 443,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "Bee.OnlyclOudflarE.Workers.DEv"
+        },
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 3️⃣"
+    },
+    {
+      "packet_encoding": "",
+      "server": "104.31.16.60",
+      "server_port": 443,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "2222.BWvD9gh5-Dcb.wOrkErs.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 4️⃣"
+    },
+    {
+      "packet_encoding": "",
+      "server": "198.41.216.11",
+      "server_port": 2087,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "2222.BWvD9gh5-Dcb.wOrkErs.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
+        },
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 5️⃣"
+    },
+    {
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:8f6a:418a:9b60:35bb:e660/128"
+      ],
+      "mtu": 1280,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "pre_shared_key": "",
+      "private_key": "mL11kkXnNi46gmvLT7Ci1xjn1X3FMKUvF+NeHPC4fFM=",
+      "reserved": "hTlE",
+      "server": "162.159.192.204",
+      "server_port": 1070,
+      "type": "wireguard",
+      "domain_strategy": "",
+      "tag": "عمو وایرگارد1️⃣"
+    },
+    {
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:8f6a:418a:9b60:35bb:e660/128"
+      ],
+      "mtu": 1280,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "pre_shared_key": "",
+      "private_key": "mL11kkXnNi46gmvLT7Ci1xjn1X3FMKUvF+NeHPC4fFM=",
+      "reserved": "hTlE",
+      "server": "162.159.192.135",
+      "server_port": 1070,
+      "type": "wireguard",
+      "domain_strategy": "",
+      "tag": "عمو وایرگارد2️⃣"
+    },
+    {
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:8a0d:444c:a568:474c:f13e/128"
+      ],
+      "mtu": 1280,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "pre_shared_key": "",
+      "private_key": "UGqDCeCtzr2bPshy0SzdaFIIcvbZPj6frOGhPxKqpHA=",
+      "reserved": "86yW",
+      "server": "2606:4700:d0::a29f:c001",
+      "server_port": 1070,
+      "type": "wireguard",
+      "domain_strategy": "",
+      "tag": "عمو وایرگارد3️⃣"
+    },
+    {
+      "tag": "💚Internet💚",
+      "type": "selector",
+      "outbounds":[
+        "❤️Best Latency❤️",
+        "worker 1️⃣",
+        "worker 2️⃣",
+        "worker 3️⃣",
+        "worker 4️⃣",
+        "worker 5️⃣",
+        "عمو وایرگارد1️⃣",
+        "عمو وایرگارد2️⃣",
+        "عمو وایرگارد3️⃣"
+      ]
+    },
+    {
+      "tag": "❤️Best Latency❤️",
+      "type": "urltest",
+      "outbounds":[
+        "worker 1️⃣",
+        "worker 2️⃣",
+        "worker 3️⃣",
+        "worker 4️⃣",
+        "worker 5️⃣",
+        "عمو وایرگارد1️⃣",
+        "عمو وایرگارد2️⃣",
+        "عمو وایرگارد3️⃣"
+      ],
+      "url": "https://detectportal.firefox.com/success.txt",
+      "interval": "60s",
+      "tolerance": 0
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "bypass",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "outbound": "dns-out",
+        "port": [
+          53
+        ]
+      },
+      {
+        "inbound": [
+          "dns-in"
+        ],
+        "outbound": "dns-out"
+      },
+      {
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "outbound": "block",
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ]
+      }
+    ]
+  }
+}
