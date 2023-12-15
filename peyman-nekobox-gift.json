@@ -87,7 +87,7 @@
         ],
         "enabled": true,
         "insecure": true,
-        "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "server_name": "2222.BWvD9gh5-Dcb.wOrkErs.DEv",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -96,13 +96,13 @@
       "transport": {
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "headers": {
-          "Host": "Bee.OnlyclOudflarE.Workers.DEv"
+          "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
         },
         "max_early_data": 2048,
         "path": "/",
         "type": "ws"
       },
-      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
+      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
       "type": "vless",
       "domain_strategy": "",
       "tag": "worker 1️⃣"
@@ -206,7 +206,7 @@
         ],
         "enabled": true,
         "insecure": true,
-        "server_name": "2222.BWvD9gh5-Dcb.wOrkErs.DEv",
+        "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -215,12 +215,12 @@
       "transport": {
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "headers": {
-          "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
+          "Host": "Bee.OnlyclOudflarE.Workers.DEv"
         },
         "path": "/",
         "type": "ws"
       },
-      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
       "type": "vless",
       "domain_strategy": "",
       "tag": "worker 5️⃣"
