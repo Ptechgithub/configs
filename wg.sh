@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#detect_distribution
+#distribution
 detect_distribution() {
     # Detect the Linux distribution
     local supported_distributions=("ubuntu" "debian" "centos" "fedora")
