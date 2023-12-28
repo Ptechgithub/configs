@@ -1,0 +1,332 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+    "dns": {
+    "independent_cache": true,
+    "rules": [],
+    "servers": [
+      {
+        "address": "https://8.8.8.8/dns-query",
+        "address_resolver": "dns-direct",
+        "strategy": "ipv4_only",
+        "tag": "dns-remote"
+      },
+      {
+        "address": "local",
+        "address_resolver": "dns-local",
+        "detour": "direct",
+        "strategy": "ipv4_only",
+        "tag": "dns-direct"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "dns-local"
+      },
+      {
+        "address": "rcode://success",
+        "tag": "dns-block"
+      }
+    ]
+  },
+      "inbounds": [
+    {
+      "type": "tun",
+      "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::1/126",
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "mixed",
+      "sniff": true
+    }
+  ],
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db"
+    }
+  },
+  "outbounds": [
+    {
+      "packet_encoding": "",
+      "server": "104.31.16.60",
+      "server_port": 443,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "2222.BWvD9gh5-Dcb.wOrkErs.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 1️⃣"
+    },
+    {
+      "packet_encoding": "xudp",
+      "server": "198.41.216.11",
+      "server_port": 2087,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "Bee.OnlyclOudflarE.Workers.DEv"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 2️⃣"
+    },
+    {
+      "packet_encoding": "",
+      "server": "[2606:4700:d0::a29f:c001]",
+      "server_port": 443,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "Bee.OnlyclOudflarE.Workers.DEv"
+        },
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 3️⃣"
+    },
+    {
+      "packet_encoding": "",
+      "server": "104.31.16.60",
+      "server_port": 443,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "2222.BWvD9gh5-Dcb.wOrkErs.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 4️⃣"
+    },
+    {
+      "packet_encoding": "",
+      "server": "198.41.216.11",
+      "server_port": 2087,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "Bee.OnlyclOudflarE.Workers.DEv"
+        },
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
+      "type": "vless",
+      "domain_strategy": "",
+      "tag": "worker 5️⃣"
+    },
+    {
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:8988:c1ee:9e0a:cd47:ac4a/128"
+      ],
+      "mtu": 1280,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "pre_shared_key": "",
+      "private_key": "qNSfNi2ZMZQXeif/BpC9xjh/nje/NBifogRXCRGv4lc=",
+      "reserved": "vedv",
+      "server": "162.159.192.0",
+      "server_port": 1070,
+      "type": "wireguard",
+      "domain_strategy": "",
+      "tag": "عمو وایرگارد1️⃣"
+    },
+    {
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:8f6a:418a:9b60:35bb:e660/128"
+      ],
+      "mtu": 1280,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "pre_shared_key": "",
+      "private_key": "mL11kkXnNi46gmvLT7Ci1xjn1X3FMKUvF+NeHPC4fFM=",
+      "reserved": "hTlE",
+      "server": "162.159.192.135",
+      "server_port": 1070,
+      "type": "wireguard",
+      "domain_strategy": "",
+      "tag": "عمو وایرگارد2️⃣"
+    },
+    {
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:8a0d:444c:a568:474c:f13e/128"
+      ],
+      "mtu": 1280,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "pre_shared_key": "",
+      "private_key": "UGqDCeCtzr2bPshy0SzdaFIIcvbZPj6frOGhPxKqpHA=",
+      "reserved": "86yW",
+      "server": "2606:4700:d0::a29f:c001",
+      "server_port": 1070,
+      "type": "wireguard",
+      "domain_strategy": "",
+      "tag": "عمو وایرگارد3️⃣"
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    },
+    {
+      "tag": "💚select💚",
+      "type": "selector",
+      "outbounds":[
+        "❤️Best Latency❤️",
+        "worker 1️⃣",
+        "worker 2️⃣",
+        "worker 3️⃣",
+        "worker 4️⃣",
+        "worker 5️⃣",
+        "عمو وایرگارد1️⃣",
+        "عمو وایرگارد2️⃣",
+        "عمو وایرگارد3️⃣"
+      ]
+    },
+    {
+      "tag": "❤️Best Latency❤️",
+      "type": "urltest",
+      "outbounds":[
+        "worker 1️⃣",
+        "worker 2️⃣",
+        "worker 3️⃣",
+        "worker 4️⃣",
+        "worker 5️⃣",
+        "عمو وایرگارد1️⃣",
+        "عمو وایرگارد2️⃣",
+        "عمو وایرگارد3️⃣"
+      ],
+      "url": "https://detectportal.firefox.com/success.txt",
+      "interval": "60s",
+      "tolerance": 0
+    }
+  ],
+  "route": {
+      "geoip": {
+      "download_url": "https://mirror.ghproxy.com/https://github.com/Ptechgithub/sing-box/blob/main/geo/geoip.db",
+      "download_detour": "💚select💚"
+    },
+    "geosite": {
+      "download_url": "https://mirror.ghproxy.com/https://github.com/Ptechgithub/sing-box/blob/main/geo/geosite.db",
+      "download_detour": "💚select💚"
+    },
+    "auto_detect_interface": true,
+    "final": "💚select💚",
+    "rules": [
+      {
+        "outbound": "dns-out",
+        "protocol": "dns"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "💚select💚"
+      },
+      {
+        "geosite": "ir",
+        "geoip": [
+          "ir",
+          "private"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": "geolocation-!ir",
+        "outbound": "💚select💚"
+      }
+    ]
+  }
+}
