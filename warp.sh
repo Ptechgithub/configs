@@ -53,7 +53,6 @@ uninstall() {
 #menu
 clear
 echo -e "${green}By --> Peyman * Github.com/Ptechgithub * ${rest}"
-echo ""
 echo -e "${yellow} * https://github.com/uoosef/wireguard-go * ${rest}"
 echo ""
 echo -e "${cyan}-- WireGuard -+- Warp --${rest}"
