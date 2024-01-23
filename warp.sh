@@ -83,7 +83,8 @@ case "$choice" in
     2)
         uninstall
         ;;
-    0)   
+    0)
+        echo -e "${cyan}Exiting...${rest}"
         exit
         ;;
     *)
