@@ -54,7 +54,9 @@ uninstall() {
         rm "$PREFIX/bin/usef" "$PREFIX/bin/warp" 
         echo -e "${red}Uninstallation completed.${rest}"
     else
+        echo -e "${yellow}______________________${rest}"
         echo -e "${red}Not installed.Please Install First.${rest}"
+        echo -e "${yellow}______________________${rest}"
     fi
 }
 
