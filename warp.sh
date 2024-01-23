@@ -59,7 +59,9 @@ echo -e "${cyan}-- WireGuard -+- Warp --${rest}"
 echo ""
 echo -e "${yellow}Select an option:${rest}"
 echo -e "${purple}1)${rest} ${green}Install WireGuard VPN (warp)${rest}"
+echo ""
 echo -e "${purple}2)${rest} ${green}Uninstall${rest}"
+echo ""
 echo -e "${red}0)${rest} ${green}Exit${rest}"
 read -p "Enter your choice: " choice
 
