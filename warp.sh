@@ -38,6 +38,7 @@ download-warp() {
     fi
 }
 
+# Get socks config
 socks() {
    echo ""
    echo -e "${green} ====Copy this Config in${purple}V2ray Or ${purple}Nekobox ${rest}==="
