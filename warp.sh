@@ -43,6 +43,7 @@ uninstall() {
     directory="/data/data/com.termux/files/home/wireguard-go"
     if [ -d "$directory" ]; then
         rm -rf "$directory"
+        rm "$PREFIX/bin/usef" "$PREFIX/bin/warp" 
         echo -e "${red}Uninstallation completed.${rest}"
     else
         echo -e "${red}Not installed.Please Install First.${rest}"
