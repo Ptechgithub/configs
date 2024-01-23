@@ -54,7 +54,7 @@ uninstall() {
 clear
 echo -e "${green}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
-echo -e "${cyan}--- WireGuard -+- Warp --${rest}"
+echo -e "${cyan}-- WireGuard -+- Warp --${rest}"
 echo ""
 echo -e "${yellow}Select an option:${rest}"
 echo -e "${purple}1)${rest} ${green}Install WireGuard VPN (warp)${rest}"
