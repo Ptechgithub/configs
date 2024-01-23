@@ -41,7 +41,7 @@ install() {
 # Get socks config
 socks() {
    echo ""
-   echo -e "${green} ====Copy this Config to ${purple}V2ray Or ${purple}Nekobox ${rest}==="
+   echo -e "${green} ====Copy this Config to ${purple}V2ray${green} Or ${purple}Nekobox ${rest}==="
    echo -e "${green}socks://Og==@127.0.0.1:8086#Free Warp %28usef%29 ${rest}"
    echo ""
 }
