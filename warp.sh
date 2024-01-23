@@ -55,7 +55,7 @@ clear
 echo -e "${green}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo -e "${yellow}[https://github.com/uoosef/wireguard-go]${rest}"
 echo ""
-echo -e "${cyan}-- Warp in Termux--${rest}"
+echo -e "${cyan}### Warp in Termux ###${rest}"
 echo ""
 echo -e "${purple}1)${rest} ${green}Install WireGuard VPN (warp)${rest}"
 echo ""
