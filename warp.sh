@@ -53,7 +53,7 @@ uninstall() {
 #menu
 clear
 echo -e "${green}By --> Peyman * Github.com/Ptechgithub * ${rest}"
-echo -e "${yellow}[https://github.com/${cyan}uoosef/wireguard-go]${rest}"
+echo -e "${yellow}[https://github.com/${cyan}uoosef${yellow}/wireguard-go]${rest}"
 echo ""
 echo -e "${cyan}### Warp in Termux ###${rest}"
 echo ""
