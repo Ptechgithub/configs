@@ -49,10 +49,11 @@ install() {
 # Get socks config
 socks() {
    echo ""
-   echo -e "${yellow}Copy this Config to ${purple}V2ray${green} Or ${purple}Nekobox ${rest}"
+   echo -e "${yellow}Copy this Config to ${purple}V2ray${green} Or ${purple}Nekobox and Exclude Termux${rest}"
    echo "================================================"
    echo -e "${green}socks://Og==@127.0.0.1:8086#Free Warp %28usef%29${rest}"
    echo "================================================"
+   echo ""
 }
 
 #Uninstall
