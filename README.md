@@ -13,7 +13,7 @@
 https://raw.githubusercontent.com/Ptechgithub/configs/main/clash12.yaml
 ```
 
-## اسکریپت نصب wireguard
+## اسکریپت نصب wireguard با docker
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/configs/main/wg.sh)
 ```
