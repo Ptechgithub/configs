@@ -49,9 +49,10 @@ install() {
 # Get socks config
 socks() {
    echo ""
-   echo -e "${green} ====Copy this Config to ${purple}V2ray${green} Or ${purple}Nekobox ${rest}==="
-   echo -e "${green}socks://Og==@127.0.0.1:8086#Free Warp %28usef%29 ${rest}"
-   echo ""
+   echo -e "${yellow}Copy this Config to ${purple}V2ray${green} Or ${purple}Nekobox ${rest}"
+   echo "================================================"
+   echo -e "${green}socks://Og==@127.0.0.1:8086#Free Warp %28usef%29${rest}"
+   echo "================================================"
 }
 
 #Uninstall
@@ -62,9 +63,9 @@ uninstall() {
         rm "$PREFIX/bin/usef" "$PREFIX/bin/warp" 
         echo -e "${red}Uninstallation completed.${rest}"
     else
-        echo -e "${yellow}______________________${rest}"
-        echo -e "${red}Not installed.Please Install First.${rest}"
-        echo -e "${yellow}______________________${rest}"
+        echo -e "${yellow} ____________________________________${rest}"
+        echo -e "${red} Not installed.Please Install First.${rest}${yellow}|"
+        echo -e "${yellow} ____________________________________${rest}"
     fi
 }
 
