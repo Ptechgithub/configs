@@ -75,6 +75,8 @@ read -p "Please enter your selection [1-2]: :" choice
 case "$choice" in
    1)
         install
+        socks
+        warp
         ;;
     2)
         uninstall
