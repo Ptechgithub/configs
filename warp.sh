@@ -71,16 +71,18 @@ uninstall() {
 #menu
 clear
 echo -e "${green}By --> Peyman * Github.com/Ptechgithub * ${rest}"
-echo -e "${yellow}[* https://github.com/${cyan}uoosef${yellow}/wireguard-go *]${rest}"
 echo ""
-echo -e "${cyan}     ### Warp in Termux ###${rest}"
-echo ""
-echo -e "${purple}1)${rest} ${green}Install WireGuard VPN (warp)${rest}"
-echo ""
-echo -e "${purple}2)${rest} ${green}Uninstall${rest}"
-echo ""
-echo -e "${red}0)${rest} ${green}Exit${rest}"
-read -p "Please enter your selection [1-2] :" choice
+echo -e "${yellow}❤️Github.com/${cyan}uoosef${yellow}/wireguard-go❤️${rest}"
+echo -e "${purple}*********************************${rest}"
+echo -e "${blue}     ###${cyan} Warp in Termux ${blue}###${rest}   ${purple}  * ${rest}"
+echo -e "${purple}*********************************${rest}"
+echo -e "${cyan}1)${rest} ${green}Install WireGuard VPN (warp)${purple} * ${rest}"
+echo -e "                              ${purple}  * ${rest}"
+echo -e "${cyan}2)${rest} ${green}Uninstall${rest}${purple}                    * ${rest}"
+echo -e "                              ${purple}  * ${rest}"
+echo -e "${red}0)${rest} ${green}Exit                         ${purple}* ${rest}"
+echo -e "${purple}*********************************${rest}"
+read -p "Please enter your selection [1-2]:" choice
 
 case "$choice" in
    1)
