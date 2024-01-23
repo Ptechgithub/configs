@@ -38,6 +38,13 @@ download-warp() {
     fi
 }
 
+socks() {
+   echo ""
+   echo -e "${green} ====Copy this Config in${purple}V2ray Or ${purple}Nekobox ${rest}==="
+   echo -e "${green}socks://Og==@127.0.0.1:8086#Free Warp %28usef%29 ${rest}"
+   echo ""
+}
+
 #Uninstall
 uninstall() {
     directory="/data/data/com.termux/files/home/wireguard-go"
