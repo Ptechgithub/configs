@@ -21,20 +21,28 @@ check_dependencies() {
     done
 }
 
-#Download warp Core
+# Install Function
 install() {
-    if [ ! -f "$PREFIX/bin/warp" ] && [ ! -f "$PREFIX/bin/usef" ]; then
+    if ! command -v warp &> /dev/null && ! command -v usef &> /dev/null; then
+        echo -e "${green}Installing WireGuard VPN (warp)...${rest}"
         pkg update -y && pkg upgrade -y
         check_dependencies
-        git clone https://github.com/uoosef/wireguard-go.git
-        cd wireguard-go
-        go build main.go
-        chmod +x main
-        cp main "$PREFIX/bin/usef"
-        cp main "$PREFIX/bin/warp"
-        echo "warp installed successfully."
+
+        if git clone https://github.com/uoosef/wireguard-go.git; then
+            cd wireguard-go || exit
+            if go build main.go; then
+                chmod +x main
+                cp main "$PREFIX/bin/usef"
+                cp main "$PREFIX/bin/warp"
+                echo -e "${green}Warp installed successfully.${rest}"
+            else
+                echo -e "${red}Error building main.go.${rest}"
+            fi
+        else
+            echo -e "${red}Error cloning WireGuard repository.${rest}"
+        fi
     else
-        echo "warp is already installed."
+        echo -e "${green}Warp is already installed.${rest}"
     fi
 }
 
