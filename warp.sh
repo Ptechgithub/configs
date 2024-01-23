@@ -63,7 +63,7 @@ echo ""
 echo -e "${purple}2)${rest} ${green}Uninstall${rest}"
 echo ""
 echo -e "${red}0)${rest} ${green}Exit${rest}"
-read -p "Enter your choice: " choice
+read -p "Enter your choice :" choice
 
 case "$choice" in
    1)
