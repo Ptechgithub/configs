@@ -26,8 +26,8 @@ install() {
     if [ ! -f "$PREFIX/bin/warp" ] && [ ! -f "$PREFIX/bin/usef" ]; then
         pkg update -y && pkg upgrade -y
         check_dependencies
-        git clone https://github.com/uoosef/warp-go.git
-        cd warp-go
+        git clone https://github.com/uoosef/wireguard-go.git
+        cd wireguard-go
         go build main.go
         chmod +x main
         cp main "$PREFIX/bin/usef"
