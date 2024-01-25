@@ -16,10 +16,11 @@ if os.path.exists(file_path):
         identity_data = json.load(file)
         default_id = identity_data.get("account_id", "")
 else:
-    default_id = ""
+    default_id = "Not set"
     
 print ("        =Warp to Warp plus ==")
-referrer = input(f"[#] ENTER WARP+ ID  (your id: ({default_id})) : ") or default_id
+print("")
+referrer = input(f"[#] ENTER WARP+ ID  [your id: ({default_id})) : ") or default_id
 
 def genString(stringLength):
 	try:
