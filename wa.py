@@ -18,7 +18,7 @@ if os.path.exists(file_path):
 else:
     default_id = ""
     
-print ("=Warp to Warp plus ==")
+print ("        =Warp to Warp plus ==")
 referrer = input(f"[#] ENTER WARP+ ID  (your id: ({default_id})) : ") or default_id
 
 def genString(stringLength):
