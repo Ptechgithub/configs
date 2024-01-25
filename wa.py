@@ -18,7 +18,7 @@ if os.path.exists(file_path):
 else:
     default_id = "Not set"
     
-print ("=======Warp to Warp plus ======")
+print ("    ======= Warp to Warp plus ======")
 print("")
 referrer = input(f"[#] ENTER WARP+ ID  [Your id: {default_id}] : ") or default_id
 
