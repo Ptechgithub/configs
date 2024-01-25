@@ -20,7 +20,7 @@ else:
     
 print ("        =Warp to Warp plus ==")
 print("")
-referrer = input(f"[#] ENTER WARP+ ID  [your id: ({default_id})) : ") or default_id
+referrer = input(f"[#] ENTER WARP+ ID  [Your id: {default_id}] : ") or default_id
 
 def genString(stringLength):
 	try:
