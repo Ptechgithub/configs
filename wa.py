@@ -10,11 +10,14 @@ import sys
 os.system("title WARP-PLUS-CLOUDFLARE URSECRET")
 os.system('cls' if os.name == 'nt' else 'clear')
 
-file_path = "wgcf-identity.json"
-if os.path.exists(file_path):
-    with open(file_path, "r") as file:
-        identity_data = json.load(file)
-        default_id = identity_data.get("account_id", "")
+file_paths = ["wgcf-identity.json", "stuff/primary/wgcf-identity.json"]
+
+for file_path in file_paths:
+    if os.path.exists(file_path):
+        with open(file_path, "r") as file:
+            identity_data = json.load(file)
+            default_id = identity_data.get("account_id", "")
+        break
 else:
     default_id = "Not set"
     
