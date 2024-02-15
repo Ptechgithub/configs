@@ -17,3 +17,6 @@ https://raw.githubusercontent.com/Ptechgithub/configs/main/clash12.yaml
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/configs/main/wg.sh)
 ```
+
+
+[xray-configs](https://github.com/Ptechgithub/configs/tree/main/Xray-examples)
