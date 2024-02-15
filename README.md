@@ -19,4 +19,4 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/configs/main/wg.
 ```
 
 
-[xray-configs](https://github.com/Ptechgithub/configs/tree/main/Xray-examples)
+[Xray-configs](https://github.com/Ptechgithub/configs/tree/main/Xray-examples)
