@@ -1,0 +1,29 @@
+{
+  "inbounds": [
+     {
+      "listen": "0.0.0.0",
+      "port": 8080,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "590b7547-7f73-4f21-b660-9500ecde55bd"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "acceptProxyProtocol": false,
+          "path": "/",
+          "headers": {
+            "host": "bama.ir"
+          }
+        }
+      },
+      "tag": "Vless-Ws-header"
+    }
+  ]
+}
