@@ -38,7 +38,7 @@
                             "reason": "OK",
                             "headers": {
 	                "host": [
-	                  "err.rubika.ir"
+	                  "web.rubika.ir"
 	                ]
 	              },
 	              "method": "GET",
