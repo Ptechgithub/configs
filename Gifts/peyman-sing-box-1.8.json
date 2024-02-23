@@ -263,11 +263,11 @@
   ],
   "route": {
     "geoip": {
-      "download_url": "https://mirror.ghproxy.com/https://github.com/Ptechgithub/sing-box/blob/main/geo/geoip.db",
+      "download_url": "https://github.com/Ptechgithub/sing-box/blob/main/geo/geoip.db",
       "download_detour": "💚select💚"
     },
     "geosite": {
-      "download_url": "https://mirror.ghproxy.com/https://github.com/Ptechgithub/sing-box/blob/main/geo/geosite.db",
+      "download_url": "https://github.com/Ptechgithub/sing-box/blob/main/geo/geosite.db",
       "download_detour": "💚select💚"
     },
     "rules": [
