@@ -76,7 +76,6 @@
       "server_port": 2087,
       "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
       "tls": {
-        "enabled": true,
         "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
         "insecure": true,
         "alpn": "h3",
