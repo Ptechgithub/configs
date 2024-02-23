@@ -62,7 +62,7 @@
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
+          "Host": "2222.BWvD9Gh5-Dcb.wOrkErs.DEv"
         },
         "max_early_data": 2048,
         "early_data_header_name": "Sec-WebSocket-Protocol"
