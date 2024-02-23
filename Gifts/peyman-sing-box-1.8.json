@@ -1,38 +1,36 @@
 {
   "log": {
-    "disabled": false,
     "level": "info",
     "timestamp": true
   },
-    "dns": {
-    "independent_cache": true,
-    "rules": [],
+  "dns": {
     "servers": [
       {
+        "tag": "dns-remote",
         "address": "https://8.8.8.8/dns-query",
         "address_resolver": "dns-direct",
-        "strategy": "ipv4_only",
-        "tag": "dns-remote"
+        "strategy": "ipv4_only"
       },
       {
+        "tag": "dns-direct",
         "address": "local",
         "address_resolver": "dns-local",
-        "detour": "direct",
         "strategy": "ipv4_only",
-        "tag": "dns-direct"
+        "detour": "direct"
       },
       {
+        "tag": "dns-local",
         "address": "local",
-        "detour": "direct",
-        "tag": "dns-local"
+        "detour": "direct"
       },
       {
-        "address": "rcode://success",
-        "tag": "dns-block"
+        "tag": "dns-block",
+        "address": "rcode://success"
       }
-    ]
+    ],
+    "independent_cache": true
   },
-      "inbounds": [
+  "inbounds": [
     {
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
@@ -43,225 +41,198 @@
       "sniff": true
     }
   ],
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "path": "cache.db"
-    }
-  },
   "outbounds": [
     {
-      "packet_encoding": "",
+      "type": "vless",
+      "tag": "worker 1️⃣",
       "server": "104.31.16.60",
       "server_port": 443,
+      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
       "tls": {
-        "alpn": [
-          "h3"
-        ],
         "enabled": true,
-        "insecure": true,
         "server_name": "2222.BWvD9gh5-Dcb.wOrkErs.DEv",
+        "insecure": true,
+        "alpn": "h3",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
       },
       "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "type": "ws",
+        "path": "/",
         "headers": {
           "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
         },
         "max_early_data": 2048,
-        "path": "/",
-        "type": "ws"
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
-      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
-      "type": "vless",
-      "domain_strategy": "",
-      "tag": "worker 1️⃣"
+      "packet_encoding": ""
     },
     {
-      "packet_encoding": "xudp",
+      "type": "vless",
+      "tag": "worker 2️⃣",
       "server": "198.41.216.11",
       "server_port": 2087,
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
       "tls": {
-        "alpn": [
-          "h3"
-        ],
         "enabled": true,
-        "insecure": true,
         "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "insecure": true,
+        "alpn": "h3",
         "utls": {
           "enabled": true,
           "fingerprint": "randomized"
         }
       },
       "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "type": "ws",
+        "path": "/",
         "headers": {
           "Host": "Bee.OnlyclOudflarE.Workers.DEv"
         },
         "max_early_data": 2048,
-        "path": "/",
-        "type": "ws"
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
-      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
-      "type": "vless",
-      "domain_strategy": "",
-      "tag": "worker 2️⃣"
+      "packet_encoding": "xudp"
     },
     {
-      "packet_encoding": "",
+      "type": "vless",
+      "tag": "worker 3️⃣",
       "server": "[2606:4700:d0::a29f:c001]",
       "server_port": 443,
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
       "tls": {
-        "alpn": [
-          "h3"
-        ],
         "enabled": true,
-        "insecure": true,
         "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "insecure": true,
+        "alpn": "h3",
         "utls": {
           "enabled": true,
           "fingerprint": "randomized"
         }
       },
       "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "type": "ws",
+        "path": "/",
         "headers": {
           "Host": "Bee.OnlyclOudflarE.Workers.DEv"
         },
-        "path": "/",
-        "type": "ws"
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
-      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
-      "type": "vless",
-      "domain_strategy": "",
-      "tag": "worker 3️⃣"
+      "packet_encoding": ""
     },
     {
-      "packet_encoding": "",
+      "type": "vless",
+      "tag": "worker 4️⃣",
       "server": "104.31.16.60",
       "server_port": 443,
+      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
       "tls": {
-        "alpn": [
-          "h3"
-        ],
         "enabled": true,
-        "insecure": true,
         "server_name": "2222.BWvD9gh5-Dcb.wOrkErs.DEv",
+        "insecure": true,
+        "alpn": "h3",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
       },
       "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "type": "ws",
+        "path": "/",
         "headers": {
           "Host": "2222.BWvD9gh5-Dcb.wOrkErs.DEv"
         },
         "max_early_data": 2048,
-        "path": "/",
-        "type": "ws"
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
-      "uuid": "6c00e3f1-b0ec-425b-a5b8-3f786a50e402",
-      "type": "vless",
-      "domain_strategy": "",
-      "tag": "worker 4️⃣"
+      "packet_encoding": ""
     },
     {
-      "packet_encoding": "",
+      "type": "vless",
+      "tag": "worker 5️⃣",
       "server": "198.41.216.11",
       "server_port": 2087,
+      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
       "tls": {
-        "alpn": [
-          "h3"
-        ],
         "enabled": true,
-        "insecure": true,
         "server_name": "Bee.OnlyclOudflarE.Workers.DEv",
+        "insecure": true,
+        "alpn": "h3",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
       },
       "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "type": "ws",
+        "path": "/",
         "headers": {
           "Host": "Bee.OnlyclOudflarE.Workers.DEv"
         },
-        "path": "/",
-        "type": "ws"
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
-      "uuid": "71e6dde6-8ba9-4bed-8904-1f01c4fc803d",
-      "type": "vless",
-      "domain_strategy": "",
-      "tag": "worker 5️⃣"
+      "packet_encoding": ""
     },
     {
+      "type": "wireguard",
+      "tag": "عمو وایرگارد1️⃣",
       "local_address": [
         "172.16.0.2/32",
         "2606:4700:110:8988:c1ee:9e0a:cd47:ac4a/128"
       ],
-      "mtu": 1280,
-      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "pre_shared_key": "",
       "private_key": "qNSfNi2ZMZQXeif/BpC9xjh/nje/NBifogRXCRGv4lc=",
-      "reserved": "vedv",
       "server": "162.159.192.0",
       "server_port": 1070,
-      "type": "wireguard",
-      "domain_strategy": "",
-      "tag": "عمو وایرگارد1️⃣"
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "vedv",
+      "mtu": 1280
     },
     {
+      "type": "wireguard",
+      "tag": "عمو وایرگارد2️⃣",
       "local_address": [
         "172.16.0.2/32",
         "2606:4700:110:8f6a:418a:9b60:35bb:e660/128"
       ],
-      "mtu": 1280,
-      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "pre_shared_key": "",
       "private_key": "mL11kkXnNi46gmvLT7Ci1xjn1X3FMKUvF+NeHPC4fFM=",
-      "reserved": "hTlE",
       "server": "162.159.192.135",
       "server_port": 1070,
-      "type": "wireguard",
-      "domain_strategy": "",
-      "tag": "عمو وایرگارد2️⃣"
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "hTlE",
+      "mtu": 1280
     },
     {
+      "type": "wireguard",
+      "tag": "عمو وایرگارد3️⃣",
       "local_address": [
         "172.16.0.2/32",
         "2606:4700:110:8a0d:444c:a568:474c:f13e/128"
       ],
-      "mtu": 1280,
-      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "pre_shared_key": "",
       "private_key": "UGqDCeCtzr2bPshy0SzdaFIIcvbZPj6frOGhPxKqpHA=",
-      "reserved": "86yW",
       "server": "2606:4700:d0::a29f:c001",
       "server_port": 1070,
-      "type": "wireguard",
-      "domain_strategy": "",
-      "tag": "عمو وایرگارد3️⃣"
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "86yW",
+      "mtu": 1280
     },
     {
-      "tag": "direct",
-      "type": "direct"
+      "type": "direct",
+      "tag": "direct"
     },
     {
-      "tag": "block",
-      "type": "block"
+      "type": "block",
+      "tag": "block"
     },
     {
-      "tag": "dns-out",
-      "type": "dns"
+      "type": "dns",
+      "tag": "dns-out"
     },
     {
-      "tag": "💚select💚",
       "type": "selector",
-      "outbounds":[
+      "tag": "💚select💚",
+      "outbounds": [
         "❤️Best Latency❤️",
         "worker 1️⃣",
         "worker 2️⃣",
@@ -274,9 +245,9 @@
       ]
     },
     {
-      "tag": "❤️Best Latency❤️",
       "type": "urltest",
-      "outbounds":[
+      "tag": "❤️Best Latency❤️",
+      "outbounds": [
         "worker 1️⃣",
         "worker 2️⃣",
         "worker 3️⃣",
@@ -287,12 +258,11 @@
         "عمو وایرگارد3️⃣"
       ],
       "url": "https://detectportal.firefox.com/success.txt",
-      "interval": "60s",
-      "tolerance": 0
+      "interval": "1m0s"
     }
   ],
   "route": {
-      "geoip": {
+    "geoip": {
       "download_url": "https://mirror.ghproxy.com/https://github.com/Ptechgithub/sing-box/blob/main/geo/geoip.db",
       "download_detour": "💚select💚"
     },
@@ -300,12 +270,10 @@
       "download_url": "https://mirror.ghproxy.com/https://github.com/Ptechgithub/sing-box/blob/main/geo/geosite.db",
       "download_detour": "💚select💚"
     },
-    "auto_detect_interface": true,
-    "final": "💚select💚",
     "rules": [
       {
-        "outbound": "dns-out",
-        "protocol": "dns"
+        "protocol": "dns",
+        "outbound": "dns-out"
       },
       {
         "clash_mode": "Direct",
@@ -327,6 +295,14 @@
         "geosite": "geolocation-!ir",
         "outbound": "💚select💚"
       }
-    ]
+    ],
+    "final": "💚select💚",
+    "auto_detect_interface": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db"
+    }
   }
 }
