@@ -117,6 +117,7 @@ install_arm() {
         cp warp "$PREFIX/bin/warp"; then
         rm "README.md" "LICENSE" "warp-plus-linux-$ARCH.cdb551.zip"
         echo "================================================"
+        echo "================================================"
         echo -e "${green}Warp installed successfully.${rest}"
         socks
     else
@@ -136,6 +137,8 @@ socks() {
    echo -e "${yellow}To run again, type:${green} warp ${rest}or${green} usef ${rest}or${green} ./warp${rest}"
    echo "================================================"
    echo -e "${green} If you get a 'Bad address' error, run ${yellow}[Arm]${rest}"
+   echo "================================================"
+   echo "================================================"
    echo ""
 }
 
