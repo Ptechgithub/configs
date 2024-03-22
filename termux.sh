@@ -106,7 +106,7 @@ install_arm() {
         *) echo -e "${red}Unsupported architecture.${rest}"; return ;;
     esac
 
-    WARP_URL="https://github.com/bepass-org/warp-plus/releases/download/v1.1.0/warp-linux-$ARCH.cdb551.zip"
+    WARP_URL="https://github.com/bepass-org/warp-plus/releases/download/v1.1.0/warp-plus-linux-$ARCH.cdb551.zip"
 
     if wget "$WARP_URL" &&
         unzip "warp-linux-$ARCH.cdb551.zip" &&
