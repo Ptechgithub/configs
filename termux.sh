@@ -121,6 +121,10 @@ socks() {
 
 # Gool (warp in warp)
 gool() {
+    if ! command -v warp &> /dev/null || ! command -v usef &> /dev/null; then
+        echo -e "${green}Please install Warp first.${rest}"
+        return
+    fi
     echo -e "${purple}*********************************${rest}"
     echo -e "${green}This option changes your current location to the nearest and best location.${rest}"
     echo -e "${purple}*********************************${rest}"
@@ -129,6 +133,10 @@ gool() {
 
 # Psiphon
 psiphon_location() {
+    if ! command -v warp &> /dev/null || ! command -v usef &> /dev/null; then
+        echo -e "${green}Please install Warp first.${rest}"
+        return
+    fi
     echo -e "${purple}*********************************${rest}"
     echo -e "${cyan}Please choose a location from the list below by entering its number:${rest}"
     echo -e "${purple}1)${cyan} Austria (AT)${rest}"
