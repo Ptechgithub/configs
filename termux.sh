@@ -241,7 +241,7 @@ menu() {
     echo ""
     echo -e "${yellow}❤️Github.com/${cyan}bepass-org${yellow}/warp-plus❤️${rest}"
     echo -e "${purple}*********************************${rest}"
-    echo -e "${blue}  ###${cyan} Warp-plus in Termux ${blue}###${rest} ${purple}  * ${rest}"
+    echo -e "${blue}  ###${cyan} Warp-Plus in Termux ${blue}###${rest} ${purple}  * ${rest}"
     echo -e "${purple}*********************************${rest}"
     echo -e "${cyan}1]${rest} ${green}Install Warp (vpn)${purple}           * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
