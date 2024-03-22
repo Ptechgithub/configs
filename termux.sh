@@ -287,7 +287,8 @@ case "$choice" in
         warp_plus
         ;;
     0)
-        echo -e "${cyan}Exiting...${rest}"
+        echo -e "${purple}*********************************${rest}"
+        echo -e "${cyan}By 🖐${rest}"
         exit
         ;;
     *)
