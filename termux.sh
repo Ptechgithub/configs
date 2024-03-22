@@ -126,7 +126,7 @@ gool() {
 }
 
 # Psiphon
-choose_location() {
+psiphon_location() {
     echo -e "${purple}*********************************${rest}"
     echo -e "${cyan}Please choose a location from the list below by entering its number:${rest}"
     echo -e "${purple}1)${rest} Austria (AT)"
@@ -278,7 +278,7 @@ case "$choice" in
         gool
         ;;
     5)
-        choose_location
+        psiphon_location
         ;;
     6)
         warp_plus
