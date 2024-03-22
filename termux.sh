@@ -93,8 +93,8 @@ install_arm() {
         cp warp "$PREFIX/bin/warp-plus" &&
         cp warp "$PREFIX/bin/warp"; then
         rm "README.md" "LICENSE" "warp-plus-linux-$ARCH.cdb551.zip"
-        echo "================================================"
-        echo "================================================"
+        echo -e "${blue}================================================${rest}"
+        echo -e "${blue}================================================${rest}"
         echo -e "${green}Warp installed successfully.${rest}"
         socks
     else
@@ -110,12 +110,12 @@ socks() {
    echo -e "${green}socks://Og==@127.0.0.1:8086#warp_(usef)${rest}"
    echo "or"
    echo -e "${green}Manually create a SOCKS configuration with IP ${purple}127.0.0.1 ${green}and port${purple} 8086..${rest}"
-   echo "================================================"
+   echo -e "${blue}================================================${rest}"
    echo -e "${yellow}To run again, type:${green} warp ${rest}or${green} usef ${rest}or${green} ./warp ${rest}or${green} warp-plus ${rest}"
-   echo "================================================"
+   echo -e "${blue}================================================${rest}"
    echo -e "${green} If you get a 'Bad address' error, run ${yellow}[Arm]${rest}"
-   echo "================================================"
-   echo "================================================"
+   echo -e "${blue}================================================${rest}"
+   echo -e "${blue}================================================${rest}"
    echo ""
 }
 
