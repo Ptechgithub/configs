@@ -304,5 +304,6 @@ case "$choice" in
     *)
         echo -e "${purple}*********************************${rest}"
         echo -e "${red}Invalid choice. Please select a valid option.${rest}"
+        echo -e "${purple}*********************************${rest}"
         ;;
 esac
