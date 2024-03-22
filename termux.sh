@@ -261,7 +261,7 @@ menu() {
 
 # Main
 menu
-echo -en "${cyan}Please enter your selection [0-5]:*${rest}"
+echo -en "${cyan}Please enter your selection [0-6]:*${rest}"
 read -r choice
 
 case "$choice" in
