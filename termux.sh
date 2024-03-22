@@ -121,7 +121,9 @@ socks() {
 
 # Gool (warp in warp)
 gool() {
-    echo -e "${purple}This option changes your current location to the nearest and best location.${rest}"
+    echo -e "${purple}*********************************${rest}"
+    echo -e "${green}This option changes your current location to the nearest and best location.${rest}"
+    echo -e "${purple}*********************************${rest}"
     warp --gool
 }
 
@@ -239,7 +241,7 @@ menu() {
     echo ""
     echo -e "${yellow}❤️Github.com/${cyan}bepass-org${yellow}/warp-plus❤️${rest}"
     echo -e "${purple}*********************************${rest}"
-    echo -e "${blue}     ###${cyan} Warp in Termux ${blue}###${rest}   ${purple}  * ${rest}"
+    echo -e "${blue}  ###${cyan} Warp-plus in Termux ${blue}###${rest} ${purple}  * ${rest}"
     echo -e "${purple}*********************************${rest}"
     echo -e "${cyan}1]${rest} ${green}Install Warp (vpn)${purple}           * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
@@ -247,9 +249,9 @@ menu() {
     echo -e "                              ${purple}  * ${rest}"
     echo -e "${cyan}3]${rest} ${green}Uninstall${rest}${purple}                    * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
-    echo -e "${cyan}4]${rest} ${green}Gool [warp in warp]${purple}          * ${rest}"
+    echo -e "${cyan}4]${rest} ${green}Gool [${yellow}warp in warp${green}]${purple}          * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
-    echo -e "${cyan}5]${rest} ${green}Pshiphon [+All Locations]${purple}    * ${rest}"
+    echo -e "${cyan}5]${rest} ${green}Pshiphon [${yellow}+All Locations${green}]${purple}    * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
     echo -e "${cyan}6]${rest} ${green}Warp to ${purple}Warp plus${green} [${yellow}Free GB${green}]${rest}${purple}  * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
