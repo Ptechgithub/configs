@@ -193,7 +193,8 @@ menu() {
 
 # Main
 menu
-read -p "Please enter your selection [0-5]:" choice
+echo -en "${cyan}Please enter your selection [0-5]:*${rest}"
+read -r choice
 
 case "$choice" in
    1)
