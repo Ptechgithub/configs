@@ -170,6 +170,7 @@ psiphon_location() {
     echo -e "${purple}28)${yellow} Slovakia (SK)${rest}"
     echo -e "${purple}29)${yellow} Ukraine (UA)${rest}"
     echo -e "${purple}30)${yellow} United States (US)${rest}"
+    echo ""
 
     echo -en "${green}Enter the ${yellow}number${green} of the location [${yellow}default: 1${green}]: ${rest}"
     choice=${choice:-AT}
