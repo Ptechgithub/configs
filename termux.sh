@@ -33,29 +33,6 @@ check_dependencies() {
     done
 }
 
-# Build
-build() {
-    if command -v warp &> /dev/null || command -v usef &> /dev/null; then
-        echo -e "${green}Warp is already installed.${rest}"
-        return
-    fi
-
-    echo -e "${green}Installing Warp...${rest}"
-    pkg update -y && pkg upgrade -y
-    check_dependencies_build
-
-    if git clone https://github.com/bepass-org/warp-plus.git &&
-        cd warp-plus &&
-        go build main.go &&
-        chmod +x main &&
-        cp main "$PREFIX/bin/usef" &&
-        cp main "$PREFIX/bin/warp"; then
-        echo -e "${green}Warp installed successfully.${rest}"
-    else
-        echo -e "${red}Error installing WireGuard VPN.${rest}"
-    fi
-}
-
 # Install
 install() {
     if command -v warp &> /dev/null || command -v usef &> /dev/null; then
@@ -142,6 +119,90 @@ socks() {
    echo ""
 }
 
+# Gool (warp in warp)
+gool() {
+    echo -e "${purple}This option changes your current location to the nearest and best location.${rest}"
+    warp --gool
+}
+
+# Psiphon
+choose_location() {
+    echo -e "${purple}*********************************${rest}"
+    echo -e "${cyan}Please choose a location from the list below by entering its number:${rest}"
+    echo -e "${purple}1)${rest} Austria (AT)"
+    echo -e "${purple}2)${rest} Belgium (BE)"
+    echo -e "${purple}3)${rest} Bulgaria (BG)"
+    echo -e "${purple}4)${rest} Brazil (BR)"
+    echo -e "${purple}5)${rest} Canada (CA)"
+    echo -e "${purple}6)${rest} Switzerland (CH)"
+    echo -e "${purple}7)${rest} Czech Republic (CZ)"
+    echo -e "${purple}8)${rest} Germany (DE)"
+    echo -e "${purple}9)${rest} Denmark (DK)"
+    echo -e "${purple}10)${rest} Estonia (EE)"
+    echo -e "${purple}11)${rest} Spain (ES)"
+    echo -e "${purple}12)${rest} Finland (FI)"
+    echo -e "${purple}13)${rest} France (FR)"
+    echo -e "${purple}14)${rest} United Kingdom (GB)"
+    echo -e "${purple}15)${rest} Hungary (HU)"
+    echo -e "${purple}16)${rest} Ireland (IE)"
+    echo -e "${purple}17)${rest} India (IN)"
+    echo -e "${purple}18)${rest} Italy (IT)"
+    echo -e "${purple}19)${rest} Japan (JP)"
+    echo -e "${purple}20)${rest} Latvia (LV)"
+    echo -e "${purple}21)${rest} Netherlands (NL)"
+    echo -e "${purple}22)${rest} Norway (NO)"
+    echo -e "${purple}23)${rest} Poland (PL)"
+    echo -e "${purple}24)${rest} Romania (RO)"
+    echo -e "${purple}25)${rest} Serbia (RS)"
+    echo -e "${purple}26)${rest} Sweden (SE)"
+    echo -e "${purple}27)${rest} Singapore (SG)"
+    echo -e "${purple}28)${rest} Slovakia (SK)"
+    echo -e "${purple}29)${rest} Ukraine (UA)"
+    echo -e "${purple}30)${rest} United States (US)"
+
+    echo -en " ${green}Enter the ${purple}number${green} of the location: ${rest}"
+    read -r choice
+}
+    
+    case "$choice" in
+        1) location="AT" ;;
+        2) location="BE" ;;
+        3) location="BG" ;;
+        4) location="BR" ;;
+        5) location="CA" ;;
+        6) location="CH" ;;
+        7) location="CZ" ;;
+        8) location="DE" ;;
+        9) location="DK" ;;
+        10) location="EE" ;;
+        11) location="ES" ;;
+        12) location="FI" ;;
+        13) location="FR" ;;
+        14) location="GB" ;;
+        15) location="HU" ;;
+        16) location="IE" ;;
+        17) location="IN" ;;
+        18) location="IT" ;;
+        19) location="JP" ;;
+        20) location="LV" ;;
+        21) location="NL" ;;
+        22) location="NO" ;;
+        23) location="PL" ;;
+        24) location="RO" ;;
+        25) location="RS" ;;
+        26) location="SE" ;;
+        27) location="SG" ;;
+        28) location="SK" ;;
+        29) location="UA" ;;
+        30) location="US" ;;
+        *) echo "Invalid choice. Please select a valid location number." ;;
+    esac
+
+    # Now use the selected location variable $location in your script
+    echo "Selected location: $location"
+    warp --cfon --country $location
+}
+
 #Uninstall
 uninstall() {
     warp="$PREFIX/bin/warp"
@@ -180,17 +241,19 @@ menu() {
     echo -e "${purple}*********************************${rest}"
     echo -e "${blue}     ###${cyan} Warp in Termux ${blue}###${rest}   ${purple}  * ${rest}"
     echo -e "${purple}*********************************${rest}"
-    echo -e "${cyan}1)${rest} ${green}Install Warp (vpn)${purple}           * ${rest}"
+    echo -e "${cyan}1]${rest} ${green}Install Warp (vpn)${purple}           * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
-    echo -e "${cyan}2)${rest} ${green}Install Warp (vpn) [${yellow}Arm${green}] ${purple}    * ${rest}"
+    echo -e "${cyan}2]${rest} ${green}Install Warp (vpn) [${yellow}Arm${green}] ${purple}    * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
-    echo -e "${cyan}3)${rest} ${green}Uninstall${rest}${purple}                    * ${rest}"
+    echo -e "${cyan}3]${rest} ${green}Uninstall${rest}${purple}                    * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
-    echo -e "${cyan}4)${rest} ${green}Warp to ${purple}Warp plus${green} [${yellow}Free GB${green}]${rest}${purple}  * ${rest}"
+    echo -e "${cyan}4]${rest} ${green}Gool [warp in warp]${purple}          * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
-    echo -e "${cyan}5)${rest} ${green}Build (warp)${purple}                 * ${rest}"
+    echo -e "${cyan}5]${rest} ${green}Pshiphon [+All Locations]${purple}    * ${rest}"
     echo -e "                              ${purple}  * ${rest}"
-    echo -e "${red}0)${rest} ${green}Exit                         ${purple}* ${rest}"
+    echo -e "${cyan}6]${rest} ${green}Warp to ${purple}Warp plus${green} [${yellow}Free GB${green}]${rest}${purple}  * ${rest}"
+    echo -e "                              ${purple}  * ${rest}"
+    echo -e "${red}0]${rest} ${green}Exit                         ${purple}* ${rest}"
     echo -e "${purple}*********************************${rest}"
 }
 
@@ -212,10 +275,13 @@ case "$choice" in
         uninstall
         ;;
     4)
-        warp_plus
+        gool
         ;;
     5)
-        build
+        gool
+        ;;
+    6)
+        warp_plus
         ;;
     0)
         echo -e "${cyan}Exiting...${rest}"
