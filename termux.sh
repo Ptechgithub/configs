@@ -139,6 +139,7 @@ psiphon_location() {
     fi
     echo -e "${purple}*********************************${rest}"
     echo -e "${cyan}Please choose a location from the list below by entering its number:${rest}"
+    echo ""
     echo -e "${purple}1)${yellow} Austria (AT)${rest}"
     echo -e "${purple}2)${yellow} Belgium (BE)${rest}"
     echo -e "${purple}3)${yellow} Bulgaria (BG)${rest}"
