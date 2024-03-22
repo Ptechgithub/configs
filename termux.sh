@@ -278,7 +278,7 @@ case "$choice" in
         gool
         ;;
     5)
-        gool
+        choose_location
         ;;
     6)
         warp_plus
