@@ -146,9 +146,9 @@ uninstall() {
     home="/data/data/com.termux/files/home"
     if [ ! -f "$warp" ]; then
         rm -rf "$directory" "$PREFIX/bin/usef" "wa.py" "$PREFIX/bin/warp" "$PREFIX/bin/warp-plus" "warp" "stuff" > /dev/null 2>&1
-        echo "================================================"
+        echo -e "${purple}*********************************${rest}"
         echo -e "${red}Uninstallation completed.${rest}"
-        echo "================================================"
+        echo -e "${purple}*********************************${rest}"
     else
         echo -e "${yellow} ____________________________________${rest}"
         echo -e "${red} Not installed.Please Install First.${rest}${yellow}|"
