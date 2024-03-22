@@ -302,6 +302,7 @@ case "$choice" in
         exit
         ;;
     *)
-        echo "Invalid choice. Please select a valid option."
+        echo -e "${purple}*********************************${rest}"
+        echo -e "${red}Invalid choice. Please select a valid option.${rest}"
         ;;
 esac
