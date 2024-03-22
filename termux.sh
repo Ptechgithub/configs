@@ -201,7 +201,8 @@ psiphon_location() {
     esac
 
     # Now use the selected location variable $location in your script
-    echo "Selected location: $location"
+    echo -e "${purple}*********************************${rest}"
+    echo -e "${green}Selected location: $location${rest}"
     warp --cfon --country $location
 }
 
