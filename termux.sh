@@ -162,7 +162,7 @@ psiphon_location() {
     echo -e "${purple}29)${rest} Ukraine (UA)"
     echo -e "${purple}30)${rest} United States (US)"
 
-    echo -en "${green}Enter the ${purple}number${green} of the location [default: AT]: ${rest}"
+    echo -en "${green}Enter the ${purple}number${green} of the location [default: 1]: ${rest}"
     choice=${choice:-AT}
     read -r choice
     
