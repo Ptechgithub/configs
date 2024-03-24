@@ -220,27 +220,6 @@ exit
 }
 
 clear
-echo "--------------------------------------------"
-echo "甬哥Github项目  ：github.com/yonggekkk"
-echo -e "${yellow}By --> Peyman * Github.com/Ptechgithub *${rest}"
-echo "--------------------------------------------"
-echo""
-echo -e "${purple}1.${green}IPV4 preferred peer IP${rest}"
-echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
-echo -e "${purple}3.${green}Get Free Config${rest}"
-echo -e "${purple}0.${green}Exit${rest}"
-read -p "please choose: " menu
-if [ "$menu" == "1" ];then
-cfwarpIP && endipv4 && endipresult && Endip_v4
-elif [ "$menu" == "2" ];then
-cfwarpIP && endipv6 && endipresult && Endip_v6
-else 
-exit
-fi
-
-
-
-clear
 echo -e "${cyan}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
 check
