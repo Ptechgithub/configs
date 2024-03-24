@@ -205,11 +205,18 @@ Endip_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 1)
 echo""
 echo -e "${green}Results Saved in result.csv${rest}"
 echo""
-echo -e "${purple}******************************************${rest}"
 if [ "$Endip_v4" ]; then
+  echo -e "${purple}****************************************${rest}"
   echo -e "${yellow} Best IPv4:Port ---> ${cyan}$Endip_v4 ${rest}"
+  echo ""
+  echo -e "${yellow} ${cyan}$Endip_v4 ${rest}"
+  echo -e "${purple}****************************************${rest}"
 elif [ "$Endip_v6" ]; then
+  echo -e "${purple}****************************************${rest}"
   echo -e "${yellow} Best IPv6:Port ---> ${cyan}$Endip_v6 ${rest}"
+  echo ""
+  echo -e "${yellow} ${cyan}$Endip_v6 ${rest}"
+  echo -e "${purple}****************************************${rest}"
 else
   echo -e "${red} No valid IP addresses found.${rest}"
 fi
