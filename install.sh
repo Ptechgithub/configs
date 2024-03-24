@@ -212,11 +212,11 @@ endipresult() {
     echo -e "${green}Results Saved in result.csv${rest}"
     echo ""
     if [ "$Endip_v4" ]; then
-        echo -e "${purple}****************************************${rest}"
-        echo -e "${yellow}          Best IPv4:Port${rest}"
+        echo -e "${purple}************************************${rest}"
+        echo -e "${yellow}            Best IPv4:Port${rest}"
         echo ""
         echo -e "${yellow}          ${cyan}$Endip_v4${rest}"
-        echo -e "${purple}****************************************${rest}"
+        echo -e "${purple}************************************${rest}"
     elif [ "$Endip_v6" ]; then
         echo -e "${purple}****************************************${rest}"
         echo -e "${yellow}          Best IPv6:Port${rest}"
