@@ -197,7 +197,7 @@ generation() {
 endipresult() {
     echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u > ip.txt
     ulimit -n 102400
-    chmod +x warpendpoint
+    chmod +x warpendpoint >/dev/null 2>&1
     if command -v warpendpoint &>/dev/null; then
         warpendpoint
    else
