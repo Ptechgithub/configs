@@ -181,6 +181,7 @@ endipv6(){
 
 generate() {
   if ! command -v wgcf &>/dev/null; then
+    echo -e "${purple}*********************${rest}"
     echo -e "${green}Downloading the required file ...${rest}"
     wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf -P "$PREFIX/bin"
     chmod +x "$PREFIX/bin/wgcf"
