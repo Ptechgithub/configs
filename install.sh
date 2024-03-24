@@ -181,9 +181,11 @@ endipv6(){
 
 generation() {
   if ! command -v wgcf &>/dev/null; then
+    echo -e "${green}Downloading the required file ...${rest}"
     wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf
     mv wgcf $PREFIX/bin
     chmod +x $PREFIX/bin/wgcf
+    echo -e "${green}Generating please wait ...${rest}"
     wgcf register --accept-tos
     echo -e "${blue}***********************${rest}"
     wgcf generate
