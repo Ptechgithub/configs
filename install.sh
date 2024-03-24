@@ -227,13 +227,13 @@ echo -e "${purple}*  ${green}Warp Endpoint ${purple} *${rest}"
 echo -e "${purple}*******************${rest}"
 echo -e "${purple}1]${blue}Preferred${green} IPV4${purple}  * ${rest}"
 echo -e "${purple}                  *${rest}"
-echo -e "${purple}2]${blue}Preferred${green} IPV6${purple}   * ${rest}"
+echo -e "${purple}2]${blue}Preferred${green} IPV6${purple}  * ${rest}"
 echo -e "${purple}                  *${rest}"
-echo -e "${purple}3]${green}Get Free Config${rest}"
+echo -e "${purple}3]${green}Get Free Config${purple} *${rest}"
 echo -e "${purple}                  *${rest}"
 echo -e "${red}0${yellow}] ${purple}Exit${rest}${purple}           *"
 echo -e "${purple}*******************${rest}"
-read -en "${cyan}Enter your choice: ${rest}"
+echo -en "${cyan}Enter your choice: ${rest}"
 read -r
 case "$choice" in
     1)
