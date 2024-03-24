@@ -226,7 +226,7 @@ endipresult() {
     else
         echo -e "${red} No valid IP addresses found.${rest}"
     fi
-    rm warpendpoint >/dev/null
+    rm warpendpoint >/dev/null 2>&1
     rm -rf ip.txt
     exit
 }
