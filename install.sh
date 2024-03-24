@@ -191,6 +191,13 @@ generation() {
     wgcf register --accept-tos
     echo -e "${blue}***********************${rest}"
     wgcf generate
+    rm wgcf-account.toml >/dev/null 2>&1
+    echo ""
+    echo -e "${purple}************************************${rest}"
+    echo -e "${green} 👇Here is WireGuard Config👇${rest}"
+    echo -e "${purple}************************************${rest}"
+    cat wgcf-profile.conf
+    echo -e "${purple}************************************${rest}"
   fi
 }
 
