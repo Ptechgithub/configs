@@ -244,29 +244,29 @@ endipresult() {
 clear
 echo -e "${cyan}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
-echo -e "${purple}********************${rest}"
-echo -e "${purple}*  ${green}Warp Endpoint ${purple}  *${rest}"
-echo -e "${purple}********************${rest}"
-echo -e "${purple}1] ${blue}Preferred${green} IPV4${purple}  * ${rest}"
-echo -e "${purple}                   *${rest}"
-echo -e "${purple}2] ${blue}Preferred${green} IPV6${purple}  * ${rest}"
-echo -e "${purple}                   *${rest}"
-echo -e "${purple}3] ${green}Get Warp Config${purple} *${rest}"
-echo -e "${purple}                   *${rest}"
-echo -e "${red}0${purple}] Exit${rest}${purple}            *"
-echo -e "${purple}********************${rest}"
+echo -e "${purple}*********************${rest}"
+echo -e "${purple}* ${green}Endpoint Scanner ${purple} *${rest}"
+echo -e "${purple}*********************${rest}"
+echo -e "${purple}1] ${blue}Preferred${green} IPV4${purple}   * ${rest}"
+echo -e "${purple}                    *${rest}"
+echo -e "${purple}2] ${blue}Preferred${green} IPV6${purple}   * ${rest}"
+echo -e "${purple}                    *${rest}"
+echo -e "${purple}3] ${green}Get Warp Config${purple}  *${rest}"
+echo -e "${purple}                    *${rest}"
+echo -e "${red}0${purple}] Exit${purple}             *${rest}"
+echo -e "${purple}*********************${rest}"
 echo -en "${cyan}Enter your choice: ${rest}"
 read -r choice
 case "$choice" in
     1)
-        echo -e "${purple}********************${rest}"
+        echo -e "${purple}*********************${rest}"
         cfwarpIP
         endipv4
         endipresult
         Endip_v4
         ;;
     2)
-        echo -e "${purple}********************${rest}"
+        echo -e "${purple}*********************${rest}"
         cfwarpIP
         endipv6
         endipresult
@@ -276,7 +276,7 @@ case "$choice" in
         generation
         ;;
     0)
-        echo -e "${purple}********************${rest}"
+        echo -e "${purple}*********************${rest}"
         echo -e "${cyan}By 🖐${rest}"
         exit
         ;;
