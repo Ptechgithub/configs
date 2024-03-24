@@ -234,7 +234,7 @@ echo -e "${purple}                  *${rest}"
 echo -e "${red}0${purple}] Exit${rest}${purple}           *"
 echo -e "${purple}*******************${rest}"
 echo -en "${cyan}Enter your choice: ${rest}"
-read -r
+read -r choice
 case "$choice" in
     1)
         cfwarpIP
