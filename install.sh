@@ -231,7 +231,7 @@ echo -e "${purple}2] ${blue}Preferred${green} IPV6${purple} * ${rest}"
 echo -e "${purple}                  *${rest}"
 echo -e "${purple}3] ${green}Get Warp Config${purple}*${rest}"
 echo -e "${purple}                  *${rest}"
-echo -e "${red}0${yellow}] ${purple}Exit${rest}${purple}           *"
+echo -e "${red}0${purple}] Exit${rest}${purple}           *"
 echo -e "${purple}*******************${rest}"
 echo -en "${cyan}Enter your choice: ${rest}"
 read -r
