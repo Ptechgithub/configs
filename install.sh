@@ -223,11 +223,14 @@ clear
 echo -e "${cyan}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
 echo -e "${purple}*******************${rest}"
-echo -e "${purple}* ${green}Warp Endpoint ${purple} *${rest}"
+echo -e "${purple}*  ${green}Warp Endpoint ${purple}  *${rest}"
 echo -e "${purple}*******************${rest}"
-echo -e "${purple}1.${green}IPV4 preferred peer IP${rest}"
-echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
+echo -e "${purple}1.${blue}Preferred${green} IPV4 ${rest}"
+echo -e "${purple}*                 *${rest}"
+echo -e "${purple}2.${blue}Preferred${green} IPV6 ${rest}"
+echo -e "${purple}*                 *${rest}"
 echo -e "${purple}3.${green}Get Free Config${rest}"
+echo -e "${purple}*                 *${rest}"
 echo -e "${red}0${yellow}] ${purple}Exit${rest}${purple}           *"
 echo -e "${purple}*******************${rest}"
 read -p "Enter your choice: " choice
@@ -244,7 +247,7 @@ case "$choice" in
         endipresult
         Endip_v6
         ;;
-    3) 
+    3)
         generation
         ;;
     0)
