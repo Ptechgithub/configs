@@ -179,7 +179,7 @@ endipv6(){
 	done
 }
 
-generation() {
+generate() {
   if ! command -v wgcf &>/dev/null; then
     echo -e "${green}Downloading the required file ...${rest}"
     wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf
@@ -275,7 +275,7 @@ case "$choice" in
         Endip_v6
         ;;
     3)
-        generation
+        generate
         ;;
     0)
         echo -e "${purple}*********************${rest}"
