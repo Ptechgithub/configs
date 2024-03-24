@@ -218,11 +218,11 @@ endipresult() {
         echo -e "${yellow}          ${cyan}$Endip_v4${rest}"
         echo -e "${purple}************************************${rest}"
     elif [ "$Endip_v6" ]; then
-        echo -e "${purple}****************************************${rest}"
+        echo -e "${purple}******************************************${rest}"
         echo -e "${yellow}          Best IPv6:Port${rest}"
         echo ""
         echo -e "${yellow} ${cyan}$Endip_v6${rest}"
-        echo -e "${purple}****************************************${rest}"
+        echo -e "${purple}******************************************${rest}"
     else
         echo -e "${red} No valid IP addresses found.${rest}"
     fi
