@@ -249,14 +249,14 @@ show() {
 	    Endip_v46="engage.cloudflareclient.com:2408"
 	fi
     echo -e "${purple}************************************${rest}"
-    echo -e "${purple}*   ðŸ‘‡${green}Here is WireGuard ConfigðŸ‘‡   ${purple}*${rest}"
+    echo -e "${purple}*   👇${green}Here is WireGuard Config👇   ${purple}*${rest}"
     echo -e "${purple}************************************${rest}"
-    echo -e "${cyan}       ðŸ‘‡Copy for :${yellow}[Nekobox] ðŸ‘‡${rest}"
+    echo -e "${cyan}       👇Copy for :${yellow}[Nekobox] 👇${rest}"
     echo ""
     echo -e "${green}$(cat wgcf-profile.conf)${rest}"
     echo ""
     echo -e "${purple}************************************${rest}"
-    echo -e "${cyan}       ðŸ‘‡Copy for :${yellow}[V2rayNG] ðŸ‘‡${rest}"
+    echo -e "${cyan}       👇Copy for :${yellow}[V2rayNG] 👇${rest}"
     echo ""
     echo -e "${green}$(v2ray)${rest}"
     echo ""
@@ -313,7 +313,7 @@ win() {
     fi
     
     if [ ! -f "win_scaner.bat" ]; then
-        curl -o win_scaner.bat -L "https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/win_scanner.bat"
+        curl -o win_scanner.bat -L "https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/win_scanner.bat"
     fi
 
     ./win_scaner.bat
@@ -363,7 +363,7 @@ case "$choice" in
         ;;
     0)
         echo -e "${purple}*********************${rest}"
-        echo -e "${cyan}By ðŸ–${rest}"
+        echo -e "${cyan}By 🖐${rest}"
         exit
         ;;
     *)
