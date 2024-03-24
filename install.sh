@@ -214,18 +214,18 @@ endipresult() {
     echo ""
     if [ "$Endip_v4" ]; then
         echo -e "${purple}************************************${rest}"
-        echo -e "${yellow}            Best IPv4:Port${rest}"
-        echo ""
-        echo -e "${yellow}          ${cyan}$Endip_v4${rest}"
-        echo -e "${yellow}            ${green}Delay: $delay${rest}"
+        echo -e "${purple}*           ${yellow}Best IPv4:Port${purple}         *${rest}"
+        echo -e "${purple}*                                  *${rest}"
+        echo -e "${purple}*          ${cyan}$Endip_v4${purple}     *${rest}"
+        echo -e "${purple}*           ${cyan}Delay: ${green}[$delay]        ${purple}*${rest}"
         echo -e "${purple}************************************${rest}"
     elif [ "$Endip_v6" ]; then
-        echo -e "${purple}******************************************${rest}"
-        echo -e "${yellow}          Best [IPv6]:Port${rest}"
-        echo ""
-        echo -e "${yellow} ${cyan}$Endip_v6${rest}"
-        echo -e "${yellow}           ${green}Delay: $delay${rest}"
-        echo -e "${purple}******************************************${rest}"
+        echo -e "${purple}********************************************${rest}"
+        echo -e "${purple}*          ${yellow}Best [IPv6]:Port                ${purple}*${rest}"
+        echo -e "${purple}*                                          *${rest}"
+        echo -e "${purple}* ${cyan}$Endip_v6${purple} *${rest}"
+        echo -e "${purple}*           ${cyan}Delay: ${green}[$delay]               ${purple}*${rest}"
+        echo -e "${purple}********************************************${rest}"
     else
         echo -e "${red} No valid IP addresses found.${rest}"
     fi
