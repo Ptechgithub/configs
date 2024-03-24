@@ -182,25 +182,23 @@ endipv6(){
 generate() {
   if ! command -v wgcf &>/dev/null; then
     echo -e "${green}Downloading the required file ...${rest}"
-    wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf
-    mv wgcf $PREFIX/bin
-    chmod +x $PREFIX/bin/wgcf
-    echo -e "${green}Generating please wait ...${rest}"
-    wgcf register --accept-tos
-    echo -e "${blue}***********************${rest}"
-    wgcf generate
-  else
-    wgcf register --accept-tos
-    echo -e "${blue}***********************${rest}"
-    wgcf generate
-    rm wgcf-account.toml >/dev/null 2>&1
-    echo ""
-    echo -e "${purple}************************************${rest}"
-    echo -e "${green} 👇Here is WireGuard Config👇${rest}"
-    echo -e "${purple}************************************${rest}"
-    cat wgcf-profile.conf
-    echo -e "${purple}************************************${rest}"
+    wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf -P "$PREFIX/bin"
+    chmod +x "$PREFIX/bin/wgcf"
   fi
+  
+  echo -e "${purple}*********************${rest}"
+  echo -e "${green}Generating please wait ...${rest}"
+  wgcf register --accept-tos
+  echo -e "${blue}***********************${rest}"
+  wgcf generate
+  rm wgcf-account.toml >/dev/null 2>&1
+  
+  echo ""
+  echo -e "${purple}************************************${rest}"
+  echo -e "${green}   👇Here is WireGuard Config👇${rest}"
+  echo -e "${purple}************************************${rest}"
+  cat wgcf-profile.conf
+  echo -e "${purple}************************************${rest}"
 }
 
 endipresult() {
