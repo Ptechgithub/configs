@@ -29,14 +29,15 @@ case "$(uname -m)" in
 	;;
 esac
 
-cfwarpIP(){
-
-if [[ ! -f "warpendpoint" ]]; then
-echo "Download warp preferred program"
-if [[ -n $cpu ]]; then
-curl -L -o warpendpoint -# --retry 2 https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/$cpu
-fi
-fi
+cfwarpIP() {
+    if [[ ! -f "$PREFIX/bin/warpendpoint" ]]; then
+        echo "Downloading warpendpoint program"
+        if [[ -n $cpu ]]; then
+            curl -L -o warpendpoint -# --retry 2 https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/$cpu
+            cp warpendpoint $PREFIX/bin
+            chmod +x $PREFIX/bin/warpendpoint
+        fi
+    fi
 }
 
 endipv4(){
@@ -193,37 +194,37 @@ generation() {
   fi
 }
 
-endipresult(){
-echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u > ip.txt
-ulimit -n 102400
-chmod +x warpendpoint
-./warpendpoint
-clear
-cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
-Endip_v4=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
-Endip_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 1)
-echo""
-echo -e "${green}Results Saved in result.csv${rest}"
-echo""
-if [ "$Endip_v4" ]; then
-  echo -e "${purple}****************************************${rest}"
-  echo -e "${yellow} Best IPv4:Port ---> ${cyan}$Endip_v4 ${rest}"
-  echo ""
-  echo -e "${yellow} ${cyan}$Endip_v4 ${rest}"
-  echo -e "${purple}****************************************${rest}"
-elif [ "$Endip_v6" ]; then
-  echo -e "${purple}****************************************${rest}"
-  echo -e "${yellow} Best IPv6:Port ---> ${cyan}$Endip_v6 ${rest}"
-  echo ""
-  echo -e "${yellow} ${cyan}$Endip_v6 ${rest}"
-  echo -e "${purple}****************************************${rest}"
-else
-  echo -e "${red} No valid IP addresses found.${rest}"
-fi
-echo -e "${purple}******************************************${rest}"
-rm warpendpoint
-rm -rf ip.txt
-exit
+endipresult() {
+    echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u > ip.txt
+    ulimit -n 102400
+    chmod +x warpendpoint
+    ./warpendpoint
+    clear
+    cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "Endpoint "$1" Packet Loss Rate "$2" Average Delay "$3}'
+    Endip_v4=$(cat result.csv | grep -oE "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" | head -n 1)
+    Endip_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 1)
+    echo ""
+    echo -e "${green}Results Saved in result.csv${rest}"
+    echo ""
+    if [ "$Endip_v4" ]; then
+        echo -e "${purple}****************************************${rest}"
+        echo -e "${yellow} Best IPv4:Port ---> ${cyan}$Endip_v4 ${rest}"
+        echo ""
+        echo -e "${yellow} ${cyan}$Endip_v4 ${rest}"
+        echo -e "${purple}****************************************${rest}"
+    elif [ "$Endip_v6" ]; then
+        echo -e "${purple}****************************************${rest}"
+        echo -e "${yellow} Best IPv6:Port ---> ${cyan}$Endip_v6 ${rest}"
+        echo ""
+        echo -e "${yellow} ${cyan}$Endip_v6 ${rest}"
+        echo -e "${purple}****************************************${rest}"
+    else
+        echo -e "${red} No valid IP addresses found.${rest}"
+    fi
+    echo -e "${purple}******************************************${rest}"
+    rm warpendpoint
+    rm -rf ip.txt
+    exit
 }
 
 clear
