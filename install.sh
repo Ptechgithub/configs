@@ -222,7 +222,6 @@ exit
 clear
 echo -e "${cyan}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
-check
 echo -e "${purple}*******************${rest}"
 echo -e "${purple}* ${green}SMART SNI PROXY${purple} *${rest}"
 echo -e "${purple}*******************${rest}"
