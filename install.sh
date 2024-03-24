@@ -237,12 +237,14 @@ echo -en "${cyan}Enter your choice: ${rest}"
 read -r choice
 case "$choice" in
     1)
+        echo -e "${purple}*******************${rest}"
         cfwarpIP
         endipv4
         endipresult
         Endip_v4
         ;;
     2)
+        echo -e "${purple}*******************${rest}"
         cfwarpIP
         endipv6
         endipresult
@@ -252,6 +254,7 @@ case "$choice" in
         generation
         ;;
     0)
+        echo -e "${purple}*******************${rest}"
         echo -e "${cyan}By 🖐${rest}"
         exit
         ;;
