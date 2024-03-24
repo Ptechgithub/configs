@@ -223,7 +223,7 @@ clear
 echo -e "${cyan}By --> Peyman * Github.com/Ptechgithub * ${rest}"
 echo ""
 echo -e "${purple}*******************${rest}"
-echo -e "${purple}* ${green}SMART SNI PROXY${purple} *${rest}"
+echo -e "${purple}* ${green}Warp Endpoint ${purple} *${rest}"
 echo -e "${purple}*******************${rest}"
 echo -e "${purple}1.${green}IPV4 preferred peer IP${rest}"
 echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
