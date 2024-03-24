@@ -316,7 +316,7 @@ win() {
         curl -o win_scanner.bat -L "https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/win_scanner.bat"
     fi
 
-    ./win_scaner.bat
+    ./win_scanner.bat
 }
 
 clear
