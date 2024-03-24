@@ -179,10 +179,18 @@ endipv6(){
 }
 
 generation() {
+  if ! command -v wgcf &>/dev/null; then
     wget https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/wgcf
     mv wgcf $PREFIX/bin
+    chmod +x $PREFIX/bin/wgcf
     wgcf register --accept-tos
+    echo -e "${blue}***********************${rest}"
     wgcf generate
+  else
+    wgcf register --accept-tos
+    echo -e "${blue}***********************${rest}"
+    wgcf generate
+  fi
 }
 
 endipresult(){
@@ -219,6 +227,7 @@ echo "--------------------------------------------"
 echo""
 echo -e "${purple}1.${green}IPV4 preferred peer IP${rest}"
 echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
+echo -e "${purple}3.${green}Get Free Config${rest}"
 echo -e "${purple}0.${green}Exit${rest}"
 read -p "please choose: " menu
 if [ "$menu" == "1" ];then
@@ -228,3 +237,44 @@ cfwarpIP && endipv6 && endipresult && Endip_v6
 else 
 exit
 fi
+
+
+
+clear
+echo -e "${cyan}By --> Peyman * Github.com/Ptechgithub * ${rest}"
+echo ""
+check
+echo -e "${purple}*******************${rest}"
+echo -e "${purple}* ${green}SMART SNI PROXY${purple} *${rest}"
+echo -e "${purple}*******************${rest}"
+echo -e "${purple}1.${green}IPV4 preferred peer IP${rest}"
+echo -e "${purple}2.${green}IPV6 preferred peer IP${rest}"
+echo -e "${purple}3.${green}Get Free Config${rest}"
+echo -e "${red}0${yellow}] ${purple}Exit${rest}${purple}           *"
+echo -e "${purple}*******************${rest}"
+read -p "Enter your choice: " choice
+case "$choice" in
+    1)
+        cfwarpIP
+        endipv4
+        endipresult
+        Endip_v4
+        ;;
+    2)
+        cfwarpIP
+        endipv6
+        endipresult
+        Endip_v6
+        ;;
+    3) 
+        generation
+        ;;
+    0)
+        echo -e "${cyan}By 🖐${rest}"
+        exit
+        ;;
+    *)
+        echo -e "${yellow}********************${rest}"
+        echo "Invalid choice. Please select a valid option."
+        ;;
+esac
