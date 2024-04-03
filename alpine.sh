@@ -2,7 +2,7 @@
 
 # Download SmartDNS installation package
 mkdir smartDNS
-wget -O smartDNS/smartdns https://github.com/pymumu/smartdns/releases/download/Release45/smartdns-x86_64
+wget --no-check-certificate -qO smartDNS/smartdns https://github.com/pymumu/smartdns/releases/download/Release45/smartdns-x86_64
 chmod +x smartDNS/smartdns
 
 cat <<EOL > smartDNS/smartdns.conf
