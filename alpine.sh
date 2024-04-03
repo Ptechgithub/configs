@@ -13,6 +13,7 @@ server 1.1.1.1
 server-tls 8.8.8.8
 # set domain rules
 address /intel.com/13.91.95.74
+address /kmplayer.com/35.244.212.143
 EOL
 
 # Stop and disable existing DNS resolver
