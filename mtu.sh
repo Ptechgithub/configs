@@ -1,27 +1,38 @@
 #!/bin/bash
 
-# guide:
-# arg 1 must be host
-# arg 2 could be starting mtu (default 1540)
-# arg 3 could be timeout in sec (default 0.3)
-# arg 4 could be starting mtu increment (default 10)"
+# Usage:
+# $1: Hostname
+# $2: Starting MTU (default 1540)
+# $3: Timeout in seconds (default 0.3)
+# $4: Starting MTU increment (default 10)
 
-[ -z $1 ] && echo "specifying host is a must" && exit 1
-[ -z $2 ] && mtu=1540 || mtu=$2
-[ -z $3 ] && timeout=0.3 || timeout=$3
-[ -z $4 ] && increment=10 || increment=$4
+# Ensure hostname is provided
+[ -z $1 ] && echo "Hostname must be specified." && exit 1
 
-goodjob=0;while :; do
-	timeout $timeout ping -s $(($mtu-28)) -M do -c 1 -q -n $1 >/dev/null 2>/dev/null
-	if [ $? != 0 ];then
-		mtu=$(($mtu-$increment))
-		[ "$goodjob" = 1 ] && break
-	else
-		[ "$increment" = 1 ] && goodjob=1
-		increment=1
-		mtu2=$mtu
-		mtu=$(($mtu+$increment))
-	fi
+# Set default values if arguments are not provided
+mtu=${2:-1540}
+timeout=${3:-0.3}
+increment=${4:-10}
+
+# Initialize variables
+goodjob=0
+
+# Loop until optimal MTU is found
+while :; do
+    # Ping with adjusted MTU size
+    timeout $timeout ping -s $(($mtu-28)) -M do -c 1 -q -n $1 >/dev/null 2>/dev/null
+
+    # Check ping result
+    if [ $? != 0 ]; then
+        mtu=$(($mtu-$increment))
+        [ "$goodjob" = 1 ] && break
+    else
+        [ "$increment" = 1 ] && goodjob=1
+        increment=1
+        mtu2=$mtu
+        mtu=$(($mtu+$increment))
+    fi
 done
 
-echo $mtu2
+# Print the optimal MTU size
+echo "Optimal MTU size: $mtu2"
