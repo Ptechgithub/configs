@@ -17,6 +17,10 @@ https://raw.githubusercontent.com/Ptechgithub/configs/main/clash12.yaml
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/configs/main/wg.sh)
 ```
+## محاسبه ی MTU
 
+```
+bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/configs/main/mtu.sh)
+```
 
 [Xray-configs](https://github.com/Ptechgithub/configs/tree/main/Xray-examples)
