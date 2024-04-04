@@ -20,7 +20,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/configs/main/wg.
 ## محاسبه ی MTU
 
 ```
-bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/configs/main/mtu.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/configs/main/mtu.sh) 1.1.1.1
 ```
 
 [Xray-configs](https://github.com/Ptechgithub/configs/tree/main/Xray-examples)
