@@ -3,11 +3,12 @@
     "tag": "dns",
     "hosts": {
       "cloudflare-dns.com": [
-        "1.1.1.1"
+        "104.16.248.249",
+        "104.16.249.249"
       ]
     },
     "servers": [
-      "https://1.1.1.1/dns-query"
+      "https://cloudflare-dns.com/dns-query"
     ]
   },
   "inbounds": [
@@ -47,8 +48,8 @@
       "protocol": "freedom",
       "settings": {
         "fragment": {
-          "interval": "2-3",
-          "length": "150-300",
+          "interval": "10-20",
+          "length": "10-20",
           "packets": "tlshello"
         }
       },
@@ -96,12 +97,26 @@
         "security": ""
       },
       "tag": "proxy"
+    },
+    {
+      "protocol": "dns",
+      "tag": "dns-out"
     }
   ],
   "remarks": "Peyman_Mci_Fragment",
   "routing": {
     "domainStrategy": "IPIfNonMatch",
     "rules": [
+      {
+        "inboundTag": [
+          "socks",
+          "http"
+        ],
+        "type": "field",
+        "port": "53",
+        "outboundTag": "dns-out",
+        "enabled": true
+      },
       {
         "inboundTag": [
           "socks",
