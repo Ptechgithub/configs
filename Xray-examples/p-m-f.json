@@ -1,6 +1,5 @@
 {
   "dns": {
-    "tag": "dns",
     "hosts": {
       "cloudflare-dns.com": [
         "104.16.248.249",
