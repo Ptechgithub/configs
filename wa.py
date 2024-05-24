@@ -10,7 +10,7 @@ import sys
 os.system("title WARP-PLUS-CLOUDFLARE URSECRET")
 os.system('cls' if os.name == 'nt' else 'clear')
 
-file_paths = ["wgcf-identity.json", "stuff/primary/wgcf-identity.json"]
+file_paths = ["wgcf-identity.json", "/data/data/com.termux/files/home/.cache/warp-plus/primary/wgcf-identity.json"]
 
 for file_path in file_paths:
     if os.path.exists(file_path):
