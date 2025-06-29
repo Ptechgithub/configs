@@ -1,0 +1,31 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "listen": "::",
+      "listen_port": 80,
+      "users": [
+        {
+          "name": "peyman",
+          "uuid": "e516c9e5-a88e-4bb6-93ac-7e2d93b4734f"
+        }
+      ],
+      "transport": {
+        "type": "ws",
+        "path": "/peyman"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "blocked"
+    }
+  ]
+}
