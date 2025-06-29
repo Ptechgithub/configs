@@ -15,7 +15,7 @@
       ],
       "transport": {
         "type": "ws",
-        "path": "/peyman"
+        "path": "/peyman?ed=2048"
       }
     }
   ],
