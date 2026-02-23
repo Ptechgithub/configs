@@ -1,0 +1,59 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "outboundTag": "socks-out"
+      }
+    ]
+  },
+
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 80,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "5a1d2c0c-abfa-4050-918f-bfab3eaee62a"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "none",
+        "xhttpSettings": {
+          "path": "/google.com",
+          "host": ""
+        }
+      }
+    }
+  ],
+
+  "outbounds": [
+    {
+      "protocol": "socks",
+      "tag": "socks-out",
+      "settings": {
+        "servers": [
+          {
+            "address": "127.0.0.1",
+            "port": 1080
+          }
+        ]
+      }
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
+  ]
+}
