@@ -1,0 +1,44 @@
+{
+  "log": {
+    "level": "warn"
+  },
+
+  "inbounds": [
+    {
+      "type": "vless",
+      "listen": "0.0.0.0",
+      "listen_port": 80,
+      "users": [
+        {
+          "uuid": "dc64e745-5b50-4295-a0b0-9cdaa6518ee5"
+        }
+      ],
+      "transport": {
+        "type": "ws",
+        "path": "/google.com"
+      }
+    }
+  ],
+
+  "outbounds": [
+    {
+      "type": "socks",
+      "tag": "socks-out",
+      "server": "127.0.0.1",
+      "server_port": 1080
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+
+  "route": {
+    "rules": [
+      {
+        "network": "tcp,udp",
+        "outbound": "socks-out"
+      }
+    ]
+  }
+}
